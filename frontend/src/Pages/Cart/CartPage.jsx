@@ -82,7 +82,7 @@ const CartPage = () => {
                 <tr key={index}>
                   <td className="text-center ">
                     <img
-                      className="w-[9rem]"
+                      className="w-[7rem]"
                       src={`http://localhost:3000/${item.image_path}`}
                       alt={item.name}
                     />
@@ -90,7 +90,7 @@ const CartPage = () => {
                   <td>{item.name}</td>
                   <td>{item.quantity}</td>
                   <td>{item.price * item.quantity}</td>
-                  <td className="text-3xl text-gray-400">
+                  <td className="text-2xl text-gray-400 hover:text-red-500 transition-colors duration-200">
                     <button onClick={() => handleRemoveClick(item.id)}>
                       <IoMdClose />
                     </button>

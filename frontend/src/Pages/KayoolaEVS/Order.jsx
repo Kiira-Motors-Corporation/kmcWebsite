@@ -12,6 +12,7 @@ import { CapacityOption } from "./ColorOption";
 import PhoneInput from "react-phone-input-2";
 import "../../../node_modules/react-phone-input-2/lib/style.css";
 import ModalOrder from "./ModalOrder";
+import ImageSlider from "./ImageSlider";
 
 const Order = () => {
   const { user } = useAuth();
@@ -163,9 +164,10 @@ const Order = () => {
 
   const colorGroups = {
     exteriorColor: [
-      { title: "Red", color: "#C1C1C1" },
-      { title: "Green", color: "#404040" },
-      { title: "Blue", color: "#F1F1F1" },
+      { title: "Red", color: "red" },
+      { title: "Orange", color: "orange" },
+      { title: "Gray", color: "grey" },
+      { title: "White", color: "white" },
     ],
     interiorColor: [
       { title: "Beige", color: "#E28000" },
@@ -196,11 +198,12 @@ const Order = () => {
             {evs.name}
           </p>
         </span>
-        <img
+        {/* <img
           src={carousel}
           alt=""
           className="relative z-[1] left-[6%] md:top-[-32%] top-[50%] w-11/12 overflow-hidden md:bottom-[25%]"
-        />
+        /> */}
+        <ImageSlider selectedColor={formData.colors.exteriorColor} />
         <img src={fore} alt="" className="absolute bottom-[25%] w-full" />
       </div>
 
@@ -284,6 +287,7 @@ const Order = () => {
                 ))}
               </div>
             </center>
+
           </div>
 
           {/* Section 3 */}
