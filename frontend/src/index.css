@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer base {
+  body {
+    background-color: #14161b;
+  }
+} */
+
+html{
+  scroll-behavior: smooth;
+
+}
+
+#image {
+  /* filter: brightness(0.9); */
+  transition: all 0.3s;
+}
+
+.slick-next::before {
+  background-color: blue;
+  font-size: 45px;
+  display: none;
+}
+
+.slick-prev::before {
+  background-color: blue;
+  font-size: 45px;
+  display: none;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+#rotate-image {
+  animation: rotation infinite linear 30s; /* Adjust duration and timing as desired */
+  transform: translate(-50%, -50%); /* Center the image within its container */
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+
+
+#parent:hover #scale {
+  animation: scale linear 0.2s; /* Adjust duration and timing as desired */
+  /* Center the image within its container */
+  transition: all 0.2s ease-out;
+}
+
+@keyframes scale {
+
+  from{
+    height: 0;
+
+  }
+  /* 25%{
+    height: 25%;
+
+  }
+  50%{
+    height: 50%;
+
+  }
+  75%{
+    height: 75%;
+
+  } */
+  to{
+    height: 50%;
+
+  }
+}
+
+#slow {
+
+  animation: slow linear 0.2s;
+}
+
+@keyframes slow {
+  from {
+    visibility: hidden;
+    transition: all 0.2s ease-in;
+
+  }
+  to {
+    visibility: hidden;
+    transition: all 0.2s ease-out;
+  }
+}
+
+
+/* #parent:not(:hover) {
+
+color:blue
+} */
+
+
+#parent:not(:hover) #scale{
+
+  animation: rev linear 0.2s; /* Adjust duration and timing as desired */
+  /* Center the image within its container */
+  transition: all 0.2s ease-out;
+  animation-direction: reverse;
+  }
+
+  @keyframes rev {
+    from {
+      height: 0;
+      transition: all 0.2s ease-out;
+    }
+    to {
+      height: 10rem;
+      transition: all 0.2s ease-out;
+    }
+  }
+
+
+  /* menu */
+  #menu-parent:hover #menu-scale {
+    animation: mscale linear 0.2s; /* Adjust duration and timing as desired */
+    /* Center the image within its container */
+    /* transition: all 0.3s ease-in; */
+  }
+
+  @keyframes mscale {
+
+    0%{
+      height: 0;
+
+    }
+    25%{
+      height: 25%;
+
+    }
+    50%{
+      height: 50%;
+
+    }
+    75%{
+      height: 75%;
+
+    }
+    100%{
+      height: 100%;
+
+    }
+  }
+
+  /* #slow {
+
+    animation: slow linear 0.2s;
+  }
+
+  @keyframes slow {
+    from {
+      visibility: hidden;
+      transition: all 0.1s ease;
+
+    }
+    to {
+      visibility: hidden;
+      transition: all 0.1s ease-out;
+    }
+  } */
+
+
+  /* #parent:not(:hover) {
+
+  color:blue
+  } */
+
+  /*
+  #menu-parent:not(:hover) #menu-scale{
+
+    animation: mrev linear 0.2s; Adjust duration and timing as desired */
+    /* Center the image within its container
+    transition: all 0.2s ease-out;
+    animation-direction: reverse;
+    }
+
+    @keyframes mrev {
+      from {
+        height: 0;
+      }
+      to {
+        height: 10rem;
+      }
+    }
+
+     */
+
+/* Add this to your CSS file */
+#spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 40px;
+
+
+  position: absolute;
+  height: 40px;
+  border-radius: 50%;
+  /* border-left-color: #09f; */
+  animation: spin 1s linear infinite;
+  transition: all 0.2s ease;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+      transform: scale(1);
+
+  }
+  100% {
+      transform: rotate(360deg);
+      transform: scale(1.5);
+  }
+}
+
+
+
+#ParallaxVideo h1 {
+color: #fff;
+font-size: 76px;
+font-weight: 700;
+text-align: center;
+text-transform: uppercase;
+}
+
+/* styles.css */
+@layer components {
+  .hover-underline {
+    position: relative;
+  }
+  .hover-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
+  }
+  .hover-underline:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+.special-label{
+  display: none;
+}
+
+[type="radio"]{
+  border-radius: 2px;
+}
+*/
+[type="radio"]:checked {
+  background-image: url("");
+
+}
+
+/* Default styles for the divs */
+.radio-container {
+  border: 2px solid transparent;
+  padding: 5px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: border-color 0.1s;
+}
+
+/* Highlight style for the selected div */
+.radio-container.selected {
+
+  border-color: blue;
+}
