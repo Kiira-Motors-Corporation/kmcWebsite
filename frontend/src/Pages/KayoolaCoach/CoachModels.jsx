@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../Components/AuthContext";
 import { Link } from "react-router-dom";
+import {url} from "../../utils/backend.js";
 
 const CoachModels = () => {
   const [coach, setCoach] = useState([]);
@@ -15,7 +16,7 @@ const CoachModels = () => {
 
   const fetchCoach = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/coach");
+      const response = await axios.get(url + "/coach");
       setCoach(response.data);
     } catch (error) {
       console.error("Error fetching items:", error);

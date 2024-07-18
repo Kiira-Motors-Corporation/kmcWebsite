@@ -8,7 +8,7 @@ const fs = require("fs");
 const nodemailer = require("nodemailer");
 const path = require("path");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 const cors = require("cors");
 const session = require("express-session");
 const MySQLStore = require("express-mysql-session")(session);
@@ -29,13 +29,13 @@ app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Enable CORS for all routes
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
-
+// app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors())
 // Create MySQL connection
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "",
+  password: "admin",
   database: "kmc",
 });
 
@@ -48,7 +48,7 @@ const sessionStore = new MySQLStore({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "",
+  password: "admin",
   database: "kmc",
 });
 
@@ -193,7 +193,7 @@ app.get("/items", (req, res) => {
 // Get all evs
 app.get("/EVS", (req, res) => {
   const { min, max } = req.query;
-  let sql = "SELECT * FROM EVS";
+  let sql = "SELECT * FROM evs";
 
   if (min && max) {
     sql += " WHERE id BETWEEN ? AND ?";
@@ -211,7 +211,7 @@ app.get("/EVS", (req, res) => {
 // Get all
 app.get("/COACH", (req, res) => {
   const { min, max } = req.query;
-  let sql = "SELECT * FROM COACH";
+  let sql = "SELECT * FROM coach";
 
   if (min && max) {
     sql += " WHERE id BETWEEN ? AND ?";
@@ -448,7 +448,7 @@ app.use(express.static("public"));
 // Login Route
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
-
+  console.log("Login")
   const query = "SELECT * FROM users WHERE username = ?";
   db.query(query, [username], (err, results) => {
     if (err) throw err;
@@ -477,6 +477,7 @@ app.post("/login", (req, res) => {
 app.post("/signup", async (req, res) => {
   const { username, fname, lname, email, country, phone, category, password } =
     req.body;
+  console.log("Signup")
 
   // Validate inputs
   if (
@@ -505,10 +506,10 @@ app.post("/signup", async (req, res) => {
     const hashedPassword = bcrypt.hashSync(password, 8);
 
     const query =
-      "INSERT INTO users (username, fname, lname, email, country, phone, category, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+      "INSERT INTO users (username, fname, lname, email, country, phone, category, password, confrim_password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     db.query(
       query,
-      [username, fname, lname, email, country, phone, category, hashedPassword],
+      [username, fname, lname, email, country, phone, category, hashedPassword, ""],
       (err, result) => {
         if (err) throw err;
         res.redirect("/login");

@@ -6,6 +6,7 @@ import background from "./assets/images/background.png";
 import main from "./assets/images/main.png";
 import icon from '../../assets/images/icon.png'
 import { AuthContext } from "../../Components/AuthContext";
+import {url} from "../../utils/backend.js";
 
 
 
@@ -34,6 +35,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const success = await login(username, password);
+      // console.log(success)
     if (success) {
         const from = location.state?.from?.pathname || '/';
         navigate(from);
@@ -47,7 +49,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true); // Set loading to true when the request starts
     try {
-        const response = await axios.post('http://localhost:3000/login', {
+        const response = await axios.post(url + '/login', {
             username,
             password
         }, {

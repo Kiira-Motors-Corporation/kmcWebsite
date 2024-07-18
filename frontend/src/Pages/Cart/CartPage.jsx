@@ -7,6 +7,7 @@ import { IoMdClose } from "react-icons/io";
 import { useCart } from "./CartContext";
 import ConfirmationModal from "./ConfirmationModal";
 import background from "./assets/images/background.png";
+import {url} from "../../utils/backend.js";
 
 const CartPage = () => {
   const { user, loading } = useAuth();
@@ -27,7 +28,7 @@ const CartPage = () => {
     }
 
     try {
-      const response = await axios.get("http://localhost:3000/cart", {
+      const response = await axios.get(url + "/cart", {
         params: { userId: user.id },
       });
       setCartItems(response.data);

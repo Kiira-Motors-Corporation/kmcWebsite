@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  db:
+    image: mysql:5.7.44-oracle
+    container_name: kiira_motors_website
+    restart: always
+    environment:
+      MYSQL_DATABASE: kmc
+      MYSQL_ROOT_PASSWORD: admin
+#      MYSQL_PASSWORD: admin
+#      MYSQL_USER: root
+#      MYSQL_ALLOW_EMPTY_PASSWORD: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - db:/var/lib/mysql
+volumes:
+  db:
+    driver: local
