@@ -104,12 +104,12 @@ const Shop = () => {
           {items.map((item) => (
             <div
               style={{ transition: "all 0.3s ease" }}
-              className="bg-gray-100 hover:cursor-pointer w-[10rem] hover:scale-105  shadow-lg p-1 rounded-2xl flex justify-center gap-1 items-center flex-col"
+              className="bg-gray-100 hover:cursor-pointer w-[12rem] hover:scale-105  shadow-lg p-1 rounded-2xl flex justify-center gap-1 items-center flex-col"
               key={item.id}
             >
               <div className=" w-[8rem] h-[10rem] py-4  rounded-2xl">
                 <img
-                  className="w-[9rem]"
+                  className=" object-cover object-center"
                   src={`http://localhost:3000/${item.image_path}`}
                   alt={item.name}
                 />

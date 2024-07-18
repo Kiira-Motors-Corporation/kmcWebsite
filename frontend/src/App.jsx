@@ -24,6 +24,7 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 import Logout from "./Components/Logout";
 import { useEffect } from "react";
 import Navbar from "./Components/ui/Navbar";
+
 // import Headroom from "react-headroom";
 import { CartProvider } from "./Pages/Cart/CartContext";
 import icon from "./assets/images/icon.png";

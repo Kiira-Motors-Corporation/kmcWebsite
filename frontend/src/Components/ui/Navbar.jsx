@@ -21,29 +21,6 @@ const Navbar = () => {
   const { orderCount } = useContext(OrderContext);
   const uniqueItemCount = cartItems.length;
   const [isScrolled, setIsScrolled] = useState(false);
-  /*
-  // console.log(user);
-  // const navigate = useNavigate();
-
-  const [showModal, setShowModal] = useState(false);
-
-  const handleLoginButtonClick = () => {
-    axios
-      .get("http://localhost:3000/redirect-to-login")
-      .then((response) => {
-        // Handle successful redirection if needed
-        console.log("Response:", response);
-        console.log("Redirect URL:", response.request.responseURL); // Extract the redirection URL from the response headers
-        window.location.href = response.request.responseURL;
-        console.log(response);
-      })
-      .catch((error) => {
-        // Handle error if redirection fails
-        console.error("Redirection error:", error);
-      });
-  };
-
-  */
 
   function handleScroll() {
     if (window.scrollY > 0) {
@@ -97,14 +74,11 @@ const Navbar = () => {
   const handleMouseEnterAuth = () => {
     setIsAuth(!isAuth);
   };
-  // const handleMouseLeaveAuth = () => {
-  //   setIsAuth(false);
-  // };
 
   // menu
   const handleMenuBar = () => {
     setShowMenu(!showMenu);
-    document.body.classList.toggle('overflow-hidden');
+    document.body.classList.toggle("overflow-hidden");
   };
 
   // company
@@ -130,13 +104,6 @@ const Navbar = () => {
 
   const [query, setQuery] = useState(false);
 
-  // const [discover, setDiscoverMenu] = useState(false);
-  // const handleDiscoverMenu = () => {
-  //   if (company == false) {
-  //     setDiscoverMenu(true);
-  //   }
-  // };
-
   //search functiionality
   const data = [
     {
@@ -152,7 +119,6 @@ const Navbar = () => {
   return (
     <Fragment>
       <div className="md:w-full w-[100dvw] md:px-0 font-poppins md:flex justify-center overscroll-none  text-[1.3rem] relative float-start ">
-
         <div
           className={`md:hover:bg-white h-auto w-full hover:text-black relative md:flex justify-between md:w-11/12  rounded-2xl md:mt-1 mt-0 ${
             isScrolled
@@ -172,16 +138,18 @@ const Navbar = () => {
                 />
               </span>
             </Link>
-
             <button
               className=" md:hidden  p-4 rounded-full"
               style={{ transition: "all 4s ease" }}
               onClick={handleMenuBar}
             >
-              <IoMdMenu className={`text-black text-3xl ${isScrolled ? "":"text-white"}`} />
+              <IoMdMenu
+                className={`text-black text-3xl ${
+                  isScrolled ? "" : "text-white"
+                }`}
+              />
             </button>
           </div>
-
 
           {/* SiteMap */}
           <div className="md:flex  px-4 md:px-0 justify-center items-center w-6/12">
@@ -325,8 +293,6 @@ const Navbar = () => {
               </div>
             )}
 
-
-
             {/* MenuBar */}
 
             <div id="menu-parent" className="overflow-visible text-white">
@@ -349,18 +315,24 @@ const Navbar = () => {
                     <div className=" h-full mt-8 px-8">
                       <ul>
                         <li
-
                           className="pt-6 cursor-pointer "
                           onClick={() => setProducts(!products)}
                         >
                           Products
                           {products && (
                             <ul className="px-6 text-lg transition-all">
-                              <Link onClick={handleMenuBar}to="/kayoola-evs">Kayoola Evs</Link>
+                              <Link onClick={handleMenuBar} to="/kayoola-evs">
+                                Kayoola Evs
+                              </Link>
                               <br />
-                              <Link onClick={handleMenuBar} to="/kayoola-coach">Kayoola Coach</Link>
+                              <Link onClick={handleMenuBar} to="/kayoola-coach">
+                                Kayoola Coach
+                              </Link>
                               <br />
-                              <Link onClick={handleMenuBar} to="/chargers"> Chargers</Link>
+                              <Link onClick={handleMenuBar} to="/chargers">
+                                {" "}
+                                Chargers
+                              </Link>
                             </ul>
                           )}
                         </li>
@@ -371,17 +343,30 @@ const Navbar = () => {
                           Services
                           {services && (
                             <ul className="px-6 text-lg">
-                              <Link to="/contract-manufacturing">
+                              <Link
+                                onClick={handleMenuBar}
+                                to="/contract-manufacturing"
+                              >
                                 Contract Manufacturing
                               </Link>
                               <br />
-                              <Link to="/product-support">Product Support</Link>
+                              <Link
+                                onClick={handleMenuBar}
+                                to="/product-support"
+                              >
+                                Product Support
+                              </Link>
                               <br />
-                              <Link to="/engineering-services">
+                              <Link
+                                onClick={handleMenuBar}
+                                to="/engineering-services"
+                              >
                                 Engineering Services
                               </Link>
                               <br />
-                              <Link to="/vehicle-hire">Vehicle Hire</Link>
+                              <Link onClick={handleMenuBar} to="/vehicle-hire">
+                                Vehicle Hire
+                              </Link>
                             </ul>
                           )}
                         </li>
@@ -389,56 +374,53 @@ const Navbar = () => {
                           <p id="menu-parent">Discover More</p>
                           <ul className="cursor-pointer px-6 text-lg">
                             <li onClick={() => setCompany(!company)}>
-                              Company
+                            &gt;Company
                               {company && (
                                 <ul className="flex flex-col text-base px-6 gap-1 py-2">
-                                  <Link onClick={handleMenuBar} to="/about">About Us</Link>
-                                  <Link>Career</Link>
-                                  <Link onClick={handleMenuBar} to="/reports">Annual Report</Link>
-                                  <Link onClick={handleMenuBar} to="/plants">Plants</Link>
-                                  <Link onClick={handleMenuBar} to="/concepts">Concept Vehicles</Link>
+                                  <Link onClick={handleMenuBar} to="/about">
+                                    About Us
+                                  </Link>
+                                  <Link onClick={handleMenuBar} to="/career">
+                                    Career
+                                  </Link>
+                                  <Link onClick={handleMenuBar} to="/reports">
+                                    Annual Report
+                                  </Link>
+                                  <Link onClick={handleMenuBar} to="/plants">
+                                    Plants
+                                  </Link>
+                                  <Link onClick={handleMenuBar} to="/concepts">
+                                    Concept Vehicles
+                                  </Link>
                                 </ul>
                               )}
                             </li>
                             <li onClick={() => setMedia(!media)}>
-                              Media
+                            &gt;Media
                               {media && (
-                                <ul className="text-sm px-6">
-                                  <li>New Press</li>
-                                  <li>Blogs</li>
-                                  <li>Podcast</li>
-                                  <li>Invest</li>
+                                <ul className="flex flex-col text-base px-6 gap-1 py-2">
+                                  <Link>New Press</Link>
+                                  {/* <Link>Blogs</Link> */}
+                                  <Link>Podcast</Link>
+                                  {/* <Link>Invest</Link> */}
                                 </ul>
                               )}
                             </li>
                             <li onClick={() => setResources(!resources)}>
-                              Resources
+                              &gt;Support
                               {resources && (
-                                <ul className="text-sm px-6">
+                                <ul className="flex flex-col text-base px-6 gap-1 py-2">
                                   <li>Annual reports</li>
-                                  <Link to="/shop">KMC Shop</Link>
+                                  <Link to="*">Service Location</Link>
+                                  <Link to="*">Charging Location</Link>
+                                  <Link to="*">Spare Parts</Link>
                                 </ul>
                               )}
                             </li>
-                            <li onClick={() => setInnovations(!innovations)}>
-                              Innovations
-                              {innovations && (
-                                <ul className="text-sm px-6">
-                                  <li>Kiira Vehicle Plant</li>
-                                  <Link to="/concepts">Concept Vehicles</Link>
-                                </ul>
-                              )}
-                            </li>
-                            <li onClick={() => setSupport(!support)}>
-                              Support
-                              {support && (
-                                <ul className="text-sm px-6">
-                                  <li>Service Location</li>
-                                  <li>Charging Location</li>
-                                  <li>Spare Parts</li>
-                                </ul>
-                              )}
-                            </li>
+
+                            <Link to='/shop' onClick={() => setSupport(!support)}>
+                              Shop
+                            </Link>
                           </ul>
                         </li>
                       </ul>

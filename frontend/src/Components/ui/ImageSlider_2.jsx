@@ -15,7 +15,7 @@ const items = [
   {
     text: "About Us",
     image: Aboutus,
-    link: "/about-us",
+    link: "/about",
   },
   {
     text: "Career",
@@ -46,12 +46,12 @@ const items_2 = [
   {
     text: "News Press",
     image: newPress,
-    link: "",
+    link: "*",
   },
   {
     text: "Podcasts",
     image: podcast,
-    link: "",
+    link: "*",
   },
 ];
 
@@ -59,17 +59,17 @@ const items_3 = [
   {
     text: "Service Location",
     image: serviceCentre,
-    link: "/engineering-services",
+    link: "*",
   },
   {
     text: "Charging Location",
     image: charging,
-    link: "/vehicle-hire",
+    link: "*",
   },
   {
     text: "Spare Parts",
     image: spareParts,
-    link: "/",
+    link: "*",
   },
 ];
 

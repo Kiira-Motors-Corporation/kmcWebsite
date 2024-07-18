@@ -2,7 +2,6 @@ import cover from "./assets/images/cover.png";
 import charger_1 from "./assets/images/charger_1.png";
 import charger_2 from "./assets/images/charger_2.png";
 import charger_3 from "./assets/images/charger_3.png";
-import gradient from "./assets/images/gradient.png";
 import order from "./assets/images/order.png";
 import { Link } from "react-router-dom";
 import Footer from "../../Components/ui/Footer";
@@ -10,24 +9,13 @@ import Footer from "../../Components/ui/Footer";
 const Main = () => {
   return (
     <div className="font-poppins">
-      <div className="h-full relative ">
+      <div className=" h-[100dvh] md:h-full relative ">
         <img
           src={cover}
-          className=" z-[-10] inset-0  object-cover object-center "
+          className=" z-[-10] inset-0 h-full  object-cover object-center "
           alt=""
         />
-        {/* <div className=" relative z-10 w-full h-full  flex ">
-  <img src={gradient} className=" z-[-10] inset-0  object-cover object-center " alt="" />
-  </div> */}
-        <div
-        // className="w-full h-full"
-        // style={{
-        //   backgroundImage: `url(${cover})`,
-        //   backgroundPosition:'center',
-        //   objectFit:'cover'
-
-        // }}
-        >
+        <div>
           <span className="absolute top-[10rem] px-[12.5%] text-white text-3xl font-bold">
             <h1>
               Charger with <br />
@@ -48,7 +36,7 @@ const Main = () => {
 
       <div
         id="chargers"
-        className="h-[100vh] py-[7%] bg-white "
+        className="md:h-[100vh] py-[7%] bg-white "
         data-aos="fade-up"
         data-aos-once="true"
         data-aos-duration="1100"
@@ -64,9 +52,9 @@ const Main = () => {
           </span>
         </center>
 
-        <div className="flex justify-evenly items-center h-full">
-          <div className="w-2/12">
-            <div className="h-[9rem]">
+        <div className="flex flex-wrap justify-evenly md:gap-0 gap-40 items-center h-full">
+          <div className="md:w-2/12 w-7/12">
+            <div className="md:h-[9rem]">
               <img
                 src={charger_1}
                 className="object-cover object-center"
@@ -76,8 +64,8 @@ const Main = () => {
 
             <h3 className="text-center">60kW Charger</h3>
           </div>
-          <div className="w-2/12">
-            <div className="h-[9rem]">
+          <div className="md:w-2/12 w-7/12">
+            <div className="md:h-[9rem]">
               <img
                 src={charger_2}
                 className="object-cover object-center"
@@ -87,8 +75,8 @@ const Main = () => {
 
             <h3 className="text-center">360kW Charger</h3>
           </div>
-          <div className="w-2/12">
-            <div className="h-[9rem]">
+          <div className="md:w-2/12 w-8/12">
+            <div className="md:h-[9rem]">
               <img
                 src={charger_3}
                 className="object-cover object-center"
@@ -104,7 +92,7 @@ const Main = () => {
       </div>
 
       <div
-        className=""
+        className="md:h-[100vh] h-[70dvh]"
         style={{
           backgroundImage: `url(${order})`,
           backgroundPosition: "center",
@@ -119,8 +107,8 @@ const Main = () => {
         <span className="relative">
           <center className="pt-16">
             <p className="text-white">
-              Join us in driving sustainable mobility forward with <br />{" "}
-              KMC'selectric charging solutions.
+              Join us in driving sustainable mobility forward with <br className="md:block hidden" />{" "}
+              KMC&apos;s electric charging solutions.
             </p>
           </center>
         </span>

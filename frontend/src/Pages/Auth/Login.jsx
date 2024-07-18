@@ -40,35 +40,37 @@ const Login = () => {
         const from = location.state?.from?.pathname || '/';
         navigate(from);
     } else {
-        setError('Login failed. Please check your credentials.');
+        setErrorMessage('Login failed. Please check your credentials.');
     }
 };
 
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setLoading(true); // Set loading to true when the request starts
-    try {
-        const response = await axios.post(url + '/login', {
-            username,
-            password
-        }, {
-            withCredentials: true
-        });
 
-        if (response.data.loggedIn) {
-            setErrorMessage('Login successful');
-            navigate('/cart')
-            // Redirect or perform additional actions
-        } else {
-          setErrorMessage(response.data.message);
-        }
-    } catch (error) {
-      setErrorMessage('Password or Username is invalid');
-    } finally {
-      setLoading(false); // Set loading to false when the request finishes
-  }
-};
+//   const handleLogin = async (e) => {
+//     e.preventDefault();
+//     setLoading(true); // Set loading to true when the request starts
+//     try {
+//         const response = await axios.post('http://localhost:3000/login', {
+//             username,
+//             password
+//         }, {
+//             withCredentials: true
+//         });
+
+//         if (response.data.loggedIn) {
+//             setErrorMessage('Login successful');
+//             navigate('/cart')
+//             // Redirect or perform additional actions
+//         } else {
+//           setErrorMessage(response.data.message);
+//         }
+//     } catch (error) {
+//       setErrorMessage('Password or Username is invalid');
+//     } finally {
+//       setLoading(false); // Set loading to false when the request finishes
+//   }
+// };
+
 
 
   return (
@@ -111,8 +113,8 @@ const Login = () => {
                 className="my-4 rounded-2xl border-none  "
               />
               {/* <span>Show Password</span> */}
-              {/* <div> {errorMessage && <p className="error-message">{errorMessage}</p>}
-        </div> */}
+              <div> {errorMessage && <p className="error-message">{errorMessage}</p>}
+        </div>
         {/* <p id='spinner'>hello</p> */}
                 <button
                   className=" text-white w-6/12 bg-black rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-white "

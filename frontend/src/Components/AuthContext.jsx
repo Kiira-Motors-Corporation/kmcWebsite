@@ -33,6 +33,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         try {
             const response = await axios.post(url + '/login', { username, password });
+
             if (response.data.loggedIn) {
                 setUser(response.data.user);
 
@@ -55,6 +56,7 @@ const AuthProvider = ({ children }) => {
         try {
             // Replace with your actual signup API call
             const response = await axios.post(url + '/signup', {
+
                 username,
                 fname,
                 lname,

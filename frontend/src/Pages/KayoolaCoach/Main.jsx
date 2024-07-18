@@ -1,7 +1,6 @@
 import CarouselProducts from "./CarouselProducts_2";
 import Footer from "../../Components/ui/Footer";
 import { Link } from "react-router-dom";
-import Video from "./Video";
 import Features from "./Features";
 import seats from "./assets/images/seats.png";
 import seats_2 from "./assets/images/seats_2.png";
@@ -16,7 +15,6 @@ import gradient from "./assets/images/gradient.png";
 import CoachModels from "./CoachModels";
 
 const KayoolaCoach = () => {
-
   const styles = {
     backgroundImage: `url(${bus})`,
     backgroundSize: "cover", // Adjust background size as needed
@@ -29,7 +27,6 @@ const KayoolaCoach = () => {
   };
   return (
     <div className="font-poppins">
-
       <CarouselProducts />
       <center>
         <h1 className="font-semibold text-3xl py-[1.5%]">Coach Models</h1>
@@ -76,11 +73,10 @@ const KayoolaCoach = () => {
               <h1 className="text-3xl font-medium pb-8">Comfort and safety</h1>
               <p className="text-base">
                 Passenger comfort is a hallmark of the Kayoola Coach. The bus
-                boasts
-                spacious seating with ample legroom, ensuring a relaxing
-                journey. Each seat is ergonomically designed and equipped
-                with adjustable features  such as footrests and reclining
-                mechanisms to maximize comfort.
+                boasts spacious seating with ample legroom, ensuring a relaxing
+                journey. Each seat is ergonomically designed and equipped with
+                adjustable features such as footrests and reclining mechanisms
+                to maximize comfort.
               </p>
             </span>
 
@@ -115,14 +111,11 @@ const KayoolaCoach = () => {
               <h1 className="text-3xl font-medium pb-8">Infotainment System</h1>
               <p className="text-base">
                 The Kayoola Coach is designed to provide a superior travel
-                experience,
-                 combining safety, convenience, and comfort. With features
-                like the
-                infotainment system, CCTV cameras, e-ticketing, onboard
-                fridge and toilet,
-                 spacious seating, Wi-Fi, and USB charging, passengers can
-                enjoy a seamless and enjoyable journey from start to
-                finish.
+                experience, combining safety, convenience, and comfort. With
+                features like the infotainment system, CCTV cameras,
+                e-ticketing, onboard fridge and toilet, spacious seating, Wi-Fi,
+                and USB charging, passengers can enjoy a seamless and enjoyable
+                journey from start to finish.
               </p>
             </span>
             <div className="flex gap-4">
@@ -152,44 +145,42 @@ const KayoolaCoach = () => {
       </div>{" "}
       {/* Order */}
       <div className="bg-[#171717] pb-9 md:px-[6rem]">
-      <div
-        className=" w-full h-[25rem] flex justify-center    "
-        style={{
-          backgroundImage: `url(${coach})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          objectFit: "cover",
-        }}
-      >
         <div
-          className="w-full md:w-11/12  px-8 rounded-xl flex flex-col justify-center items-start"
+          className=" w-full h-[25rem] flex justify-center    "
           style={{
-            backgroundImage: `url(${gradient})`,
+            backgroundImage: `url(${coach})`,
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
             objectFit: "cover",
-
           }}
         >
-          <div className="text-white text-base  ">
-            <p className="py-4">
-              Designed for efficiency, comfort, and sustainability,
-              <br /> this fully electric bus is perfect for city travel.
-            </p>
-            <p className="pb-8">
-              Order Now and drive the change towards a greener,
-              <br /> smarter urban transit system!
-            </p>
-            <Link to="/orders-coach">
-              <button className="bg-white hover:bg-gray-700 text-black rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-black border-2   ">
-                Order Now
-              </button>
-            </Link>
+          <div
+            className="w-full md:w-11/12  px-8 rounded-xl flex flex-col justify-center items-start"
+            style={{
+              backgroundImage: `url(${gradient})`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              objectFit: "cover",
+            }}
+          >
+            <div className="text-white text-base  ">
+              <p className="py-4">
+                Designed for efficiency, comfort, and sustainability,
+                <br /> this fully electric bus is perfect for city travel.
+              </p>
+              <p className="pb-8">
+                Order Now and drive the change towards a greener,
+                <br /> smarter urban transit system!
+              </p>
+              <Link to="/orders-coach">
+                <button className="bg-white hover:bg-gray-700 text-black rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-black border-2   ">
+                  Order Now
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-      </div>
-
       <Footer />
     </div>
   );
