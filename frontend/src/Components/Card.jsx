@@ -14,14 +14,14 @@ const Card = () => {
         Our models
       </div>
       <div className="flex justify-around items-center flex-wrap gap-6  py-6">
-        <div class="w-[500px] rounded-xl overflow-hidden shadow-2xl pt-3 bg-white ">
+        <div className="w-[500px] rounded-xl overflow-hidden shadow-2xl pt-3 bg-white ">
           <div className="text-2xl font-bold px-[50px]">Kayoola EVS 2024</div>
           <div className="text-[1.3rem] pl-[50px]">
             Confitable and goes long distances
           </div>
 
           <img
-            class="w-90 h-[18rem] ml-[50px] "
+            className="w-90 h-[18rem] ml-[50px] "
             src={a}
             alt="Sunset in the mountains"
           />
@@ -31,14 +31,14 @@ const Card = () => {
           </button>
         </div>
 
-        <div class="w-[500px] rounded-xl overflow-hidden shadow-2xl pt-3  bg-white ">
+        <div className="w-[500px] rounded-xl overflow-hidden shadow-2xl pt-3  bg-white ">
           <div className="text-2xl font-bold px-[50px]">Kayoola EVS 2023</div>
           <div className="text-[1.3rem] pl-[50px]">
             Confitable and goes long distances
           </div>
 
           <img
-            class="w-90 h-[18rem] ml-[50px] "
+            className="w-90 h-[18rem] ml-[50px] "
             src={b}
             alt="Sunset in the mountains"
           />
@@ -48,7 +48,7 @@ const Card = () => {
           </button>
         </div>
 
-        <div class="w-[500px] rounded-xl overflow-hidden shadow-2xl pt-3   bg-white">
+        <div className="w-[500px] rounded-xl overflow-hidden shadow-2xl pt-3   bg-white">
           <div className="text-2xl font-bold px-[50px]">Kayoola Coach</div>
           <div className="text-[1.3rem] pl-[50px]">
             Confitable and goes long distances
@@ -56,7 +56,7 @@ const Card = () => {
 
           <img
             style={{ transform: "scaleX(-1)" }}
-            class="w-90 h-[18rem] ml-[50px] "
+            className="w-90 h-[18rem] ml-[50px] "
             src={c}
             alt="Sunset in the mountains"
           />

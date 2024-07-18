@@ -12,7 +12,9 @@ import { CapacityOption } from "./ColorOption";
 import PhoneInput from "react-phone-input-2";
 import "../../../node_modules/react-phone-input-2/lib/style.css";
 import ModalOrder from "./ModalOrder";
+import {url} from "../../utils/backend.js";
 import ImageSlider from "./ImageSlider";
+
 
 const Order = () => {
   const { user } = useAuth();
@@ -51,7 +53,7 @@ const Order = () => {
     }
 
     try {
-      const response = await axios.get(`http://localhost:3000/evs/${id}`);
+      const response = await axios.get(`${url}/evs/${id}`);
       setEVS(response.data);
     } catch (error) {
       console.error("Error fetching item:", error);
@@ -111,7 +113,7 @@ const Order = () => {
   const handleConfirm = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/evs_orders",
+        url + "/evs_orders",
         formData
       );
       console.log("Order submitted successfully:", response.data);

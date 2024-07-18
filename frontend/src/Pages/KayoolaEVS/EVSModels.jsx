@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../Components/AuthContext";
 import { NavLink } from "react-router-dom";
+import {url} from "../../utils/backend.js";
 
 const EVSModels = () => {
   const [evs, setEVS] = useState([]);
@@ -15,7 +16,7 @@ const EVSModels = () => {
 
   const fetchEVS = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/evs");
+      const response = await axios.get(url + "/evs");
       setEVS(response.data);
     } catch (error) {
       console.error("Error fetching items:", error);

@@ -15,6 +15,7 @@ import ModalOrder from "./ModalOrder";
 import { CapacityOption } from "./ColorOption";
 import PhoneInput from "react-phone-input-2";
 import { useCounter } from "../Cart/CounterContext";
+import {url} from "../../utils/backend.js";
 
 const Order = () => {
   const [showModal, setShowModal] = useState(false);
@@ -84,7 +85,7 @@ const Order = () => {
     }
 
     try {
-      const response = await axios.get(`http://localhost:3000/evs/${id}`);
+      const response = await axios.get(`${url}/evs/${id}`);
       setEVS(response.data);
     } catch (error) {
       console.error("Error fetching item:", error);

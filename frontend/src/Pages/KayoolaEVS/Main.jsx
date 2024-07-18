@@ -6,6 +6,7 @@ import axios from "axios";
 import { images } from "./data";
 import Features from "./Features";
 import EVSModels from "./EVSModels";
+import {url} from "../../utils/backend.js";
 
 
 const Products = () => {
@@ -13,7 +14,7 @@ const Products = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/users")
+      .get(url + "/api/users")
       .then((res) => {
         if (!res.data.valid) {
           setUsername(res.data[0].username);

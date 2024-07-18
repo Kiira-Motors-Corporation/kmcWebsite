@@ -13,6 +13,7 @@ import PhoneInput from "react-phone-input-2";
 
 import "../../../node_modules/react-phone-input-2/lib/style.css";
 import CoachModels from "./CoachModels";
+import {url} from "../../utils/backend.js";
 
 const Order = () => {
   const { user } = useAuth();
@@ -35,7 +36,7 @@ const Order = () => {
     }
 
     try {
-      const response = await axios.get(`http://localhost:3000/coach/${id}`);
+      const response = await axios.get(url + `/coach/${id}`);
       setCoach(response.data);
     } catch (error) {
       console.error("Error fetching item:", error);
