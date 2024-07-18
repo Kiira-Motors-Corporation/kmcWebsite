@@ -12,6 +12,7 @@ import { CapacityOption } from "./ColorOption";
 import PhoneInput from "react-phone-input-2";
 
 import "../../../node_modules/react-phone-input-2/lib/style.css";
+import {url} from "../../utils/backend.js";
 
 
 const Order = () => {
@@ -56,7 +57,7 @@ const Order = () => {
     }
 
     try {
-      const response = await axios.get(`http://localhost:3000/coach/${id}`);
+      const response = await axios.get(url + `/coach/${id}`);
       setCoach(response.data);
     } catch (error) {
       console.error("Error fetching item:", error);
@@ -113,7 +114,7 @@ const Order = () => {
    const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/coach_orders', formData);
+      const response = await axios.post(url + '/coach_orders', formData);
       console.log('Order submitted successfully:', response.data);
       // Optionally, you can clear the form after successful submission
       setFormData({

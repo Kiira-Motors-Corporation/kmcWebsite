@@ -7,6 +7,7 @@ import { useAuth } from "../../Components/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../Cart/CartContext";
 import { Link } from "react-router-dom";
+import {url} from "../../utils/backend.js";
 
 const Shop = () => {
   const [items, setItems] = useState([]);
@@ -23,7 +24,7 @@ const Shop = () => {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/items");
+      const response = await axios.get(url + "/items");
       setItems(response.data);
     } catch (error) {
       console.error("Error fetching items:", error);
@@ -38,7 +39,7 @@ const Shop = () => {
 
     try {
       const quantity = quantities[item.id] || 1; // Default to 1 if no quantity selected
-      const response = await axios.post("http://localhost:3000/cart", {
+      const response = await axios.post(url + "/cart", {
         userId: user.id,
         itemId: item.id,
         quantity: quantity,
