@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import slider_1 from "./assets/images/updates/news_1.png";
 import slider_2 from "./assets/images/updates/news_2.png";
@@ -117,10 +117,7 @@ const UpdateSlider = () => {
           </div>
         )}
         {/* Mobile */}
-        <div
-          onResize={logWindowWidth}
-          className=" flex  flex-row justify-center items-center "
-        >
+        <div className=" flex  flex-row justify-center items-center ">
           {isMobile && (
             <Slider {...settingsMob} className="w-full overflow-hidden">
               {data.map((p) => (

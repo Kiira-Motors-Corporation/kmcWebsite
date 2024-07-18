@@ -11,15 +11,15 @@ const Main = () => {
           backgroundImage: `url(${background})`,
           backgroundPosition: "center",
           objectFit: "cover",
-        }} className="w-full  flex text-center px-[7%] flex-col  py-[12%]  h-full">
-        <p className="text-2xl font-bold">Carrer opportunities at KMC </p>
+        }} className="w-full  flex text-center px-[7%] flex-col  py-[12.5%]  h-full">
+        <p className="text-2xl pt-4 md:pt-0 font-bold">Carrer opportunities at KMC </p>
         <p className="py-5 text-base">
-          Kiira Motors Corporation is a State Enterprise established to <br />{" "}
+          Kiira Motors Corporation is a State Enterprise established to <br className="hidden md:block" />{" "}
           champion value addition in the nascent Motor Vehicle Industry in
-          <br /> Uganda through Technology Transfer
+          <br className="hidden md:block"/> Uganda through Technology Transfer
         </p>
         <div>
-        <div style={{backgroundImage:`url(${cover})`, backgroundPosition:'center',backgroundSize:'contain', backgroundRepeat:'no-repeat'}} className=" h-[30rem] rounded-2xl">
+        <div style={{backgroundImage:`url(${cover})`, backgroundPosition:'center',backgroundSize:'contain', backgroundRepeat:'no-repeat'}} className=" md:h-[30rem] h-[10rem] rounded-2xl">
 
              </div>
       </div>

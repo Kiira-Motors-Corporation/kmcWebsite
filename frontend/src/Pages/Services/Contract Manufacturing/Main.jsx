@@ -53,11 +53,11 @@ const Main = () => {
           />
           <h1 className=" font-medium text-left  py-5">Timeline</h1>
           <input
-            type="text"
-            name="password"
+            type="date"
+            name="date"
             required
             placeholder="dd/mm/yy"
-            className="my-4 rounded-2xl border-none focus:outline-none bg-gray-200"
+            className="my-4 rounded-2xl border-none bg-gray-200 "
           />
 
           <br />

@@ -11,7 +11,7 @@ const Features = () => {
         id="rotate-image"
         src={feature}
         alt=""
-        className="absolute lg:h-[85%] h-[40%]"
+        className="absolute lg:h-[85%] h-[45%]"
       />
       <div
         id="gradient"
@@ -25,7 +25,7 @@ const Features = () => {
           className="bg-black w-[18rem] h-[18rem] md:w-[23rem] md:h-[23rem] text-white rounded-full flex flex-col justify-center items-center "
         >
           <h1 className="md:text-3xl text-2xl">Key features</h1>{" "}
-          <p className="w-10/12 text-center py-2">
+          <p className="w-10/12 text-center md:text-base text-sm py-2">
             Kayoola EVS is packaged with special features like Infotainment
             System, CCTV Cameras, E-Ticketing & Cashless Payment System,
             Comfort, Wi-Fi, Inclusive Design, USB Charging and & Safety

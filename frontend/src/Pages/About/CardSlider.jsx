@@ -1,8 +1,8 @@
-import React from "react";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import slider_1 from "./assets/images/slider_1.png"
 import slider_2 from "./assets/images/slider_2.png"
 import slider_3 from "./assets/images/slider_3.png"
@@ -111,7 +111,7 @@ const UpdateSlider = () => {
                         alt=""
                         style={{ transition: "all 0.3s" }}
                       />
-                     
+
                       <div className="text-center py-2 md:text-base ">
                         {p.headline}
                       </div>
@@ -124,25 +124,22 @@ const UpdateSlider = () => {
         )}
         {/* Mobile */}
         <div
-          onResize={logWindowWidth}
-          className=" flex  flex-row justify-center items-center "
-        >
+        className=" flex  flex-row m-4 ">
+
           {isMobile && (
             <Slider {...settingsMob} className="w-full">
               {data.map((p) => (
                 <div
-                  key={p.id}
-                  className="cursor-pointer filter brightness-90 hover:brightness-100   "
-                >
-                  <div className=" md:w-[500px]  overflow-hidden rounded-2xl  w-full">
+                key={p.id}
+                className="cursor-pointer filter brightness-90 hover:brightness-100"
+              >
+                 <div className=" md:w-[500px]  h-[250px] overflow-hidden rounded-2xl ">
                     <img
                       className="hover:scale-105 overflow-hidden w-full "
                       src={p.image_url}
                       alt=""
                       style={{ transition: "all 0.3s" }}
                     />
-
-                  
                     <div className="text-center md:text-base ">
                       {p.headline}
                     </div>

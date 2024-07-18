@@ -138,10 +138,10 @@ const SocialProofSlider = () => {
            <div className="w-full ">
            <center>
            <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-4">
-             <Slider {...settings} className="w-10/12 ">
+             <Slider {...settingsMob}  className="w-full overflow-hidden shadow-lg">
                {data.map((p) => (
-                 <div key={p.id} className=" rounded-xl overflow-hidden shadow-2xl px-[20px] w-[600px] h-[340px]   bg-white my-6">
-                 <div className="relative flex flex-col h-full ">
+                 <div key={p.id} className="cursor-pointer filter brightness-90 hover:brightness-100   ">
+                 <div className=" md:w-[500px]  overflow-hidden rounded-2xl  w-full">
                    {/* flex */}
                    <div className="md:text-5xl pt-6 text-xl text-[#D53A54] font-bold  ">
                      <ImQuotesLeft />
@@ -151,28 +151,28 @@ const SocialProofSlider = () => {
                        data-aos="fade-up"
                        data-aos-once="true"
                        data-aos-duration="1000"
-                       className="w-8/12 text-lg"
+                       className="md:w-8/12 text-lg  md:h-auto h-[5.25rem] border-black"
                      >
                       {p.headline}
                      </p>
                      <img
-                       className="absolute object-cover object-center bottom-[0px]  w-6/12  z-[1] right-1   ml-[0px]"
+                       className="absolute object-cover object-center bottom-[0px] w-4/12  md:w-6/12  z-[1] right-1   ml-[0px]"
                        src={p.image_url}
                        alt="Sunset in the mountains"
                      />
                    </div>
 
-                   <div className="  mt-[1rem] relative top-[1rem] text-md font-semibold  w-[350px] ">
+                   <div className="  mt-[1rem] relative md:top-[1rem] text-md font-semibold  w-[350px] ">
                      {p.name}
                    </div>
-                   <div className="font-normal relative top-4  text-base">
+                   <div className="font-normal relative md:top-4  text-sm">
                      {p.role} <br />
                      <button
                        style={{
                          backdropFilter: "blur(10px)",
                          background: "rgba(255,255,255,0.2)",
                        }}
-                       className="text-sm  border-4 mt-7 rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-white "
+                       className="text-sm relative  border-4 mt-7 rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-white "
                      >
                        Watch
                      </button>

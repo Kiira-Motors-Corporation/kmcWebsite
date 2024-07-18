@@ -1,21 +1,15 @@
-import React from "react";
-import Navbar from "../../Components/Navbar";
-import c from "../../assets/images/c.jpg";
+
 import Footer from "../../Components/Footer";
 import { FaArrowDown } from "react-icons/fa";
 import d from "../../assets/images/team.png";
 import pose from "../../assets/images/pose.png";
-import Headroom from "react-headroom";
+
 
 const About = () => {
   return (
     <>
-      <div className="absolute w-full">
-        <Headroom>
-          <Navbar />
-        </Headroom>
-      </div>
-      <div className="h-[100vh] relative top-[7rem] left-[10rem]">
+
+      <div className="md:h-[100vh] relative md:top-[7rem] md:left-[10rem]">
         <p className="text-2xl">We are innovative</p>
 
         <p className="text-6xl font-bold ">

@@ -1,40 +1,6 @@
-import React from "react";
-import { useState } from "react";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import { RxDotFilled } from "react-icons/rx";
-import Button from "../../Components/Button";
-
 import cover from "./assets/images/cover.png";
 
 const CarouselProducts = () => {
-  const slides = [
-    {
-      url: cover,
-    },
-    { url: "https://i.imgur.com/qGax6vV.jpeg" },
-    { url: "https://i.imgur.com/qGax6vV.jpeg" },
-    { url: "https://i.imgur.com/qGax6vV.jpeg" },
-    { url: "https://i.imgur.com/qGax6vV.jpeg" },
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-  };
-
-  const nextSlide = () => {
-    const isLastSlide = currentIndex === slides.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-  };
-
-  const goToSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex);
-  };
-
   return (
     <div
       id="transparent"
@@ -62,23 +28,23 @@ const CarouselProducts = () => {
             </div>
 
             <div className="font-bold flex items-center justify-end   text-[1.2rem] md:text-lg">
-              <ul className="pr-[3rem]">
+              <ul className="md:pr-[3rem] pr-[2rem]">
                 <li>340hp</li>
-                <li className="font-normal md:text-[1.3rem] text-gray-400">
+                <li className="font-normal text-sm  md:text-[1.3rem] text-gray-400">
                   Power
                 </li>
               </ul>
 
-              <ul className="pr-[3rem]">
+              <ul className="md:pr-[3rem] pr-[2rem]">
                 <li>61</li>
-                <li className="font-normal md:text-[1.3rem] text-gray-400">
+                <li className="font-normal text-sm md:text-[1.3rem] text-gray-400">
                   Capacity
                 </li>
               </ul>
 
-              <ul className="pr-[3rem]">
+              <ul className="md:pr-[3rem] pr-[2rem]">
                 <li>500L</li>
-                <li className="font-normal md:text-[1.3rem] text-gray-400">
+                <li className="font-normal text-sm md:text-[1.3rem] text-gray-400">
                   Fuel Tank Capacity
                 </li>
               </ul>
@@ -139,6 +105,6 @@ Kayoola Coach
           >
             <img style={{ transform: "scaleX(-1)" }} src={c} alt="" />
           </div>
-          
+
           */
 }

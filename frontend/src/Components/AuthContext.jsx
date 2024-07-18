@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
     const login = async (username, password) => {
         setLoading(true);
         try {
-            const response = await axios.post('http://localhost:3000/login', { username, password }, { withCredentials: true });
+            const response = await axios.post('http://localhost:3000/user/login', { username, password }, { withCredentials: true });
             if (response.data.loggedIn) {
                 setUser(response.data.user);
 
@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         try {
             // Replace with your actual signup API call
-            const response = await axios.post('http://localhost:3000/signup', {
+            const response = await axios.post('http://localhost:3000/user/signup', {
                 username,
                 fname,
                 lname,
