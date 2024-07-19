@@ -28,6 +28,11 @@ Content-Type: application/json
     "itemId": 2,
     "quantity": 4
 }
+###
+POST http://localhost:3000/user/signup
+Content-Type: application/json
+
+{"username":"b", "fname":"b", "lname":"b", "email":"b", "country":"b", "phone":"b", "category":"b", "password":"b"}
 
 ###
 GET http://localhost:3000/cart?userId=5
@@ -37,12 +42,12 @@ GET http://localhost:3000/user
 
 ###
 
-POST http://localhost:3000/login
+POST http://localhost:3000/user/login
 Content-Type: application/json
 
 {
-    "username":"a",
-    "password":"a"
+    "username":"b",
+    "password":"b"
 }
 
 ###
@@ -69,7 +74,8 @@ Content-Type: application/json
   "selectedInteriorColor": "Black",
   "selectedFloorTrim": "Wood"
 }
-
+###
+GET http://localhost:3000/items/
 
 ###
 GET http://localhost:3000/items/1

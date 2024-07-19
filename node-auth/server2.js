@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-
+const PdfPrinter = require("pdfmake");
+const fs = require("fs");
 const app = express();
 const port = 3000;
+const puppeteer = require("puppeteer");
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,6 +22,17 @@ let products = [
 ];
 
 let cart = [];
+
+// // Middleware to verify user authentication
+// const authenticateUser = (req, res, next) => {
+//   // Implement your authentication logic here (e.g., check session or token)
+//   const { userId } = req.body; // Assuming userId is passed in request body
+//   if (!userId) {
+//       return res.status(401).json({ error: 'Unauthorized' });
+//   }
+//   req.userId = userId;
+//   next();
+// };
 
 // Routes
 app.get('/', (req, res) => {
@@ -43,6 +56,66 @@ app.post('/add-to-cart', (req, res) => {
   res.redirect('/');
 });
 
+app.post("/quote", (req, res) => {
+  const {
+    name,
+    phoneNumber,
+    email,
+    selectedExteriorColor,
+    selectedInteriorColor,
+    selectedFloorTrim,
+  } = req.body;
+
+  const fonts = {
+    Roboto: {
+      normal: path.join(__dirname, "fonts/Roboto-Regular.ttf"),
+      bold: path.join(__dirname, "fonts/Roboto-Bold.ttf"),
+      italics: path.join(__dirname, "fonts/Roboto-Italic.ttf"),
+      bolditalics: path.join(__dirname, "fonts/Roboto-BoldItalic.ttf"),
+    },
+  };
+
+  const printer = new PdfPrinter(fonts);
+
+  const docDefinition = {
+    content: [
+      { text: "Quote Details", style: "header" },
+      `Name: ${name}`,
+      `Phone Number: ${phoneNumber}`,
+      `Email: ${email}`,
+      `Exterior Color: ${selectedExteriorColor}`,
+      `Interior Color: ${selectedInteriorColor}`,
+      `Floor Trim: ${selectedFloorTrim}`,
+    ],
+    styles: {
+      header: {
+        fontSize: 18,
+        bold: true,
+        margin: [0, 0, 0, 10],
+      },
+    },
+  };
+
+  const pdfDoc = printer.createPdfKitDocument(docDefinition);
+  let chunks = [];
+
+  pdfDoc.on("data", (chunk) => {
+    chunks.push(chunk);
+  });
+
+  pdfDoc.on("end", () => {
+    const pdfBuffer = Buffer.concat(chunks);
+
+    res.set({
+      "Content-Type": "application/pdf",
+      "Content-Disposition": 'attachment; filename="quote.pdf"',
+    });
+    res.send(pdfBuffer);
+  });
+
+  pdfDoc.end();
+});
+
 app.get('/cart', (req, res) => {
   const totalCost = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
   res.render('cart', { cart, totalCost });
@@ -58,6 +131,14 @@ app.post('/remove-from-cart', (req, res) => {
   }
 
   res.redirect('/cart');
+});
+
+
+// Shopping Routes
+app.get("/welcome", (req, res) => {
+  res.render("welcome", { products, cart });
+  // const data = { message: 'Button clicked! This is the new page (backend).' };
+  // res.json(data);
 });
 
 app.get('/checkout', (req, res) => {
@@ -157,7 +238,7 @@ app.post('/register', (req, res) => {
   const query = 'INSERT INTO users (username, fname, lname, email, country, phone, category, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
   db.query(query, [username, fname, lname, email, country, phone, category, hashedPassword], (err, result) => {
     if (err) throw err;
-    
+
     res.redirect('/login');
   });
 });
