@@ -1,6 +1,6 @@
 ###
 
-POST http://localhost:3000/login
+POST http://localhost:3002/login
 Content-Type: application/json
 
 {
@@ -9,18 +9,18 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/redirect-to-login
+GET http://localhost:3002/redirect-to-login
 
 ###
 
-GET http://localhost:3000/items
+GET http://localhost:3002/items
 
 ###
 
-GET http://localhost:3000/items/1
+GET http://localhost:3002/items/1
 
 ###
-POST http://localhost:3000/cart
+POST http://localhost:3002/cart
 Content-Type: application/json
 
 {
@@ -28,28 +28,38 @@ Content-Type: application/json
     "itemId": 2,
     "quantity": 4
 }
+###
+POST http://localhost:3002/user/signup
+Content-Type: application/json
+
+{ "name":"Peter", "email":"peter@kmc.com", "contact":"1234", "password":"peter" }
 
 ###
-GET http://localhost:3000/cart?userId=5
+GET http://localhost:3002/cart?userId=5
 
 ###
-GET http://localhost:3000/user
+GET http://localhost:3002/user
 
 ###
 
-POST http://localhost:3000/login
+POST http://localhost:3002/user/login
 Content-Type: application/json
 
 {
-    "username":"a",
-    "password":"a"
+    "name":"Peter",
+    "password":"peter"
 }
 
 ###
-GET http://localhost:3000/cart
+
+POST http://localhost:3002/user/logout
+
 
 ###
-DELETE http://localhost:3000/cart/1
+GET http://localhost:3002/cart
+
+###
+DELETE http://localhost:3002/cart/1
 Content-Type: application/json
 
 {
@@ -58,7 +68,7 @@ Content-Type: application/json
 
 
 ###
-POST http://localhost:3000/quote
+POST http://localhost:3002/quote
 Content-Type: application/json
 
 {
@@ -69,28 +79,29 @@ Content-Type: application/json
   "selectedInteriorColor": "Black",
   "selectedFloorTrim": "Wood"
 }
-
+###
+GET http://localhost:3002/items/insert
 
 ###
-GET http://localhost:3000/items/1
+GET http://localhost:3002/items/1
 
 ###
-GET http://localhost:3000/items?min=1&max=2
+GET http://localhost:3002/items?min=1&max=2
 
 ###
-GET http://localhost:3000/evs
+GET http://localhost:3002/evs
 
 ###
-GET http://localhost:3000/coach
+GET http://localhost:3002/coach
 
 ###
-GET http://localhost:3000/coach/1
+GET http://localhost:3002/coach/1
 
 ###
-GET http://localhost:3000/evs/1
+GET http://localhost:3002/evs/1
 
 ###
-POST http://localhost:3000/api/send-email
+POST http://localhost:3002/api/send-email
 Content-Type: application/json
 
 {
@@ -98,7 +109,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/evs_orders
+POST http://localhost:3002/evs_orders
 Content-Type: application/json
 
 {
@@ -113,10 +124,10 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/evs_orders/1
+GET http://localhost:3002/evs_orders/1
 
 ###
-POST http://localhost:3000/coach_orders
+POST http://localhost:3002/coach_orders
 Content-Type: application/json
 
 {
@@ -131,4 +142,4 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/coach_orders/1
+GET http://localhost:3002/coach_orders/1
