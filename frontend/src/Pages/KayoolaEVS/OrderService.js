@@ -1,6 +1,7 @@
 import axios from 'axios';
+import {url} from "../../utils/backend.js";
 
-const API_URL = "http://localhost:3000";
+const API_URL = url;
 
 export const fetchUserOrders = async (userId) => {
   try {

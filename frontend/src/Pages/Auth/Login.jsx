@@ -6,6 +6,7 @@ import background from "./assets/images/background.png";
 import main from "./assets/images/main.png";
 import icon from '../../assets/images/icon.png'
 import { AuthContext } from "../../Components/AuthContext";
+import {url} from "../../utils/backend.js";
 
 
 
@@ -34,6 +35,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const success = await login(username, password);
+      // console.log(success)
     if (success) {
         const from = location.state?.from?.pathname || '/';
         navigate(from);
@@ -41,6 +43,7 @@ const Login = () => {
         setErrorMessage('Login failed. Please check your credentials.');
     }
 };
+
 
 
 //   const handleLogin = async (e) => {
@@ -67,6 +70,7 @@ const Login = () => {
 //       setLoading(false); // Set loading to false when the request finishes
 //   }
 // };
+
 
 
   return (

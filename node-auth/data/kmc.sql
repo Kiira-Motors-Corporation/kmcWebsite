@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2024 at 01:16 PM
+-- Generation Time: Jul 15, 2024 at 10:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,12 +34,30 @@ CREATE TABLE `cart_items` (
   `quantity` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `cart_items`
+-- Table structure for table `coach`
 --
 
-INSERT INTO `cart_items` (`id`, `user_id`, `item_id`, `quantity`) VALUES
-(1, 6, 1, 3);
+CREATE TABLE `coach` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT '12 Meter Coach',
+  `seats` int(20) DEFAULT 90,
+  `image` enum('items/COACH_1.png','items/COACH_2.png','','') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `coach`
+--
+
+INSERT INTO `coach` (`id`, `name`, `seats`, `image`) VALUES
+(1, '12 Meter Coach', 90, 'items/COACH_1.png'),
+(2, '12 Meter Coach', 90, 'items/COACH_2.png'),
+(3, '12 Meter Coach', 90, 'items/COACH_2.png'),
+(4, '12 Meter Coach', 90, 'items/COACH_1.png'),
+(5, '12 Meter Coach', 90, 'items/COACH_2.png'),
+(6, '12 Meter Coach', 90, 'items/COACH_1.png');
 
 -- --------------------------------------------------------
 
@@ -67,6 +85,36 @@ INSERT INTO `coach_orders` (`id`, `name`, `exteriorColor`, `interiorColor`, `flo
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `evs`
+--
+
+CREATE TABLE `evs` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `dimensions` varchar(100) DEFAULT '12,190*2,550*3,160 mm',
+  `wheelbase` varchar(100) DEFAULT '4175',
+  `ranges` int(100) DEFAULT 90,
+  `grossVehicleWeight` int(100) DEFAULT 1200,
+  `power` int(100) DEFAULT 25,
+  `carryingCapacity` varchar(100) DEFAULT '90',
+  `image` enum('images/EVS_1.png','images/EVS_2.png','','') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `evs`
+--
+
+INSERT INTO `evs` (`id`, `name`, `dimensions`, `wheelbase`, `ranges`, `grossVehicleWeight`, `power`, `carryingCapacity`, `image`) VALUES
+(1, '12 Meter EVS 2024', '12,190*2,550*3,160 mm', '4175', 90, 1200, 25, '90', 'images/EVS_1.png'),
+(2, '12 Meter EVS 2022', '12,190*2,550*3,160 mm', '4175', 90, 1200, 25, '90', 'images/EVS_2.png'),
+(3, '10 Meter EVS', '12,190*2,550*3,160 mm', '4175', 90, 1200, 25, '90', 'images/EVS_1.png'),
+(4, '8 Meter EVS', '12,190*2,550*3,160 mm', '4175', 90, 1200, 25, '90', 'images/EVS_2.png'),
+(5, '12 Meter EVS', '12,190*2,550*3,160 mm', '4175', 90, 1200, 25, '90', 'images/EVS_1.png'),
+(6, '12 Meter EVS', '12,190*2,550*3,160 mm', '4175', 90, 1200, 25, '90', 'images/EVS_2.png');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `evs_orders`
 --
 
@@ -85,7 +133,8 @@ CREATE TABLE `evs_orders` (
 --
 
 INSERT INTO `evs_orders` (`id`, `name`, `exteriorColor`, `interiorColor`, `floorTrim`, `capacity`, `user_id`) VALUES
-(1, 'kenny', 'black', 'black', 'orange', '70', 1);
+(1, 'kenny', 'black', 'black', 'orange', '70', 1),
+(2, '12 Meter EVS 2024', 'Blue', 'Black', 'Chrome', '70 (32/38)', 6);
 
 -- --------------------------------------------------------
 
@@ -106,7 +155,10 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `name`, `price`, `description`, `image_path`) VALUES
-(1, 'KMC Backpack', 25000, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam', 'images/KMC-Backpack.png');
+(1, 'Backpack', 25000, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam', 'images/KMC-Backpack.png'),
+(2, 'Long-sleeved Shirt', 30000, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam', 'images/KMC-LongSleeved.png'),
+(3, 'Short-sleeved Shirt', 25000, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam', 'images/KMC-ShortSleeved.png'),
+(4, 'Umbrella', 40000, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam', 'images/KMC-Umbrella.png');
 
 -- --------------------------------------------------------
 
@@ -125,7 +177,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
-('rZpQXD-FfKV36lOSClvEvW_otK5NO0HZ', 1720955527, '{\"cookie\":{\"originalMaxAge\":86400000,\"expires\":\"2024-07-14T11:08:47.855Z\",\"httpOnly\":true,\"path\":\"/\",\"sameSite\":\"lax\"},\"user\":{\"id\":6,\"username\":\"John\",\"fname\":\"John\",\"lname\":\"Doe\",\"email\":\"johndoe@gmail.com\",\"country\":\"Uganda\",\"phone\":\"0765423242\",\"category\":\"customer\",\"password\":\"$2a$08$nw6yAHnkdtHp6t02RhJ5m.ekNS0tUNEzDTbmT3O17Hquy8gh7O9J2\",\"confrim_password\":\"\"}}');
+('ZvU_vVNYOEYYF_VF6uSBVouY5bUqUIya', 1721112185, '{\"cookie\":{\"originalMaxAge\":86400000,\"expires\":\"2024-07-16T06:40:52.984Z\",\"httpOnly\":true,\"path\":\"/\",\"sameSite\":\"lax\"},\"user\":{\"id\":6,\"username\":\"John\",\"fname\":\"John\",\"lname\":\"Doe\",\"email\":\"johndoe@gmail.com\",\"country\":\"Uganda\",\"phone\":\"0765423242\",\"category\":\"customer\",\"password\":\"$2a$08$nw6yAHnkdtHp6t02RhJ5m.ekNS0tUNEzDTbmT3O17Hquy8gh7O9J2\",\"confrim_password\":\"\"}}'),
+('cVRApL60bqQov_bAdyhCrIOv5qbx2qcv', 1721036974, '{\"cookie\":{\"originalMaxAge\":86400000,\"expires\":\"2024-07-15T09:32:34.975Z\",\"httpOnly\":true,\"path\":\"/\",\"sameSite\":\"lax\"},\"user\":{\"id\":6,\"username\":\"John\",\"fname\":\"John\",\"lname\":\"Doe\",\"email\":\"johndoe@gmail.com\",\"country\":\"Uganda\",\"phone\":\"0765423242\",\"category\":\"customer\",\"password\":\"$2a$08$nw6yAHnkdtHp6t02RhJ5m.ekNS0tUNEzDTbmT3O17Hquy8gh7O9J2\",\"confrim_password\":\"\"}}');
 
 -- --------------------------------------------------------
 
@@ -156,7 +209,8 @@ INSERT INTO `users` (`id`, `username`, `fname`, `lname`, `email`, `country`, `ph
 (3, 'mina', 'mina', 'Nakato', 'mina@gmail.com', 'uganda', '0757898998', 'perdonal', '$2a$08$uNxu86U4HMpltxBOWTBz0.cr83jXr59waHnEpShazcXycO2bNQN9.', ''),
 (4, 'Nina', 'Nina', 'Amo', 'nina@gmail.com', 'uganda', '07887474389', 'personal', '$2a$08$eBeTtInpkHjxiClpbk8A4epexZlOthujyrnV2xUk2JIkiNuwq6e7O', ''),
 (5, 'Tina', 'Tina', 'Nakato', 'tina@gmail.com', 'kenya', '07683936332', 'business', '$2a$08$rjrR0Kpn1Hnb1FTzbTjvP.qXmRoOdFaAviHQlK3m3e9JssHCkra6.', ''),
-(6, 'John', 'John', 'Doe', 'johndoe@gmail.com', 'Uganda', '0765423242', 'customer', '$2a$08$nw6yAHnkdtHp6t02RhJ5m.ekNS0tUNEzDTbmT3O17Hquy8gh7O9J2', '');
+(6, 'John', 'John', 'Doe', 'johndoe@gmail.com', 'Uganda', '0765423242', 'customer', '$2a$08$nw6yAHnkdtHp6t02RhJ5m.ekNS0tUNEzDTbmT3O17Hquy8gh7O9J2', ''),
+(9, 'a', 'a', 'a', 'a@d.v', 'a', '0', 'dealer', '$2a$08$5VKv1DNIU8nit78azEMwxuyuQ1kPhj/kIcx5lXLVZ0GQiUsIUcYOa', '');
 
 --
 -- Indexes for dumped tables
@@ -171,9 +225,21 @@ ALTER TABLE `cart_items`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `coach`
+--
+ALTER TABLE `coach`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `coach_orders`
 --
 ALTER TABLE `coach_orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `evs`
+--
+ALTER TABLE `evs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -211,28 +277,40 @@ ALTER TABLE `cart_items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `coach`
+--
+ALTER TABLE `coach`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `coach_orders`
 --
 ALTER TABLE `coach_orders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `evs`
+--
+ALTER TABLE `evs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `evs_orders`
 --
 ALTER TABLE `evs_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

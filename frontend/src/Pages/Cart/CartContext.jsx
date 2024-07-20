@@ -1,6 +1,7 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { useAuth } from "../../Components/AuthContext";
 import axios from "axios";
+import {url} from "../../utils/backend.js";
 
 
 const CartContext = createContext();
@@ -39,7 +40,7 @@ export const CartProvider = ({ children }) => {
 
     try {
       console.log(`Attempting to remove item with ID: ${itemId}`);
-      const response = await axios.delete(`http://localhost:3000/cart/${itemId}`, {
+      const response = await axios.delete(url + `/cart/${itemId}`, {
         data: { userId: user.id },
       });
       console.log('Response from backend:', response);

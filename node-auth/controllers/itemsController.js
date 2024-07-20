@@ -29,10 +29,10 @@ const getItems = (req,res)=>{
 
 const createItem = (req, res) => {
   Items.create({
-    name:"za",
-    price:9,
-    description:"Mike",
-    image_path:"Mike"
+    name:"Guest Visibility Vests",
+    price:30000,
+    description:"Very light to wear",
+    image_path:"images/GuestVisibilityVest.png"
   }).catch((err)=>{
     if(err){
       console.log(err);

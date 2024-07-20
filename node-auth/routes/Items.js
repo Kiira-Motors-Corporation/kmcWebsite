@@ -10,7 +10,7 @@ router.get("/", itemsController.getItems);
 
 // Get a single item by ID
 // router.get("/:id",itemsController.getSingleItem);
-router.get('/:id', itemsController.getItemById);
+// router.get('/:id', itemsController.getItemById);
 // Craete a single item.
 router.get("/insert",itemsController.createItem);
 

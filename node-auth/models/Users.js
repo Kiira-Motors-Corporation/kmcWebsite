@@ -1,7 +1,7 @@
 
 module.exports =(sequelize,DataTypes) =>{
-    const Items = sequelize.define(
-        "Items",{
+    const Users = sequelize.define(
+        "Users",{
             name:{
                 type:DataTypes.STRING,
                 allowNull:false,
@@ -9,21 +9,21 @@ module.exports =(sequelize,DataTypes) =>{
                     notEmpty:true
                 }
             },
-            price:{
-                type:DataTypes.INTEGER,
-                allowNull:false,
-                validate:{
-                    notEmpty:true
-                }
-            },
-            description:{
+            email:{
                 type:DataTypes.STRING,
                 allowNull:false,
                 validate:{
                     notEmpty:true
                 }
             },
-            image_path:{
+            contact:{
+                type:DataTypes.STRING,
+                allowNull:false,
+                validate:{
+                    notEmpty:true
+                }
+            },
+            password:{
                 type:DataTypes.STRING,
                 allowNull:false,
                 validate:{
@@ -33,12 +33,14 @@ module.exports =(sequelize,DataTypes) =>{
         }
     )
 
-    Items.associate = function(models) {
-        Items.hasMany(models.Cart, {
-          foreignKey: 'itemId',
-          as: 'carts',
+    Users.associate = function(models) {
+        Users.hasMany(models.Cart, {
+          foreignKey: 'userId',
+          as: 'carts'
         });
       };
 
-    return Items;
+
+
+    return Users;
 }

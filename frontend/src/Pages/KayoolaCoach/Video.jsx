@@ -3,7 +3,7 @@ import videofile2 from "../../assets/videos/KMC.mp4";
 
 const Video = () => {
   return (
-    <div class="w-full bg-[#171717] h-auto md:px-[16rem] px-6 py-[3rem]">
+    <div className="w-full bg-[#171717] h-auto md:px-[16rem] px-6 py-[3rem]">
       <video
         className="inset-0 object-cover w-full h-[50vh] md:h-full z-10 rounded-2xl"
         autoPlay={false}

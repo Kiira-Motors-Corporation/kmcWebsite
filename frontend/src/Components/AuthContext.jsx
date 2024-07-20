@@ -1,5 +1,6 @@
 import  { createContext,useContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import {url} from "../utils/backend.js";
 
 
  const AuthContext = createContext();
@@ -12,7 +13,8 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const checkSession = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/checkSession', { withCredentials: true });
+                // const response = await axios.get(url + '/checkSession', { withCredentials: true });
+                const response = await axios.get(url + '/checkSession');
                 if (response.data.loggedIn) {
                     setUser(response.data.user);
                 }
@@ -30,7 +32,8 @@ const AuthProvider = ({ children }) => {
     const login = async (username, password) => {
         setLoading(true);
         try {
-            const response = await axios.post('http://localhost:3000/user/login', { username, password }, { withCredentials: true });
+            const response = await axios.post(url + '/login', { username, password });
+
             if (response.data.loggedIn) {
                 setUser(response.data.user);
 
@@ -52,7 +55,8 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         try {
             // Replace with your actual signup API call
-            const response = await axios.post('http://localhost:3000/user/signup', {
+            const response = await axios.post(url + '/signup', {
+
                 username,
                 fname,
                 lname,
@@ -75,7 +79,7 @@ const AuthProvider = ({ children }) => {
     const logout = async () => {
         setLoading(true);
         try {
-            await axios.get('http://localhost:3000/logout', { withCredentials: true });
+            await axios.get(url+'/logout', { withCredentials: true });
             setUser(null);
         } catch (error) {
             console.error('Logout error', error);

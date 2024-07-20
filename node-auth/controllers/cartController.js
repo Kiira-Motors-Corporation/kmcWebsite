@@ -1,42 +1,49 @@
-// controllers/userController.js
-const db = require("../db/dbConfig")
+// controllers/cartController.js
+const { Cart, Users, Items } = require('../models');
 
+const createCartItem = async (req, res) => {
+  const { userId, itemId, quantity, price } = req.body;
 
-const getCoach = (req, res) => {
-  const { min, max } = req.query;
-  let sql = "SELECT * FROM COACH";
+  try {
+    const cartItem = await Cart.create({
+      userId,
+      itemId,
+      quantity,
+      price,
+    });
 
-  if (min && max) {
-    sql += " WHERE id BETWEEN ? AND ?";
+    res.status(201).json(cartItem);
+  } catch (err) {
+    console.error("Error creating cart item:", err);
+    res.status(500).json({ error: "Error creating cart item" });
   }
-  db.query(sql, [min, max], (err, results) => {
-    if (err) {
-      console.error("Error fetching coach:", err);
-      res.status(500).json({ error: "Error fetching coach"});
-    } else {
-      res.json(results);
-    }
-  });
-}
+};
 
+const getCartItems = async (req, res) => {
+  try {
+    const cartItems = await Cart.findAll({
+      include: [
+        {
+          model: Users,
+          as: 'user',
+          attributes: ['name']
+        },
+        {
+          model: Items,
+          as: 'item',
+          attributes: ['name', 'price']
+        }
+      ]
+    });
 
-const getSingleCoach = (req, res) => {
-  const { id } = req.params;
-  const sql = "SELECT * FROM coach WHERE id = ?";
-  db.query(sql, [id], (err, results) => {
-    if (err) {
-      console.error("Error fetching evs:", err);
-      res.status(500).json({ error: "Error fetching coach" });
-    } else if (results.length === 0) {
-      res.status(404).json({ error: "Coach not found" });
-    } else {
-      res.json(results[0]);
-    }
-  });
-}
+    res.status(200).json(cartItems);
+  } catch (err) {
+    console.error("Error fetching cart items:", err);
+    res.status(500).json({ error: "Error fetching cart items" });
+  }
+};
 
-
-  module.exports = {
-    getCoach,
-    getSingleCoach
-  };
+module.exports = {
+  createCartItem,
+  getCartItems
+};

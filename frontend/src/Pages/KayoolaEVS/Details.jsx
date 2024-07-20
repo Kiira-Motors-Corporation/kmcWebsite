@@ -9,6 +9,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import "../../../node_modules/react-phone-input-2/lib/style.css";
 import EVSModels from "./EVSModels";
+import {url} from "../../utils/backend.js";
 
 const Order = () => {
   const { user } = useAuth();
@@ -21,7 +22,7 @@ const Order = () => {
 
   const fetchEVS = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/evs/${id}`);
+      const response = await axios.get(`${url}/evs/${id}`);
       setEVS(response.data);
     } catch (error) {
       console.error("Error fetching item:", error);

@@ -1,7 +1,7 @@
 
 module.exports =(sequelize,DataTypes) =>{
-    const Items = sequelize.define(
-        "Items",{
+    const Coach = sequelize.define(
+        "Coach",{
             name:{
                 type:DataTypes.STRING,
                 allowNull:false,
@@ -23,6 +23,27 @@ module.exports =(sequelize,DataTypes) =>{
                     notEmpty:true
                 }
             },
+            exteriorColor:{
+                type:DataTypes.STRING,
+                allowNull:false,
+                validate:{
+                    notEmpty:true
+                }
+            },
+            interiorColor:{
+                type:DataTypes.STRING,
+                allowNull:false,
+                validate:{
+                    notEmpty:true
+                }
+            },
+            floorTrim:{
+                type:DataTypes.STRING,
+                allowNull:false,
+                validate:{
+                    notEmpty:true
+                }
+            },
             image_path:{
                 type:DataTypes.STRING,
                 allowNull:false,
@@ -33,12 +54,5 @@ module.exports =(sequelize,DataTypes) =>{
         }
     )
 
-    Items.associate = function(models) {
-        Items.hasMany(models.Cart, {
-          foreignKey: 'itemId',
-          as: 'carts',
-        });
-      };
-
-    return Items;
+    return Coach;
 }

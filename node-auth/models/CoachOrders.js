@@ -1,7 +1,7 @@
 
 module.exports =(sequelize,DataTypes) =>{
-    const Items = sequelize.define(
-        "Items",{
+    const CoachOrders = sequelize.define(
+        "CoachOrders",{
             name:{
                 type:DataTypes.STRING,
                 allowNull:false,
@@ -33,12 +33,5 @@ module.exports =(sequelize,DataTypes) =>{
         }
     )
 
-    Items.associate = function(models) {
-        Items.hasMany(models.Cart, {
-          foreignKey: 'itemId',
-          as: 'carts',
-        });
-      };
-
-    return Items;
+    return CoachOrders;
 }

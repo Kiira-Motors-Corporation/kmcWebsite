@@ -4,6 +4,7 @@ import { useAuth } from "../../Components/AuthContext";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import background from "./assets/images/background.png";
+import {url} from "../../utils/backend.js";
 
 const ProductPage = () => {
   const [items, setItems] = useState([]);
@@ -21,7 +22,7 @@ const ProductPage = () => {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/items/${id}`);
+      const response = await axios.get(`${url}/items/${id}`);
       setItems(response.data);
     } catch (error) {
       console.error("Error fetching item:", error);
@@ -31,7 +32,7 @@ const ProductPage = () => {
   const fetchRelatedItems = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/items?min=1&max=5"
+        `${url}/items?min=1&max=5`
       );
       setRelatedItems(response.data);
     } catch (error) {
@@ -47,7 +48,7 @@ const ProductPage = () => {
 
     try {
       const quantity = quantities[item.id] || 1; // Default to 1 if no quantity selected
-      const response = await axios.post("http://localhost:3000/cart", {
+      const response = await axios.post(url + "/cart", {
         userId: user.id,
         itemId: item.id,
         quantity: quantity,
