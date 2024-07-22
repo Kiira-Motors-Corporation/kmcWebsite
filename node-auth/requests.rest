@@ -13,6 +13,17 @@ GET http://localhost:3002/redirect-to-login
 
 ###
 
+POST http://localhost:3002/items
+Content-Type: application/json
+
+{
+        "name":"Test",
+        "price":2,
+        "description":"test",
+        "image_path":1000
+      }
+
+###
 GET http://localhost:3002/items
 
 ###
@@ -20,25 +31,20 @@ GET http://localhost:3002/items
 GET http://localhost:3002/items/1
 
 ###
-POST http://localhost:3002/cart
-Content-Type: application/json
 
-{
-    "userId":2,
-    "itemId": 2,
-    "quantity": 4
-}
-###
 POST http://localhost:3002/user/signup
 Content-Type: application/json
 
 { "name":"Peter", "email":"peter@kmc.com", "contact":"1234", "password":"peter" }
 
-###
-GET http://localhost:3002/cart?userId=5
+
 
 ###
 GET http://localhost:3002/user
+
+###
+
+GET http://localhost:3002/user/session
 
 ###
 
@@ -55,15 +61,34 @@ Content-Type: application/json
 POST http://localhost:3002/user/logout
 
 
+# Testing cart APIs
 ###
 GET http://localhost:3002/cart
+###
 
 ###
-DELETE http://localhost:3002/cart/1
+GET http://localhost:3002/cart/2
+
+
+###
+POST http://localhost:3002/cart
 Content-Type: application/json
 
 {
-    "userId":4
+    "userId":2,
+    "itemId": 1,
+    "quantity": 4,
+    "price":1000
+}
+
+
+###
+DELETE http://localhost:3002/cart
+Content-Type: application/json
+
+{
+    "userId":1,
+    "itemId":1
 }
 
 
