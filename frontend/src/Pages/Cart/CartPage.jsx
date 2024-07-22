@@ -46,6 +46,12 @@ const CartPage = () => {
     setIsModalVisible(true);
   };
 
+  if(user){
+    console.log(user);
+  }else{
+    console.log("There is no user");
+  }
+
   const confirmRemove = async () => {
     console.log(`Confirming removal of item with ID: ${selectedItem}`);
     await removeFromCart(selectedItem);
@@ -84,7 +90,7 @@ const CartPage = () => {
                   <td className="text-center ">
                     <img
                       className="w-[7rem]"
-                      src={`http://localhost:3000/${item.image_path}`}
+                      src={`${url}/${item.image_path}`}
                       alt={item.name}
                     />
                   </td>

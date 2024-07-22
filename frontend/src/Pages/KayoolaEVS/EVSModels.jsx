@@ -25,7 +25,7 @@ const EVSModels = () => {
   return (
     <div>
 
-      <div className="bg-white pb-[7%] flex justify-center items-center flex-wrap gap-8 px-[7%] ">
+      <div className="bg-white pb-[7%] flex justify-center items-center flex-wrap gap-8 px-[7%] overflow-hidden">
         {evs.map((item) => (
           <div key={item.id}>
             <div className="w-[18rem] object-cover object-center">

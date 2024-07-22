@@ -13,7 +13,7 @@ const Concepts = () => {
     <div className="font-poppins ">
 
       <div
-        className="md:h-[100vh] h-[70dvh]  "
+        className="lg:h-[100vh]   "
         style={{ backgroundImage: `url(${gradient})`,backgroundPosition:'center',objectFit:'cover' }}
         data-aos="fade-up"
         data-aos-once="true"
@@ -34,7 +34,10 @@ const Concepts = () => {
             </span>
           </p>
         </div>
+        <div className="md:hidden py-4">
         <UpdateSlider />
+        </div>
+
         <div className="hidden md:flex flex-wrap md:flex-nowrap justify-center items-center  ">
           <div
             className="w-[350px] md:rounded-none rounded-[2rem] h-[170px] md:h-[250px]"
@@ -71,7 +74,7 @@ const Concepts = () => {
       </div>
 
       <div
-        className="h-[100vh] bg-black/10 relative "
+        className="h-[100dvh] bg-black/10 relative "
         // style={{
         //   backgroundImage: `url(${ev_cover})`,
         //   backgroundRepeat: "no-repeat",
@@ -97,13 +100,13 @@ const Concepts = () => {
                energy converter and an electric motor. It is powered by
               electricity which is stored in the battery bank through repetitive
               charging.
-              <span className="hidden md:block"></span>
+              <span className="hidden md:block "></span>
           </p>
         </div>
       </div>
 
       <div
-        className="h-[100vh] "
+        className="h-[100dvh] "
         style={
           {
             // backgroundImage: `url(${evs_cover})`,
@@ -129,7 +132,7 @@ const Concepts = () => {
       </div>
 
       <div
-        className="h-[100vh] "
+        className="h-[100dvh] "
         style={
           {
             // backgroundImage: `url(${coach_cover})`,

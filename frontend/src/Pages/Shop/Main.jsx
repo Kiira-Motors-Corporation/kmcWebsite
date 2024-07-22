@@ -110,7 +110,7 @@ const Shop = () => {
               <div className=" w-[8rem] h-[10rem] py-4  rounded-2xl">
                 <img
                   className=" object-cover object-center"
-                  src={`http://localhost:3000/${item.image_path}`}
+                  src={`${url}/${item.image_path}`}
                   alt={item.name}
                 />
               </div>

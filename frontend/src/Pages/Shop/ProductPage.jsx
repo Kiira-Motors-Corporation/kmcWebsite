@@ -52,9 +52,11 @@ const ProductPage = () => {
         userId: user.id,
         itemId: item.id,
         quantity: quantity,
+        price:item.price
+
       });
 
-      if (response.data.success) {
+      if (response) {
         addToCart(item, quantity);
         alert("Item added to cart");
       }
@@ -87,7 +89,7 @@ const ProductPage = () => {
           <div className=" w-full   py-4 rounded-2xl">
             <img
               className="w-full"
-              src={`http://localhost:3000/${items.image_path}`}
+              src={`${url}/${items.image_path}`}
               alt={items.name}
             />
           </div>
@@ -135,7 +137,7 @@ const ProductPage = () => {
     <div className="bg-white w-[8rem] h-[10rem] py-4  rounded-2xl">
       <img
         className="w-[9rem]"
-        src={`http://localhost:3000/${item.image_path}`}
+        src={`${url}/${item.image_path}`}
         alt={item.name}
       />
     </div>

@@ -1,6 +1,7 @@
 
 import SocialProofSlider from "./SocialProofSlider";
 
+
 const SocialProof = () => {
   return (
     <div className="px-4  h-auto bg-white    py-[3rem]">

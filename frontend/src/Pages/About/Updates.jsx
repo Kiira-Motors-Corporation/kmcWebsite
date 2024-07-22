@@ -1,36 +1,12 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useState } from "react";
 import president from "./assets/images/president.png"
 import overview from "./assets/images/overview.png"
 import ev from "./assets/images/ev.png"
 
 const UpdateSlider = () => {
-  const [isMobile, setIsMobile] = useState(false); // State to track mobile view
-  const [isDesktop, setIsDesktop] = useState(true); // State to track mobile view
 
-  // return () => window.removeEventListener("resize", handleResize); // Cleanup
-  function logWindowWidth() {
-    if (window.innerWidth < 800) {
-      setIsMobile(true); // Adjust breakpoint for mobile as needed
-
-    } else {
-      setIsMobile(false);
-    }
-  }
-
-  function logWindowWidthDesktop() {
-    if (window.innerWidth > 800) {
-      setIsDesktop(true); // Adjust breakpoint for mobile as needed
-    } else {
-      setIsDesktop(false);
-    }
-  }
-  // console.log("Window width:", window.innerWidth);
-
-  window.addEventListener("resize", logWindowWidth);
-  window.addEventListener("resize", logWindowWidthDesktop);
   //data
   const data = [
     {
@@ -62,19 +38,32 @@ const UpdateSlider = () => {
     slidesToScroll: 1,
     autoplay: true, // Enable autoplay
     autoplaySpeed: 5000,
+    responsive: [
+      {
+        breakpoint: 1024, // Large screens
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        }
+      },
+      {
+        breakpoint: 768, // Medium screens
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 640, // Small screens
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
   };
 
 
-  // settings-mobile
-  const settingsMob = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true, // Enable autoplay
-    autoplaySpeed: 5000,
-  };
 
   return (
     <>
@@ -85,41 +74,10 @@ const UpdateSlider = () => {
         // data-aos-duration="800"
       >
 
-        {/* Mobile */}
-        <div
-          onResize={logWindowWidth}
-          className=" flex  flex-row justify-center items-center "
-        >
-          {isMobile && (
-            <Slider {...settingsMob} className="w-full">
-              {data.map((p) => (
-                <div
-                  key={p.id}
-                  className="cursor-pointer filter brightness-90 hover:brightness-100"
-                >
-                   <div className=" md:w-[500px]  h-[250px] overflow-hidden rounded-2xl ">
-                    <img
-                      className="hover:scale-105 h-[90%] overflow-hidden w-full "
-                      src={p.image_url}
-                      alt=""
-                      style={{ transition: "all 0.3s" }}
-                    />
 
-
-                    <div className="text-center md:text-base ">
-                      {p.headline}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </Slider>
-          )}
-        </div>
-
-        {isDesktop && (
           <div className="w-full overflow-hidden">
             <center>
-              <Slider {...settings} className="w-[120vw] ">
+              <Slider {...settings} className="md:w-[120vw] ">
                 {data.map((p) => (
                   <div
                     key={p.id}
@@ -140,9 +98,7 @@ const UpdateSlider = () => {
               </Slider>
             </center>
           </div>
-        )}
-
-      </div>
+            </div>
     </>
   );
 };

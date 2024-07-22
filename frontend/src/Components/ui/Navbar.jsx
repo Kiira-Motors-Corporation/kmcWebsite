@@ -12,6 +12,7 @@ import ImageSlider from "./ImageSlider";
 import DiscoverMore from "./ImageSlider_2";
 import Products from "./ImageSlider_3";
 import { OrderContext } from "../../Pages/KayoolaEVS/OrderContext";
+import { MdOutlineArrowForwardIos } from "react-icons/md";
 
 import { useCart } from "../../Pages/Cart/CartContext";
 
@@ -315,66 +316,114 @@ const Navbar = () => {
                     <div className=" h-full mt-8 px-8">
                       <ul>
                         <li
-                          className="pt-6 cursor-pointer "
+                          className="pt-6 cursor-pointer transition-all duration-200 "
                           onClick={() => setProducts(!products)}
                         >
-                          Products
-                          {products && (
-                            <ul className="px-6 text-lg transition-all">
-                              <Link onClick={handleMenuBar} to="/kayoola-evs">
-                                Kayoola Evs
-                              </Link>
-                              <br />
-                              <Link onClick={handleMenuBar} to="/kayoola-coach">
-                                Kayoola Coach
-                              </Link>
-                              <br />
-                              <Link onClick={handleMenuBar} to="/chargers">
-                                {" "}
-                                Chargers
-                              </Link>
-                            </ul>
-                          )}
+                          <div className="flex">
+                            <p>Products</p>{" "}
+                            <div
+                              className={`flex px-4 items-center transition-all duration-200 ${
+                                products ? " rotate-90" : ""
+                              }`}
+                            >
+                              <MdOutlineArrowForwardIos />
+                            </div>
+                          </div>
+                          <div
+                            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                              products
+                                ? "max-h-screen opacity-100"
+                                : "max-h-0 opacity-0"
+                            }`}
+                          >
+                            {products && (
+                              <ul className="px-6 text-lg transition-all duration-200">
+                                <Link onClick={handleMenuBar} to="/kayoola-evs">
+                                  Kayoola Evs
+                                </Link>
+                                <br />
+                                <Link
+                                  onClick={handleMenuBar}
+                                  to="/kayoola-coach"
+                                >
+                                  Kayoola Coach
+                                </Link>
+                                <br />
+                                <Link onClick={handleMenuBar} to="/chargers">
+                                  {" "}
+                                  Chargers
+                                </Link>
+                              </ul>
+                            )}
+                          </div>
                         </li>
                         <li
                           className="pt-6 cursor-pointer"
                           onClick={() => setServices(!services)}
                         >
-                          Services
-                          {services && (
-                            <ul className="px-6 text-lg">
-                              <Link
-                                onClick={handleMenuBar}
-                                to="/contract-manufacturing"
-                              >
-                                Contract Manufacturing
-                              </Link>
-                              <br />
-                              <Link
-                                onClick={handleMenuBar}
-                                to="/product-support"
-                              >
-                                Product Support
-                              </Link>
-                              <br />
-                              <Link
-                                onClick={handleMenuBar}
-                                to="/engineering-services"
-                              >
-                                Engineering Services
-                              </Link>
-                              <br />
-                              <Link onClick={handleMenuBar} to="/vehicle-hire">
-                                Vehicle Hire
-                              </Link>
-                            </ul>
-                          )}
+                          <div className="flex">
+                            <p>Services</p>{" "}
+                            <div
+                              className={`flex px-4 items-center transition-all duration-200 ${
+                                services ? " rotate-90" : ""
+                              }`}
+                            >
+                              <MdOutlineArrowForwardIos />
+                            </div>
+                          </div>
+                          <div
+                            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                              services
+                                ? "max-h-screen opacity-100"
+                                : "max-h-0 opacity-0"
+                            }`}
+                          >
+                            {services && (
+                              <ul className="px-6 text-lg">
+                                <Link
+                                  onClick={handleMenuBar}
+                                  to="/contract-manufacturing"
+                                >
+                                  Contract Manufacturing
+                                </Link>
+                                <br />
+                                <Link
+                                  onClick={handleMenuBar}
+                                  to="/product-support"
+                                >
+                                  Product Support
+                                </Link>
+                                <br />
+                                <Link
+                                  onClick={handleMenuBar}
+                                  to="/engineering-services"
+                                >
+                                  Engineering Services
+                                </Link>
+                                <br />
+                                <Link
+                                  onClick={handleMenuBar}
+                                  to="/vehicle-hire"
+                                >
+                                  Vehicle Hire
+                                </Link>
+                              </ul>
+                            )}
+                          </div>
                         </li>
                         <li className="py-6 ">
                           <p id="menu-parent">Discover More</p>
+
                           <ul className="cursor-pointer px-6 text-lg">
                             <li onClick={() => setCompany(!company)}>
-                            &gt;Company
+                               <div className="flex">
+                          <p>Company</p> <div className={`flex px-4 items-center transition-all duration-200 ${company ? " rotate-90":""}`}><MdOutlineArrowForwardIos /></div>
+                            </div>
+                            <div
+          className={`overflow-hidden transition-all duration-300 ease-in-out ${
+            company ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
                               {company && (
                                 <ul className="flex flex-col text-base px-6 gap-1 py-2">
                                   <Link onClick={handleMenuBar} to="/about">
@@ -394,9 +443,11 @@ const Navbar = () => {
                                   </Link>
                                 </ul>
                               )}
+                              </div>
                             </li>
+
                             <li onClick={() => setMedia(!media)}>
-                            &gt;Media
+                              Media
                               {media && (
                                 <ul className="flex flex-col text-base px-6 gap-1 py-2">
                                   <Link>New Press</Link>
@@ -407,22 +458,39 @@ const Navbar = () => {
                               )}
                             </li>
                             <li onClick={() => setResources(!resources)}>
-                              &gt;Support
+                              Support
                               {resources && (
                                 <ul className="flex flex-col text-base px-6 gap-1 py-2">
-                                  <li>Annual reports</li>
-                                  <Link to="*">Service Location</Link>
-                                  <Link to="*">Charging Location</Link>
-                                  <Link to="*">Spare Parts</Link>
+                                  <Link onClick={handleMenuBar} to="*">
+                                    Service Location
+                                  </Link>
+                                  <Link onClick={handleMenuBar} to="*">
+                                    Charging Location
+                                  </Link>
+                                  <Link onClick={handleMenuBar} to="*">
+                                    Spare Parts
+                                  </Link>
                                 </ul>
                               )}
                             </li>
 
-                            <Link to='/shop' onClick={() => setSupport(!support)}>
+                            <Link
+                              to="/shop"
+                              onClick={() => setSupport(!support)}
+                            >
                               Shop
                             </Link>
                           </ul>
                         </li>
+                        <div className="flex gap-2">
+                          <Link
+                            onClick={handleMenuBar}
+                            className="bg-white text-black rounded-lg text-base py-3 px-8"
+                            to="/sign-up"
+                          >
+                            <button>Sign Up</button>
+                          </Link>
+                        </div>
                       </ul>
                     </div>
                   </div>

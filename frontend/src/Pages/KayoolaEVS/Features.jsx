@@ -2,7 +2,7 @@ import feature from "./assets/images/feature.png";
 
 const Features = () => {
   return (
-    <div className="bg-[#171717] h-[100vh] flex justify-center items-center">
+    <div className="bg-[#171717] h-[100vh] flex justify-center items-center overflow-hidden">
       {/* <div
         style={{ backgroundImage: `url(${feature})` }}
         className="absolute inset-1  "
@@ -18,7 +18,7 @@ const Features = () => {
         style={{
           backgroundImage: "radial-gradient(circle, orange, #171717, #171717)",
         }}
-        className=" w-[40rem] h-[100vh] flex flex-col justify-center items-center pt-[2rem]"
+        className=" w-[37rem] h-[100vh] flex flex-col justify-center items-center pt-[2rem]"
       >
         <div
           id="circle"

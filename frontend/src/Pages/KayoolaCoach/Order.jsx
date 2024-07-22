@@ -28,12 +28,6 @@ const Order = () => {
 
   }, [id]);
 
-  // useEffect(() => {
-  //   // handlePassengers();
-  //   // handleExteriorColorSelect();
-  //   // handleInteriorColorSelect();
-  //   // handleFloorTrimSelect();
-  // }, []);
 
   const [formData, setFormData] = useState({
     name: "",
