@@ -5,6 +5,10 @@ import background from "./assets/images/background.png";
 import main from "./assets/images/main.png";
 import icon from '../../assets/images/icon.png'
 import { AuthContext } from "../../Components/AuthContext";
+import {url} from "../../utils/backend.js";
+
+
+
 
 
 //Login Form
@@ -88,15 +92,13 @@ const Login = () => {
                 </button>
 
 
-             <Link className="text-xs text-left py-2" to="/sign-up">
+             <Link to="/sign-up">
                 Don't have an account?
-                <div className="text-blue-800 font-bold">Register Now</div>
+                <div className="text-blue-800">Register Now</div>
               </Link>
             </form>
-
           </center>
         </div>
-
         <img
           src={main}
           className="md:w-[30rem]  w-[20rem] absolute right-[-5rem] bottom-[-4rem]   overflow-x-hidden"
