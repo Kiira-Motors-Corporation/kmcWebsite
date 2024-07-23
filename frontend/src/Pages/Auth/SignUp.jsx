@@ -1,52 +1,30 @@
-import  { useState,useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../Components/AuthContext";
 import icon from "../../assets/images/icon.png";
 import background from "./assets/images/background.png";
 import main from "./assets/images/main.png";
-import {Link, useNavigate } from "react-router-dom";
-
-
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const [username, setUsername] = useState("");
-  const [fname, setFirstName] = useState("");
-  const [lname, setLastName] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [country, setCountry] = useState("");
-  const [phone, setPhone] = useState("");
-  const [category, setCategory] = useState("");
+  const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
-  const {user, signup, loading } = useContext(AuthContext);
+  const { user, signup, loading } = useContext(AuthContext);
   const navigate = useNavigate();
-
 
   useEffect(() => {
     // Redirect if user is already logged in
     if (user) {
-        navigate('/'); // Redirect to home page or dashboard
+      navigate("/"); // Redirect to home page or dashboard
     }
-}, [user, navigate]);
+  }, [user, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      return;
-    }
-
     try {
-      const success = await signup(
-        username,
-        fname,
-        lname,
-        email,
-        country,
-        phone,
-        category,
-        password
-      );
+      const success = await signup(name, email, contact, password);
       if (success) {
         navigate("/"); // Navigate to home or any other page after successful signup
       } else {
@@ -69,7 +47,6 @@ const Signup = () => {
         error && <p>{error}</p>
       )}
 
-
       <div
         className="absolute z-[-1] flex font-poppins overflow-hidden  w-[100vw]  border-none"
         style={{ backgroundImage: `url(${background})` }}
@@ -78,103 +55,61 @@ const Signup = () => {
           {error && <p>{error}</p>}
           <center>
             <form
-            className="relative md:top-[1rem] top-[5rem] grid w-8/12 p-8  rounded-2xl"
-            onSubmit={handleSubmit}>
-              <h1 className="text-3xl font-bold text-left text-white py-5">
-              Create new account
+              className="relative md:top-[3rem] top-[5rem] grid lg:w-8/12 w-10/12 p-8  rounded-2xl"
+              onSubmit={handleSubmit}
+            >
+              <h1 className="text-2xl font-medium text-left text-white py-5">
+                Create new account
               </h1>
-              <div className="flex gap-2">
-              <input
-                type="text"
-                placeholder="Username"
-                value={username}
-                className="my-2 rounded-2xl border-none  "
-                onChange={(e) => setUsername(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="First Name"
-                value={fname}
-                className="my-2 rounded-2xl border-none  "
-                onChange={(e) => setFirstName(e.target.value)}
-              />
+              <div className="flex  gap-2">
+                <input
+                  type="text"
+                  placeholder="Username"
+                  value={name}
+                  className="my-2 w-full text-sm focus:outline-none focus:ring-0 rounded-lg border-none"
+                  onChange={(e) => setName(e.target.value)}
+                />
               </div>
 
               <div className="flex gap-2">
-              <input
-                type="text"
-                placeholder="Last Name"
-                value={lname}
-                className="my-2 rounded-2xl border-none "
-                onChange={(e) => setLastName(e.target.value)}
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                className="my-2 rounded-2xl border-none  "
-                onChange={(e) => setEmail(e.target.value)}
-              />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  className="my-2 w-full text-sm focus:outline-none focus:ring-0 rounded-lg border-none"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
 
-           <div className="flex gap-2">
-           <input
-                type="text"
-                placeholder="Country"
-                value={country}
-                className="my-2 rounded-2xl border-none  "
-                onChange={(e) => setCountry(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="Phone"
-                value={phone}
-                className="my-2 rounded-2xl border-none  "
-                onChange={(e) => setPhone(e.target.value)}
-              />
-           </div>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="Contact"
+                  value={contact}
+                  className="my-2 w-full text-sm focus:outline-none focus:ring-0 rounded-lg border-none"
+                  onChange={(e) => setContact(e.target.value)}
+                />
+              </div>
 
 
-              <select
-                onChange={(e) => setCategory(e.target.value)}
-                id="category"
-                name="category"
-                className=" rounded-2xl border-none  "
-                required
-              >
-                <option value="" disabled selected>
-                  Select a category <b>🔻</b>
-                </option>
-                <option value="customer">Personal</option>
-                <option value="dealer">Dealer</option>
-                <option value="supplier">Supplier</option>
-                <option value="supplier">Business</option>
-              </select>
-              <br />
               <input
                 type="password"
                 placeholder="Password"
                 value={password}
-                className="my-2 rounded-2xl border-none  "
+                className="my-2 w-full text-sm focus:outline-none focus:ring-0 rounded-lg border-none"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <input
-                type="password"
-                placeholder="Confirm Password"
-                value={confirmPassword}
-                 className=" rounded-2xl border-none  "
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-               <button
-                  className=" text-white w-6/12 bg-black rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-white "
-                  type="submit"
-                >
-                  Sign Up
-                </button>
 
-             <Link to="/login">
+              <button
+                className=" text-white lg:w-6/12 text-sm bg-black rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-white "
+                type="submit"
+              >
+                Sign Up
+              </button>
+
+              <Link to="/login" className="text-xs text-left py-2">
                 Already have an account?
-                <div className="text-blue-800">Sign In</div>
+                <span className="text-blue-800 font-bold">Sign In</span>
               </Link>
             </form>
           </center>

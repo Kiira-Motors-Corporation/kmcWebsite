@@ -100,8 +100,10 @@ const loginUser = async (req, res) => {
     }
 
     // Assuming you want to send some user information as response
+    req.session.user = user;
     res.status(200).json({
       message: 'Login successful',
+      loggedIn: true,
       user: {
         id: user.id,
         name: user.name,
@@ -134,9 +136,18 @@ const logoutUser = (req, res) => {
   }
 }
 
+const checkSession =(req, res) => {
+  if (req.session.user) {
+    res.json({ user: req.session.user });
+  } else {
+    res.status(401).json({ user: null });
+  }
+}
+
 module.exports = {
   getUsers,
   createUser,
   loginUser,
-  logoutUser
+  logoutUser,
+  checkSession
 };

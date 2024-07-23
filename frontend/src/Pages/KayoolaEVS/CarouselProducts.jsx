@@ -4,7 +4,7 @@ const CarouselProducts = () => {
   return (
     <div
       id="transparent"
-      className="px-4  text-white h-[100vh]"
+      className="px-4  text-white h-[100vh] overflow-hidden"
       style={{
         backgroundImage: `url(${c})`,
         objectFit: "cover",

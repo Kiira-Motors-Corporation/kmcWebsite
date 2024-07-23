@@ -134,14 +134,6 @@ app.use(express.static("public"));
 
 // Route to handle logout
 
-//Route to check session
-app.get("/user/checkSession", (req, res) => {
-  if (req.session.user) {
-    res.send({ loggedIn: true, user: req.session.user });
-  } else {
-    res.send({ loggedIn: false });
-  }
-});
 
 app.get("/", (req,res)=>{
   res.send(`connected on port ${port}`)

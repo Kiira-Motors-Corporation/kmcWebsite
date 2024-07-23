@@ -1,5 +1,5 @@
 // controllers/userController.js
-const db = require("../db/dbConfig")
+
 
 
 const getEVS = (req, res) => {

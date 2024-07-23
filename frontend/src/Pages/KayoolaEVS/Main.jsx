@@ -41,7 +41,7 @@ const Products = () => {
     zIndex: -1,
   };
   return (
-    <div className="font-poppins">
+    <div className="font-poppins overflow-hidden">
 
 
       <CarouselProducts />
@@ -53,7 +53,7 @@ const Products = () => {
       {/* <Video /> */}
       <Features />
       {/* Section */}
-      <div className="px-4 w-full bg-[#171717]  h-auto md:px-[8rem] md:py-[3rem]">
+      <div className="px-4 w-full bg-[#171717]  h-auto md:px-[8rem] md:py-[3rem] overflow-hidden">
         <div id="coach" className="flex  flex-wrap md:flex-nowrap justify-between gap-10  text-white">
           <div>
             <h1 className="lg:text-3xl text-2xl font-medium w-11/12 ">
@@ -85,7 +85,7 @@ const Products = () => {
 
         {/* Section */}
         <div
-          className="relative h-[25rem]"
+          className="relative h-[25rem] overflow-hidden"
           style={{
             backgroundImage: `url(${images[2].seats})`,
             objectFit: "cover",
@@ -124,7 +124,7 @@ const Products = () => {
       </div>
 
       {/* Gallery  */}
-      <div className="flex justify-center items-center gap-6 bg-[#171717] md:px-[8rem] md:py-[3rem]">
+      <div className="flex justify-center items-center gap-6 bg-[#171717] md:px-[8rem] md:py-[3rem] overflow-hidden">
         <img
           className="w-5/12 h-[250px] md:w-6/12 md:h-[350px] rounded-2xl relative  "
           src={images[3].wheel}
@@ -141,7 +141,7 @@ const Products = () => {
       </div>
 
       {/* Gallery  2*/}
-      <div className="flex flex-wrap md:flex-nowrap gap-8 bg-[#171717] md:px-[6rem] md:py-[3rem] text-white px-2">
+      <div className="flex flex-wrap md:flex-nowrap gap-8 bg-[#171717] md:px-[6rem] md:py-[3rem] text-white px-2 overflow-hidden">
         <div className="md:w-6/12  md:h-[500px]  rounded-[50px] relative">
           <h1 className="md:text-3xl text-2xl font-medium">CCTV Cameras</h1>
           <p className="md:text-base md:py-[2rem]">
@@ -164,7 +164,7 @@ const Products = () => {
       {/* <Card /> */}
 
       {/* Order */}
-      <div className="bg-[#171717] w-full h-[100vh] flex justify-center md:px-[8rem]  md:py-[3rem]">
+      <div className="bg-[#171717] w-full h-[100vh] flex justify-center md:px-[8rem]  md:py-[3rem] overflow-hidden">
         <div
           className=" h-full w-full rounded-2xl flex justify-center items-center"
           style={{

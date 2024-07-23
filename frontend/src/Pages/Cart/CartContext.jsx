@@ -1,18 +1,18 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { useAuth } from "../../Components/AuthContext";
 import axios from "axios";
-import {url} from "../../utils/backend.js";
-
+import { url } from "../../utils/backend.js";
 
 const CartContext = createContext();
 
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
-    const { user } = useAuth(); // Get the user from AuthContext
+  const { user } = useAuth(); // Get the user from AuthContext
+
   const [cartItems, setCartItems] = useState(() => {
     const storedCartItems = localStorage.getItem("cartItems");
-    return storedCartItems ? JSON.parse(storedCartItems) : [];
+    return storedCartItems ? [JSON.parse(storedCartItems)] : [];
   });
 
   useEffect(() => {
@@ -33,29 +33,19 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = async (itemId) => {
-    if (!user) {
-      console.error('User not authenticated');
-      return;
-    }
-
     try {
-      console.log(`Attempting to remove item with ID: ${itemId}`);
-      const response = await axios.delete(url + `/cart/${itemId}`, {
-        data: { userId: user.id },
-      });
-      console.log('Response from backend:', response);
+      const response = await axios.delete(`${url}/${itemId}`);
       if (response.status === 200) {
-        setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
-      } else {
-        console.error('Error removing item from cart:', response.data);
+        setCartItems(cartItems.filter((cartItem) => cartItem.id !== itemId));
       }
     } catch (error) {
-      console.error('Error removing item from cart:', error);
+      console.error("Error removing item:", error);
     }
   };
 
   const value = {
     cartItems,
+    setCartItems,
     addToCart,
     removeFromCart,
   };

@@ -5,6 +5,7 @@ import background from "./assets/images/background.png";
 import main from "./assets/images/main.png";
 import icon from '../../assets/images/icon.png'
 import { AuthContext } from "../../Components/AuthContext";
+import {url} from "../../utils/backend.js";
 
 
 
@@ -13,12 +14,9 @@ import { AuthContext } from "../../Components/AuthContext";
 //Login Form
 const Login = () => {
   const { login, loading, user } = useContext(AuthContext);
-  const [username, setUsername] = useState();
+  const [name, setName] = useState();
   const [password, setPassword] = useState();
   const [errorMessage, setErrorMessage] = useState(null);
-
-
-
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -32,7 +30,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = await login(username, password);
+    const success = await login(name, password);
       // console.log(success)
     if (success) {
         const from = location.state?.from?.pathname || '/';
@@ -41,34 +39,6 @@ const Login = () => {
         setErrorMessage('Login failed. Please check your credentials.');
     }
 };
-
-
-
-//   const handleLogin = async (e) => {
-//     e.preventDefault();
-//     setLoading(true); // Set loading to true when the request starts
-//     try {
-//         const response = await axios.post('http://localhost:3000/login', {
-//             username,
-//             password
-//         }, {
-//             withCredentials: true
-//         });
-
-//         if (response.data.loggedIn) {
-//             setErrorMessage('Login successful');
-//             navigate('/cart')
-//             // Redirect or perform additional actions
-//         } else {
-//           setErrorMessage(response.data.message);
-//         }
-//     } catch (error) {
-//       setErrorMessage('Password or Username is invalid');
-//     } finally {
-//       setLoading(false); // Set loading to false when the request finishes
-//   }
-// };
-
 
 
   return (
@@ -90,16 +60,16 @@ const Login = () => {
              onSubmit={handleSubmit}
               className="relative md:top-[7rem] top-[5rem] grid w-8/12 md:p-8  rounded-2xl"
             >
-              <h1 className="text-3xl font-bold text-left text-white py-5">
+              <h1 className="text-2xl font-bold text-left text-white py-5">
                 Welcome back
               </h1>
               <input
                 type="text"
                 name="username"
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
                 placeholder="Username"
                 required="required"
-                className="my-4 rounded-2xl border-none   "
+                 className="my-2 w-full text-sm focus:outline-none focus:ring-0 rounded-lg border-none"
               />
 
               <input
@@ -108,24 +78,24 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 required="required"
-                className="my-4 rounded-2xl border-none  "
+               className="my-2 w-full text-sm focus:outline-none focus:ring-0 rounded-lg border-none"
               />
               {/* <span>Show Password</span> */}
               <div> {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>
         {/* <p id='spinner'>hello</p> */}
                 <button
-                  className=" text-white w-6/12 bg-black rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-white "
+                  className=" text-white lg:w-6/12 text-sm bg-black rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-white "
                   type="submit"
                 >
                   Sign in
                 </button>
 
+
              <Link to="/sign-up">
                 Don't have an account?
                 <div className="text-blue-800">Register Now</div>
-             </Link>
-
+              </Link>
             </form>
           </center>
         </div>
