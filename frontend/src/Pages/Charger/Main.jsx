@@ -36,7 +36,7 @@ const Main = () => {
 
       <div
         id="chargers"
-        className="md:h-[100vh] py-[7%] bg-white "
+        className=" h-auto py-[7%]  bg-white "
         data-aos="fade-up"
         data-aos-once="true"
         data-aos-duration="1100"
@@ -52,7 +52,7 @@ const Main = () => {
           </span>
         </center>
 
-        <div className="flex flex-wrap justify-evenly md:gap-0 gap-40 items-center h-full">
+        <div className="flex flex-wrap py-[4rem] justify-evenly md:gap-0 gap-40 items-center h-auto">
           <div className="md:w-2/12 w-7/12">
             <div className="md:h-[9rem]">
               <img
@@ -92,22 +92,24 @@ const Main = () => {
       </div>
 
       <div
-        className="md:h-[100vh] h-[70dvh]"
-        style={{
-          backgroundImage: `url(${order})`,
-          backgroundPosition: "center",
-          objectFit: "cover",
-        }}
+        className=" "
+        // style={{
+        //   backgroundImage: `url(${order})`,
+        //   backgroundPosition: "center",
+        //   objectFit: "cover",
+        // }}
         data-aos="fade-up"
         data-aos-once="true"
         data-aos-duration="1100"
       >
         <span className="absolute w-full h-full bg-black/10"></span>
 
-        <span className="relative">
+
+          <center className="absolute  w-full h-full  ">
+             <span className="relative">
           <center className="pt-16">
             <p className="text-white">
-              Join us in driving sustainable mobility forward with <br className="md:block hidden" />{" "}
+              Join us in driving sustainable mobility forward with <br className="md:block hidden" />
               KMC&apos;s electric charging solutions.
             </p>
           </center>
@@ -119,6 +121,11 @@ const Main = () => {
             </button>
           </center>
         </Link>
+</center>
+
+        <div className="w-full h-auto relative   z-[-1]">
+          <img src={order} className="object-cover object-center" alt=""  />
+        </div>
       </div>
       <Footer />
     </div>

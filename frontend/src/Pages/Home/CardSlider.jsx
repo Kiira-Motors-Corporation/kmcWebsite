@@ -83,7 +83,7 @@ const UpdateSlider = () => {
                   {data.map((p) => (
                     <div
                       key={p.id}
-                      className="cursor-grab w-[20rem] flex justify-evenly items-center filter brightness-90 hover:brightness-100 transition-all delay-150 "
+                      className="cursor-grab w-[20rem]  flex justify-evenly items-center filter brightness-90 hover:brightness-100 transition-all delay-150 "
                     >
                       <div>
                         <div className="h-[15rem]">

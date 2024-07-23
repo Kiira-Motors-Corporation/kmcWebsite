@@ -52,14 +52,14 @@ const UpdateSlider = () => {
         breakpoint: 1024, // Large screens
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
         }
       },
       {
         breakpoint: 768, // Medium screens
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
         }
       },
       {
@@ -92,11 +92,11 @@ const UpdateSlider = () => {
                 {data.map((p) => (
                   <div
                     key={p.id}
-                    className="cursor-pointer  flex justify-center items-center filter brightness-75 hover:brightness-100   "
+                    className="cursor-pointer w-[15rem]  flex gap-5 justify-center items-center filter brightness-75 hover:brightness-100   "
                   >
-                    <div className=" w-[20rem] overflow-hidden rounded-2xl">
+                    <div className=" overflow-hidden rounded-2xl">
                       <img
-                        className="hover:scale-105 rounded-2xl overflow-hidden object-cover object-center h-[300px]"
+                        className="hover:scale-105 rounded-2xl overflow-hidden object-cover object-center md:h-[210px] lg:h-[270px]"
                         src={p.image_url}
                         alt=""
                         style={{ transition: "all 0.3s" }}

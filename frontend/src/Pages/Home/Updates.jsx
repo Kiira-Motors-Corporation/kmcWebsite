@@ -67,29 +67,29 @@ const UpdateSlider = () => {
 
   return (
     <>
-      <div className="w-full py-[3rem] px-[7%] bg-white">
+      <div className="w-full py-[3rem] overflow-hidden lg:px-[0] bg-white">
         <center>
           <div className="text-[2rem] md:text-3xl font-medium py-3  mb-[3rem]">
             News Updates
           </div>
         </center>{" "}
 
-          <div className="w-full ">
-            <center>
-              <Slider {...settings} className="w-full  ">
+          <div className="w-full  overflow-hidden">
+            <center className=" overflow-hidden">
+              <Slider {...settings} className="mx-[7%]  overflow-hidden " >
                 {data.map((p) => (
                   <div
                     key={p.id}
-                    className="cursor-pointer flex justify-center items-center filter brightness-75 hover:brightness-100   "
+                    className="cursor-pointer overflow-hidden  pr-[1rem] filter brightness-75 hover:brightness-100   "
                   >
-                    <div className=" w-[20rem] overflow-hidden rounded-2xl">
+                    <div className="  overflow-hidden rounded-2xl">
                       <img
-                        className="hover:scale-105 rounded-2xl overflow-hidden object-cover object-center h-[300px]"
+                        className="hover:scale-105 rounded-2xl overflow-hidden object-cover object-center "
                         src={p.image_url}
                         alt=""
                         style={{ transition: "all 0.3s" }}
                       />
-                      <button className="bg-white hover:bg-gray-700 hover:text-white text-black rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-black border-2  mb-5 relative bottom-[4rem] left-[5rem] z-2">
+                      <button className="bg-white text-sm hover:bg-gray-700 hover:text-white text-black rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-black border-2  relative bottom-[4rem] left-[4rem] z-2">
                         Learn More
                       </button>
                       <div

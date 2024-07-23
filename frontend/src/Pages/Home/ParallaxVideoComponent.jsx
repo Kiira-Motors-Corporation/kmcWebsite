@@ -5,7 +5,7 @@ const ParallaxVideoComponent = () => {
   return (
     <div className="relative ">
       <span className="absolute w-full h-full bg-black/50"></span>
-      <div id="ParallaxVideo" className="relative md:h-[100vh] h-auto py-[50px]">
+      <div id="ParallaxVideo" className="relative lg:h-[100vh] h-auto py-[50px]">
       <video
         autoPlay
         muted

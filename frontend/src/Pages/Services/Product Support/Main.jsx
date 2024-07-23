@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <>
       <div
-        className="h-[100vh] gap-[4rem] w-full flex flex-wrap md:flex-nowrap justify-center pt-[9rem] font-poppins"
+        className="h-auto md:h-auto gap-[4rem] py-[4rem] w-full flex flex-wrap md:flex-nowrap justify-center pt-[9rem] font-poppins px-[7%]"
         style={{
           backgroundImage: `url(${background})`,
           backgroundPosition: "center",
@@ -14,9 +14,9 @@ const Main = () => {
         }}
       >
         <div id="main">
-          <div className="w-[22rem] h-auto text-white bg-[#555555] p-8 rounded-2xl">
-            <h1 className="text-3xl font-medium">Product Support</h1>
-            <p className="text-base py-8">
+          <div className="lg:w-[22rem] md:w-[18rem]  text-white bg-[#555555] p-8 rounded-2xl">
+            <h1 className="text-3xl md:text-2xl  font-medium">Product Support</h1>
+            <p className="text-sm  py-8">
               Kiira Motors Corporation provides product support services to
               clients and customers using KMC products. Contact us to get the
               support you need.
@@ -40,7 +40,7 @@ const Main = () => {
             style={{ border: "0", width: "100%", height: "40vh" }}
             allowfullscreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
       </div>

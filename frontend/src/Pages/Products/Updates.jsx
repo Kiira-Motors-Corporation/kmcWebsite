@@ -42,10 +42,10 @@ const UpdateSlider = () => {
   return (
     <>
       {/* Mobile */}
-      <div className=" flex  flex-row justify-center  items-center ">
+      <div >
         <Slider
           {...settingsMob}
-          className="w-full flex justify-center items-center px-[7%]"
+
         >
           {data.map((p) => (
             <div

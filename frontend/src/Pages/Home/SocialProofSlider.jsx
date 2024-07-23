@@ -61,7 +61,7 @@ const SocialProofSlider = () => {
 
   return (
     <>
-      <div className="w-full py-[3rem] lg:px-[7%] bg-white">
+      <div className="w-full py-[3rem] md:px-[7%] bg-white">
 
           <div className="w-full ">
 
@@ -69,7 +69,7 @@ const SocialProofSlider = () => {
               <Slider {...settings} className="w-full ">
                 {data.map((p) => (
                   <div key={p.id} className="   w-[600px]  h-[340px] px-[20px]  bg-white my-6">
-                  <div className="relative px-[15px] bg-[#f8f8f8] rounded-xl shadow-2xl flex flex-col h-full ">
+                  <div className="relative px-[15px] bg-[#f8f8f8] rounded-xl shadow-xl flex flex-col h-full ">
                     {/* flex */}
                     <div className="md:text-5xl pt-6 text-xl text-[#D53A54] font-bold  ">
                       <ImQuotesLeft />
@@ -84,7 +84,7 @@ const SocialProofSlider = () => {
                        {p.headline}
                       </p>
                       <img
-                        className="absolute object-cover object-center bottom-[0px] md:w-[12rem] lg:w-[17rem] w-[9rem] right-1 ml-[0px]"
+                        className="absolute object-cover object-center bottom-[0px] md:w-[12rem] lg:w-[14rem] w-[9rem] right-1 ml-[0px]"
                         src={p.image_url}
                         alt="Sunset in the mountains"
                       />
@@ -105,7 +105,7 @@ const SocialProofSlider = () => {
                       >
                         Watch
                       </button>
-                      <div className="px-2 text-4xl flex items-center"><FaCirclePlay /> </div>
+                      {/* <div className="px-2 text-4xl flex items-center"><FaCirclePlay /> </div> */}
                       </a>
 
                     </div>

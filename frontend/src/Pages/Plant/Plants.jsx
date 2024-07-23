@@ -17,10 +17,10 @@ const Plants = () => {
           backgroundPosition:'center',
           objectFit: 'cover',
         }}
-        className="md:h-[100vh] h-[50dvh] relative"
+        className="lg:h-[100vh] md:h-[50dvh] relative"
       >
         <center className='flex items-center h-full justify-center '>
-        <p className=" md:font-bold font-medium  text-3xl    ">
+        <p className=" md:font-bold font-medium  text-3xl">
           Explore the Vehicle Plants
         </p>
         </center>
@@ -29,7 +29,7 @@ const Plants = () => {
 
 
       </div>
-      <div className="md:h-[100vh] h-[70dvh]  md:flex justify-between items-center mx-[7%]">
+      <div className="lg:h-[100vh] md:h-[70dvh]  md:flex justify-between items-center mx-[7%]">
         <span className="w-4/12 ">
           <p className="font-medium md:text-3xl text-2xl py-6">Kiira Vehicle Plant (KVP)</p>
           <p className="text-base">
@@ -37,7 +37,7 @@ const Plants = () => {
           </p>
         </span>
         <span>
-          <img className="w-[40rem] md:py-0 py-4" src={plant_vid} alt="" />
+          <img className="lg:w-[35rem] md:w-[25rem] md:py-0 py-4" src={plant_vid} alt="" />
         </span>
       </div>
       <div className="md:h-[100vh] md:mb-[10rem]">
@@ -45,8 +45,8 @@ const Plants = () => {
       </div>
       <div className="h-[50vh] text-white px-[7%] bg-black">
         <div className="md:flex w-full h-full justify-center pt-[5%] items-start gap-8 ">
-          <p className="md:text-3xl text-2xl font-bold">
-            Mobility Industrial and <br /> Business Park (MITP)
+          <p className="md:text-3xl w-6/12 text-2xl font-bold">
+            Mobility Industrial and  Business Park (MITP)
           </p>
           <p className="md:w-4/12  text-base">
             Government through Kiira Motors Corporation purchased two (2) square miles (1,280 acres) of land for setting up the Uganda Eco - Automotive Industrial & Technology Park to support a wide range of investments in motor vehicle parts manufacturing, vehicle testing, and automotive technology innovation enterprises. The MITP is in Bbaale, Kayunga District Central Uganda.

@@ -27,14 +27,14 @@ const ImageSlider = () => {
 
   return (
     <div className="hidden  md:flex justify-center gap-[4rem]  items-center">
-      <div className="w-2/12 max-w-lg mb-4">
+      <div className="lg:w-2/12 md:w-3/12 lg:max-w-lg mb-4">
         <img src={currentImage} alt="Slider" className={`w-full rounded-2xl transition-opacity duration-500 ${fade ? 'opacity-40' : 'opacity-100'}`} />
       </div>
-      <div className="flex gap-6 ">
+      <div className="flex lg:gap-6 ">
         {items.map((item, index) => (
           <Link to={item.link}
             key={index}
-            className="text-base cursor-pointer hover:text-red-500 transition-colors hover-underline duration-300"
+            className="lg:text-base text-sm cursor-pointer hover:text-red-500 transition-colors hover-underline duration-300"
             onMouseEnter={() => handleMouseEnter(item.image)}
           >
             {item.text}

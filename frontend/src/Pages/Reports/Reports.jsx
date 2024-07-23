@@ -6,7 +6,7 @@ import back from "../Plant/assets/images/back.png"
 const Reports = () => {
   return (
     <div className="font-poppins">
-      <div style={{backgroundImage:`url(${back})`,backgroundPosition:'center',objectFit:'cover'}} className=" flex flex-col justify-around h-[100vh]  md:pt-[5%]  px-[10vw] ">
+      <div style={{backgroundImage:`url(${back})`,backgroundPosition:'center',objectFit:'cover'}} className=" flex flex-col justify-around lg:h-[100vh] md:h-[70vh]  md:pt-[5%]  px-[10vw] ">
         <div className="md:mt-0 mt-[25%]">
         <p className="text-lg font-semibold md:py-[1rem]">Annual reports</p>
         <h1 className="md:text-3xl text-2xl font-bold">2023 Annual Report</h1>
@@ -38,7 +38,7 @@ const Reports = () => {
         <hr className="md:mt-7" />
       </div>
 
-      <div style={{backgroundImage:`url(${back})`,backgroundPosition:'center',objectFit:'cover'}} className=" flex flex-col justify-around h-[100vh]  md:pt-[5%]  px-[10vw] ">
+      <div style={{backgroundImage:`url(${back})`,backgroundPosition:'center',objectFit:'cover'}} className=" flex flex-col justify-around lg:h-[100vh] md:h-[70vh]  md:pt-[5%]  px-[10vw] ">
         <div className="md:mt-0 mt-[25%]">
         <p className="text-lg font-semibold md:py-[1rem]">Annual reports</p>
         <h1 className="md:text-3xl text-2xl font-bold">2023 Annual Report</h1>
@@ -70,7 +70,7 @@ const Reports = () => {
         <hr className="md:mt-7" />
       </div>
 
-      <div style={{backgroundImage:`url(${back})`,backgroundPosition:'center',objectFit:'cover'}} className=" flex flex-col justify-around h-[100vh]  md:pt-[5%]  px-[10vw] ">
+      <div style={{backgroundImage:`url(${back})`,backgroundPosition:'center',objectFit:'cover'}} className=" flex flex-col justify-around lg:h-[100vh] md:h-[70vh]  md:pt-[5%]  px-[10vw] ">
         <div className="md:mt-0 mt-[25%]">
         <p className="text-lg font-semibold md:py-[1rem]">Annual reports</p>
         <h1 className="md:text-3xl text-2xl font-bold">2023 Annual Report</h1>

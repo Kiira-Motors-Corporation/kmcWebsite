@@ -16,7 +16,6 @@ import CoachModels from "./CoachModels";
 import {url} from "../../utils/backend.js";
 
 const Order = () => {
-  const { user } = useAuth();
   const [coach, setCoach] = useState({});
   const { id } = useParams();
 
@@ -30,12 +29,7 @@ const Order = () => {
 
 
   const fetchCoach = async () => {
-    if (!user) {
-      alert("You need to log in ");
-      return;
-    }
-
-    try {
+       try {
       const response = await axios.get(url + `/coach/${id}`);
       setCoach(response.data);
     } catch (error) {
@@ -45,7 +39,7 @@ const Order = () => {
 
 
   return (
-    <Fragment>
+    <>
       {/* Carousel */}
       <div
         style={{
@@ -54,7 +48,7 @@ const Order = () => {
           backgroundRepeat: "no-repeat",
           objectFit: "cover",
         }}
-        className="h-[70vh] relative z-[-1] w-12/12 font-poppins"
+        className="md:h-[50vh] lg:h-[70vh] relative z-[-1] w-12/12 font-poppins"
       >
         <span className="h-full flex flex-col items-center absolute w-full z-[4] top-[4rem]">
           <p className="text-3xl font-bold w-11/12 md:w-full text-center text-white py-8">
@@ -64,11 +58,11 @@ const Order = () => {
         <img
           src={carousel}
           alt=""
-          className="relative z-[1] left-[6%] md:top-[18%] top-[50%] w-9/12 overflow-hidden md:bottom-[25%]"
+          className="object-center md:w-11/12 w-10/12 relative object-cover top-[6rem] md:top-[10rem]"
         />
-        <img src={fore} alt="" className="absolute bottom-[25%] w-full" />
+        <img src={fore} alt="" className="absolute z-[-1] top-[5rem] md:top-[10rem] object-center object-cover  w-full" />
       </div>
-      <center>
+      <center className="pt-[10rem]">
         <h1 className="font-semibold text-3xl py-[1.5%]">Coach Models</h1>
         <p>To see details and features of the Coach</p>
         <Link to="/kayoola-coach">
@@ -80,7 +74,7 @@ const Order = () => {
 
 <CoachModels />
       <Footer />
-    </Fragment>
+    </>
   );
 };
 
