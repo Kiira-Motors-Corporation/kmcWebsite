@@ -1,46 +1,20 @@
 import CarouselProducts from "./CarouselProducts";
 import Footer from "../../Components/ui/Footer";
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { images } from "./data";
+import { Link } from "react-router-dom";
 import Features from "./Features";
 import EVSModels from "./EVSModels";
-import {url} from "../../utils/backend.js";
+import bus from "./assets/images/bus.png"
+import chair from "./assets/images/chair.png"
+import stand from "./assets/images/stand.png"
+import seats from "./assets/images/seats.png"
+import wheel from "./assets/images/wheel.png"
+import man from "./assets/images/man.png"
+import camera from "./assets/images/camera.png"
+import gradient from "./assets/images/gradient.png"
 
 
 const Products = () => {
-  const [username, setUsername] = useState();
-  const navigate = useNavigate();
-  useEffect(() => {
-    axios
-      .get(url + "/api/users")
-      .then((res) => {
-        if (!res.data.valid) {
-          setUsername(res.data[0].username);
-          console.log(res.data);
-        } else {
-          navigate("/login");
-          // console.log(res.data[0].username);
-        }
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-
-
-  // console.log(images);
-  const styles = {
-    backgroundImage: `url(${images[6].bus})`,
-    backgroundSize: "cover", // Adjust background size as needed
-    backgroundRepeat: "no-repeat", // Adjust background repeat as needed
-    width: "70vw", // Set desired width
-    height: "50vh", // Set desired height
-    position: "relative",
-
-    zIndex: -1,
-  };
-  return (
+   return (
     <div className="font-poppins overflow-hidden">
 
 
@@ -50,7 +24,7 @@ const Products = () => {
         <p>The Kayoola EVS has over 6 variations</p>
       </center>
       <EVSModels />
-      {/* <Video /> */}
+
       <Features />
       {/* Section */}
       <div className="px-4 w-full bg-[#171717]  h-auto md:px-[8rem] md:py-[3rem] overflow-hidden">
@@ -72,12 +46,12 @@ const Products = () => {
           <div className=" flex gap-8">
             <img
               className="w-100 h-[200px] md:h-[300px] rounded-2xl relative"
-              src={images[0].chair}
+              src={chair}
               alt=""
             />
             <img
               className="w-full h-[200px] md:h-[300px] rounded-2xl relative mb-[50px] "
-              src={images[1].stand}
+              src={stand}
               alt=""
             />
           </div>
@@ -87,7 +61,7 @@ const Products = () => {
         <div
           className="relative h-[25rem] overflow-hidden"
           style={{
-            backgroundImage: `url(${images[2].seats})`,
+            backgroundImage: `url(${seats})`,
             objectFit: "cover",
             backgroundPosition: "center",
           }}
@@ -95,7 +69,7 @@ const Products = () => {
           <div
             className="w-full h-full px-8 rounded-2xl  z-[1] flex flex-col justify-center items-start"
             style={{
-              backgroundImage: `url(${images[7].gradient})`,
+              backgroundImage: `url(${gradient})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
               objectFit: "cover",
@@ -127,14 +101,14 @@ const Products = () => {
       <div className="flex justify-center items-center gap-6 bg-[#171717] md:px-[8rem] md:py-[3rem] overflow-hidden">
         <img
           className="w-5/12 h-[250px] md:w-6/12 md:h-[350px] rounded-2xl relative  "
-          src={images[3].wheel}
+          src={wheel}
           alt=""
           style={{ objectPosition: "center", objectFit: "cover" }}
         />
 
         <img
           className="w-5/12 h-[250px] md:w-6/12 md:h-[350px] rounded-2xl relative my-[2rem]"
-          src={images[4].man}
+          src={man}
           alt=""
           style={{ objectPosition: "center", objectFit: "cover" }}
         />
@@ -155,7 +129,7 @@ const Products = () => {
 
         <img
           className="md:w-6/12 w-full md:h-[350px] rounded-2xl relative mb-[50px] "
-          src={images[5].camera}
+          src={camera}
           alt=""
           style={{ objectPosition: "center", objectFit: "cover" }}
         />
@@ -164,33 +138,36 @@ const Products = () => {
       {/* <Card /> */}
 
       {/* Order */}
-      <div className="bg-[#171717] w-full h-[100vh] flex justify-center md:px-[8rem]  md:py-[3rem] overflow-hidden">
+      <div className="bg-[#171717] relative z-[-1] w-full h-[50vh] lg:h-[100vh] flex justify-center md:px-[8rem]  md:py-[3rem] overflow-hidden">
         <div
-          className=" h-full w-full rounded-2xl flex justify-center items-center"
-          style={{
-            backgroundImage: `url(${images[6].bus})`,
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            objectFit: "cover",
+          className=" h-full w-full relative rounded-2xl flex justify-center items-center"
 
-          }}
         >
+
           <span className="absolute w-full h-full bg-black/10"></span>
-          <div className="text-white text-base relative text-center">
+          <center className="text-white absolute w-full h-full  text-base flex items-center flex-col justify-center  text-center">
+
+            <div className="w-10/12">
             <p className="py-4">
               Designed for efficiency, comfort, and sustainability,
-              <br /> this fully electric bus is perfect for city travel.
+               this fully electric bus is perfect for city travel.
             </p>
             <p className="pb-8">
               Order Now and drive the change towards a greener,
-              <br /> smarter urban transit system!
+               smarter urban transit system!
             </p>
+            </div>
+
             <Link to="/orders-evs">
               <button className="bg-white hover:bg-gray-700 text-black rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-black border-2   ">
                 Order Now
               </button>
             </Link>
-          </div>
+
+          </center>
+          <div className="w-full h-full relative   z-[-1]">
+          <img src={bus} className="object-cover z-[100] w-full h-full object-center" alt=""  />
+        </div>
         </div>
       </div>
 

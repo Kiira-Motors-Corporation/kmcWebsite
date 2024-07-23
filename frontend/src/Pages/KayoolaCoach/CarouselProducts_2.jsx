@@ -4,42 +4,43 @@ const CarouselProducts = () => {
   return (
     <div
       id="transparent"
-      className="  text-white h-[50dvh] md:h-[100vh] "
-
+      className="text-white h-[50dvh] md:h-[100vh] "
     >
-
-      <div className="flex flex-col absolute z-1 md:px-[6rem] justify-between h-[50dvh] md:h-[90vh]  w-full group">
-        <div id="heading">
-          <div className="text-3xl pt-[5rem] md:pt-[10rem] lg:text-4xl lg:pt-[7rem] font-bold">
+       <div className="flex flex-col absolute z-1  px-[7%] justify-between h-[50dvh] md:h-[90vh]  w-full group">
+       <div id="heading">
+       <div className="text-3xl pt-[5rem] md:pt-[10rem] lg:text-4xl lg:pt-[7rem] font-bold">
             Premium Comfort for <br />
             Long-Distance Travel
           </div>
         </div>
         <div className="w-full h-auto pb-[3rem] ">
           <div className="flex justify-between  w-full">
-            <div className="hidden text-sm lg:block">
-              <h1>Kayoola Coach</h1>
+            <div className="hidden text-sm md:block">
+              <h1 className="text-2xl">Kayoola Coach</h1>
+              <p className="w-7/12">
               Experience luxury and innovation with the Kayoola Diesel <br />{" "}
               Coach™, designed for comfortable, long-distance travel across
               <br /> Africa.
+              </p>
+
             </div>
 
-            <div className="font-bold flex items-center justify-end   text-[1.2rem] md:text-lg">
-              <ul className="md:pr-[3rem] pr-[2rem]">
+            <div className="font-bold flex items-center gap-4 justify-end   text-[1.2rem] md:text-lg">
+              <ul className="">
                 <li>340hp</li>
                 <li className="font-normal text-sm  md:text-[1.3rem] text-gray-400">
                   Power
                 </li>
               </ul>
 
-              <ul className="md:pr-[3rem] pr-[2rem]">
+              <ul>
                 <li>61</li>
                 <li className="font-normal text-sm md:text-[1.3rem] text-gray-400">
                   Capacity
                 </li>
               </ul>
 
-              <ul className="md:pr-[3rem] pr-[2rem]">
+              <ul>
                 <li>500L</li>
                 <li className="font-normal text-sm md:text-[1.3rem] text-gray-400">
                   Fuel Tank Capacity

@@ -61,14 +61,14 @@ const SocialProofSlider = () => {
 
   return (
     <>
-      <div className="w-full py-[3rem] md:px-[7%] bg-white">
+      <div className="w-full py-[3rem] md:px-[3%] bg-white">
 
           <div className="w-full ">
 
             <div className="  bg-white flex-wrap md:flex-nowrap overflow-hidden  justify-center items-center ">
               <Slider {...settings} className="w-full ">
                 {data.map((p) => (
-                  <div key={p.id} className="   w-[600px]  h-[340px] px-[20px]  bg-white my-6">
+                  <div key={p.id} className="   w-[750px] overflow-hidden h-[340px] px-[10px]  bg-white my-6">
                   <div className="relative px-[15px] bg-[#f8f8f8] rounded-xl shadow-xl flex flex-col h-full ">
                     {/* flex */}
                     <div className="md:text-5xl pt-6 text-xl text-[#D53A54] font-bold  ">
@@ -84,7 +84,7 @@ const SocialProofSlider = () => {
                        {p.headline}
                       </p>
                       <img
-                        className="absolute object-cover object-center bottom-[0px] md:w-[12rem] lg:w-[14rem] w-[9rem] right-1 ml-[0px]"
+                        className="absolute object-cover object-center overflow-hidden bottom-[0px] md:w-[12rem] lg:w-[14rem] w-[9rem] lg:right-[-3rem] right-1 ml-[0px]"
                         src={p.image_url}
                         alt="Sunset in the mountains"
                       />
@@ -93,7 +93,7 @@ const SocialProofSlider = () => {
                     <div className="mt-[1rem] relative top-[1rem] text-md font-semibold  w-[350px] ">
                       {p.name}
                     </div>
-                    <div className="md:font-normal relative top-4  text-base">
+                    <div className="md:font-normal text-sm  relative top-4  lg:text-base">
                       {p.role} <br />
                       <a href={p.link} className="flex  mt-7">
                       <button

@@ -6,13 +6,13 @@ const Part = () => {
   return (
     <div className="px-4  bg-white  h-auto  md:px-[6rem]  p">
       <center>
-        <div className="text-[2rem]  font-medium py-3 mb-4">
+        <div className="text-2xl md:text-3xl  font-medium py-3 mb-4">
           Strategic Partners
         </div>
       </center>
 
       <center data-aos="fade-down" data-aos-once="true" data-aos-duration="800">
-        <div className="md:text-base text-lg  py-3  mb-4">
+        <div className="md:text-base text-sm  py-3  mb-4">
           Kiira Motors Corporation collaborates with industry-leading partners
           to <br /> deliver innovative and sustainable mobility solutions.
         </div>

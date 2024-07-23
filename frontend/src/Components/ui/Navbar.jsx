@@ -552,7 +552,7 @@ const Navbar = () => {
                 </Link>
                 <NavLink
                   to="/sign-up"
-                  className=" py-2 md:px-2 lg:px-0 bg-white rounded-2xl text-black  text-base active:underline"
+                  className=" py-2 md:px-2  bg-white rounded-2xl text-black  text-base active:underline"
                 >
                   SignUp
                 </NavLink>
