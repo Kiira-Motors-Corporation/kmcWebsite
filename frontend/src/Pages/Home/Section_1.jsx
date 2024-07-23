@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Introduction = () => {
   return (
-    <div className="border border-red-700 h-auto lg:h-auto"
+    <div className="h-[60dvh] md:h-auto"
     data-aos="fade-up"
           data-aos-once="true"
           data-aos-duration="800"
@@ -12,12 +12,12 @@ const Introduction = () => {
         className="w-full h-auto relative  flex justify-center  items-center lg:pt-[2rem] flex-col"
         >
 <center className="absolute  w-full h-full  ">
-<h1 className="text-3xl text-cente md:px-0 px-9 font-medium py-8">
+<h1 className="md:text-3xl text-2xl text-cente md:px-0 px-9 font-medium py-8">
           Mobility solution for Africa
         </h1>
         <p
 
-          className="md:text-base md:text-center md:px-[7%] mb-[2rem]  text-lg p-7 md:p-0"
+          className="md:text-base pt-[3rem]  md:text-center md:px-[7%] md:mb-[2rem]  text-sm p-7 md:p-0"
         >
           Welcome to Kiira Motors Corporation (KMC), where innovation meets
           sustainability in the
@@ -25,20 +25,20 @@ const Introduction = () => {
           mobility enterprise - we're  pioneers of progress, champions of
           innovation, and architects of change.
         </p>
-        {/* <br className="hidden md:block"/> */}
+
         <Link
           to="/about"
           style={{
             backdropFilter: "blur(10px)",
             background: "rgba(255,255,255,0.2)",
           }}
-          className=" border-2 border-black my-10 rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-white "
+          className=" my-10 rounded-full border bg-red-200 hover:bg-blue-300 text-sm relative border-black py-2 px-[30px] focus:outline-none focus:ring focus:ring-white "
         >
           Learn More
         </Link>
 </center>
 
-        <div className="w-full h-auto relative   z-[-1]">
+        <div className=" h-auto relative   z-[-1] ">
           <img src={cover} className="object-cover object-center" alt=""  />
         </div>
       </div>

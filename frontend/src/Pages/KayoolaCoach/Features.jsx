@@ -2,31 +2,29 @@ import feature from "./assets/images/feature.png";
 
 const Features = () => {
   return (
-    <div className=" bg-[#171717] md:h-[100vh] flex justify-center items-center">
+    <div className="bg-[#171717] lg:h-[100vh] py-[4rem] flex justify-center items-center overflow-hidden">
       <img
         id="rotate-image"
         src={feature}
         alt=""
-        className="absolute lg:h-[85%] h-[45%]"
+        className="absolute lg:h-[65%] md:h-[40%] h-[30%]"
       />
       <div
         id="gradient"
         style={{
-          backgroundImage: "radial-gradient(circle, blue,  #171717, #171717)",
+          backgroundImage: "radial-gradient(circle, orange, #171717, #171717)",
         }}
-          className=" w-[40rem] h-[100vh] flex flex-col justify-center items-center pt-[2rem]"
+        className=" md:w-[37rem] w-[27rem] lg:h-[100vh] flex flex-col justify-center items-center pt-[2rem]"
       >
         <div
           id="circle"
-          className="bg-black w-[18rem] h-[18rem] md:w-[23rem] md:h-[23rem] text-white rounded-full flex flex-col justify-center items-center "
+          className="bg-black w-[15rem] h-[15rem] md:w-[23rem] md:h-[23rem] text-white rounded-full flex flex-col justify-center items-center "
         >
-          <h1 className="md:text-3xl text-2xl">Key features</h1>
+          <h1 className="md:text-3xl text-xl">Key features</h1>{" "}
           <p className="w-10/12 text-center md:text-base text-sm py-2">
-            Kayoola Coach is packaged with special features like an
-
-            Infotainment System, CCTV Cameras, E-Ticketing &  Onboard
-            Fridge, toilet, spacious seats with ample  legroom, Wi-Fi, USB
-            Charging
+            Kayoola EVS is packaged with special features like Infotainment
+            System, CCTV Cameras, E-Ticketing & Cashless Payment System,
+            Comfort, Wi-Fi, Inclusive Design, USB Charging and & Safety
           </p>
         </div>
       </div>

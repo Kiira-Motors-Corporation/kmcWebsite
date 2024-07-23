@@ -4,10 +4,9 @@ const CarouselProducts = () => {
   return (
     <div
       id="transparent"
-      className="  text-white h-[50dvh] md:h-[100vh] "
-
+      className="text-white h-[50dvh] md:h-[100vh] "
     >
-       <div className="flex flex-col absolute z-1 md:px-[6rem] justify-between h-[50dvh] md:h-[90vh]  w-full group">
+       <div className="flex flex-col absolute z-1  px-[7%] justify-between h-[50dvh] md:h-[90vh]  w-full group">
        <div id="heading">
        <div className="text-3xl pt-[5rem] md:pt-[10rem] lg:text-4xl lg:pt-[7rem] font-bold">
             Your Ultimate Urban <br />
@@ -16,31 +15,32 @@ const CarouselProducts = () => {
         </div>
         <div className="w-full h-auto pb-[3rem]  ">
           <div className="flex justify-between  w-full">
-            <div className="hidden text-sm lg:block">
-              <h1>Kayoola City BUS</h1>
+            <div className="hidden text-sm md:block">
+              <h1 className="text-2xl">Kayoola City BUS</h1>
+              <p className="w-7/12">
               The Kayoola EVS™ is a fully electric bus built for city travel.
-              <br />
               With a 300-kilometer range and seating for up to 90 passengers,
-              <br />
               it&apos;s perfect for busy urban routes
+              </p>
+
             </div>
 
-            <div className="font-bold flex items-center justify-end   text-[1.2rem] md:text-lg">
-              <ul className="md:pr-[3rem] pr-[2rem]">
+            <div className="font-bold flex items-center gap-4 justify-end   text-[1.2rem] md:text-lg">
+              <ul className="">
                 <li>300km</li>
                 <li className="font-normal text-sm md:text-[1.3rem] text-gray-400">
                   Range
                 </li>
               </ul>
 
-              <ul className="md:pr-[3rem] pr-[2rem]">
+              <ul className="">
                 <li>70 Seats</li>
                 <li className="font-normal text-sm md:text-[1.3rem] text-gray-400">
                   Capacity
                 </li>
               </ul>
 
-              <ul className="md:pr-[3rem] pr-[2rem]">
+              <ul className="">
                 <li>All Electric</li>
                 <li className="font-normal text-sm md:text-[1.3rem] text-gray-400">
                   Powertrain
