@@ -91,9 +91,6 @@ const Navbar = () => {
   // resources
   const [resources, setResources] = useState(false);
 
-  // innovations
-  const [innovations, setInnovations] = useState(false);
-
   // support
   const [support, setSupport] = useState(false);
 
@@ -154,7 +151,7 @@ const Navbar = () => {
 
           {/* SiteMap */}
           <div className="md:flex  px-4 md:px-0 justify-center items-center w-6/12">
-            <ul className="md:flex gap-[2rem] justify-center ">
+            <ul className="md:flex lg:gap-[2rem] gap-[0.75rem] justify-around lg:justify-center ">
               <Link
                 className="hidden md:block
                  cursor-pointer hover:text-white-500
@@ -248,7 +245,7 @@ const Navbar = () => {
           {/* Functionality-Login,Logout,Search */}
           <div className="mx-4 overflow-y-hidden overscroll-none w-3/12 flex ">
             <button
-              className=" py-4 px-6 hidden md:block"
+              className=" py-4 lg:px-6 px-2 hidden md:block"
               onClick={() => {
                 setQuery(!query);
               }}
@@ -338,13 +335,13 @@ const Navbar = () => {
                           >
                             {products && (
                               <ul className="px-6 text-lg transition-all duration-200">
-                                <Link onClick={handleMenuBar} to="/kayoola-evs">
+                                <Link onClick={handleMenuBar} to="/details-evs">
                                   Kayoola Evs
                                 </Link>
                                 <br />
                                 <Link
                                   onClick={handleMenuBar}
-                                  to="/kayoola-coach"
+                                  to="/details-coach"
                                 >
                                   Kayoola Coach
                                 </Link>
@@ -546,16 +543,16 @@ const Navbar = () => {
                 </Link>
               </div>
             ) : (
-              <div className="md:flex hidden items-center ">
+              <div className="md:flex gap-2 hidden items-center ">
                 <Link
-                  className="px-6 py-2  text-base active:underline"
+                  className=" py-2  text-base active:underline"
                   to="/login"
                 >
                   Login
                 </Link>
                 <NavLink
                   to="/sign-up"
-                  className="px-4 py-2 bg-white rounded-2xl text-black  text-base active:underline"
+                  className=" py-2 md:px-2 lg:px-0 bg-white rounded-2xl text-black  text-base active:underline"
                 >
                   SignUp
                 </NavLink>

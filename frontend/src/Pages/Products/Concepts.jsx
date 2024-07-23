@@ -13,7 +13,7 @@ const Concepts = () => {
     <div className="font-poppins ">
 
       <div
-        className="lg:h-[100vh]   "
+        className="lg:h-[100vh] h-[70vh] border-2  "
         style={{ backgroundImage: `url(${gradient})`,backgroundPosition:'center',objectFit:'cover' }}
         data-aos="fade-up"
         data-aos-once="true"
@@ -34,13 +34,11 @@ const Concepts = () => {
             </span>
           </p>
         </div>
-        <div className="md:hidden py-4">
-        <UpdateSlider />
-        </div>
 
-        <div className="hidden md:flex flex-wrap md:flex-nowrap justify-center items-center  ">
+
+        <div className="md:flex hidden flex-wrap px-[7%]  md:flex-nowrap justify-center items-center  ">
           <div
-            className="w-[350px] md:rounded-none rounded-[2rem] h-[170px] md:h-[250px]"
+            className="w-[350px] md:rounded-none rounded-[2rem] h-[170px] lg:h-[250px]"
             style={{
               backgroundImage: `url(${coach_concept})`,
               backgroundRepeat: "no-repeat",
@@ -49,38 +47,27 @@ const Concepts = () => {
               borderTopLeftRadius: "30px",
               borderEndStartRadius: "30px",
             }}
-          ></div>
+          ><img src={coach_concept} className="object-center rounded-s-2xl object-cover w-full h-full" alt="" srcSet="" /></div>
           <div
-            className="w-[350px] md:rounded-none rounded-[2rem] h-[170px] md:h-[250px]"
-            style={{
-              backgroundImage: `url(${evs})`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              objectFit: "cover",
-            }}
-          ></div>
+            className="w-[350px] md:rounded-none rounded-[2rem] h-[170px] lg:h-[250px]"
+
+          ><img src={evs} className="object-center object-cover w-full h-full" alt="" srcSet="" /></div>
           <div
-            className="w-[350px] md:rounded-none rounded-[2rem] h-[170px] md:h-[250px]"
-            style={{
-              backgroundImage: `url(${ev})`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              objectFit: "cover",
-              borderTopRightRadius: "30px",
-              borderEndEndRadius: "30px",
-            }}
-          ></div>
+            className="w-[350px] md:rounded-none rounded-[2rem] h-[170px] lg:h-[250px]"
+
+          ><img src={ev} className="object-center  rounded-e-2xl  object-cover w-full h-full" alt="" srcSet="" /></div>
+        </div>
+        <div className=" w-full  md:hidden block z-1  overflow-hidden  py-4">
+        <UpdateSlider />
         </div>
       </div>
 
+
+
+
       <div
-        className="h-[100dvh] bg-black/10 relative "
-        // style={{
-        //   backgroundImage: `url(${ev_cover})`,
-        //   backgroundRepeat: "no-repeat",
-        //   backgroundPosition: "center",
-        //   objectFit: "cover",
-        // }}
+        className="h-[100dvh]  bg-black/10 relative "
+
         data-aos="fade-up"
         data-aos-once="true"
         data-aos-duration="800"
@@ -107,14 +94,7 @@ const Concepts = () => {
 
       <div
         className="h-[100dvh] "
-        style={
-          {
-            // backgroundImage: `url(${evs_cover})`,
-            // backgroundRepeat: "no-repeat",
-            // backgroundPosition: "center",
-            // objectFit: "cover",
-          }
-        }
+
       >
         <img
           src={evs_cover}
@@ -133,15 +113,7 @@ const Concepts = () => {
 
       <div
         className="h-[100dvh] "
-        style={
-          {
-            // backgroundImage: `url(${coach_cover})`,
-            // backgroundRepeat: "no-repeat",
-            // backgroundPosition: "center",
-            // objectFit: "cover",
-          }
-        }
-      >
+             >
         <img
           src={coach_cover}
           alt=""

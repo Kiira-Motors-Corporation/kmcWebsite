@@ -12,7 +12,6 @@ import EVSModels from "./EVSModels";
 import {url} from "../../utils/backend.js";
 
 const Order = () => {
-  const { user } = useAuth();
   const [evs, setEVS] = useState({});
   const { id } = useParams();
 
@@ -39,7 +38,7 @@ const Order = () => {
           backgroundRepeat: "no-repeat",
           objectFit: "cover",
         }}
-        className="h-[70vh] relative z-[-1] w-12/12 font-poppins"
+        className="h-auto relative z-[-1]  w-12/12 font-poppins"
       >
         <span className="h-full flex flex-col items-center absolute w-full z-[4] top-[4rem]">
           <p className="text-3xl font-bold w-11/12 md:w-full text-center text-white py-8">
@@ -49,9 +48,9 @@ const Order = () => {
         <img
           src={carousel}
           alt=""
-          className="relative z-[1] left-[6%] md:top-[-32%] top-[50%] w-11/12 overflow-hidden md:bottom-[25%]"
+          className="object-center  object-cover "
         />
-        <img src={fore} alt="" className="absolute bottom-[25%] w-full" />
+        <img src={fore} alt="" className="absolute z-[-1] top-[5rem] md:top-[10rem] object-center object-cover  w-full" />
       </div>
       <center>
         <h1 className="font-semibold text-3xl py-[1.5%]">EVS Models</h1>

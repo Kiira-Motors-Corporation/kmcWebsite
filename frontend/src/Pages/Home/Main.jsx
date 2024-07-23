@@ -15,8 +15,9 @@ const Main = () => {
       <Carousel />
       <CardSlider />
       <Introduction />
-      <ParallaxVideoComponent />
       <Partners />
+      <ParallaxVideoComponent />
+
       <SocialProof />
       <UpdateSlider />
       <Footer />

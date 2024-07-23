@@ -4,16 +4,12 @@ const CarouselProducts = () => {
   return (
     <div
       id="transparent"
-      className="px-4  text-white h-[100vh] overflow-hidden"
-      style={{
-        backgroundImage: `url(${c})`,
-        objectFit: "cover",
-        backgroundPosition: "center",
-      }}
+      className="  text-white h-[50dvh] md:h-[100vh] "
+
     >
-      <div className="flex flex-col md:px-[6rem] justify-between h-[90vh]  w-full group">
-        <div id="heading">
-          <div className="text-3xl pt-[10rem] lg:text-4xl lg:pt-[7rem] font-bold">
+       <div className="flex flex-col absolute z-1 md:px-[6rem] justify-between h-[50dvh] md:h-[90vh]  w-full group">
+       <div id="heading">
+       <div className="text-3xl pt-[5rem] md:pt-[10rem] lg:text-4xl lg:pt-[7rem] font-bold">
             Your Ultimate Urban <br />
             Mobility Solution
           </div>
@@ -54,6 +50,9 @@ const CarouselProducts = () => {
           </div>
         </div>
       </div>
+      <div className="w-full h-full relative   z-[-1]">
+          <img src={c} className="object-cover w-full h-full object-center" alt=""  />
+        </div>
     </div>
   );
 };

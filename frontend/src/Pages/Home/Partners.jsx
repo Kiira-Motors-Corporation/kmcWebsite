@@ -4,7 +4,7 @@ import c from "../../assets/images/partners/Gmatch.png";
 
 const Part = () => {
   return (
-    <div className="px-4 bg-white  h-auto  md:px-[6rem] md:py-[7%] py-[1rem]">
+    <div className="px-4  bg-white  h-auto  md:px-[6rem]  p">
       <center>
         <div className="text-[2rem]  font-medium py-3 mb-4">
           Strategic Partners
@@ -18,7 +18,7 @@ const Part = () => {
         </div>
       </center>
 
-      <div className="flex justify-center items-center md:flex-wrap">
+      <div className="flex justify-center items-center lg:flex-wrap">
         <div className=" text-6xl rounded-xl overflow-hidden  pt-3  mx-5 ">
           <img src={a} alt="" />
         </div>

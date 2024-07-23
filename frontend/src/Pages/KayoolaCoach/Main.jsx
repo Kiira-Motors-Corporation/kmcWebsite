@@ -9,22 +9,12 @@ import holder from "./assets/images/holder.png";
 import key from "./assets/images/key.png";
 import wheel from "./assets/images/wheel.png";
 import coach from "./assets/images/coach.png";
-import bus from "./assets/images/bus.png";
 import camera_2 from "./assets/images/camera_2.png";
 import gradient from "./assets/images/gradient.png";
 import CoachModels from "./CoachModels";
 
 const KayoolaCoach = () => {
-  const styles = {
-    backgroundImage: `url(${bus})`,
-    backgroundSize: "cover", // Adjust background size as needed
-    backgroundRepeat: "no-repeat", // Adjust background repeat as needed
-    width: "70vw", // Set desired width
-    height: "50vh", // Set desired height
-    position: "relative",
 
-    zIndex: -1,
-  };
   return (
     <div className="font-poppins">
       <CarouselProducts />
