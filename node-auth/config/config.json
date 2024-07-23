@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "admin",
     "database": "kmc",
     "host": "localhost",
     "dialect": "mysql"
