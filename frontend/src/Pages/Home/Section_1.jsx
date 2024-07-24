@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Introduction = () => {
   return (
-    <div className="h-[60dvh] md:h-auto"
+    <div className=" md:h-auto"
     data-aos="fade-up"
           data-aos-once="true"
           data-aos-duration="800"
@@ -17,7 +17,7 @@ const Introduction = () => {
         </h1>
         <p
 
-          className="md:text-base pt-[3rem]  md:text-center md:px-[7%] md:mb-[2rem]  text-sm p-7 md:p-0"
+          className="md:text-base pt-[3rem] hidden md:block  md:text-center md:px-[7%] md:mb-[2rem]  text-sm p-7 md:p-0"
         >
           Welcome to Kiira Motors Corporation (KMC), where innovation meets
           sustainability in the
@@ -32,7 +32,7 @@ const Introduction = () => {
             backdropFilter: "blur(10px)",
             background: "rgba(255,255,255,0.2)",
           }}
-          className=" my-10 rounded-full border bg-red-200 hover:bg-blue-300 text-sm relative border-black py-2 px-[30px] focus:outline-none focus:ring focus:ring-white "
+          className=" my-10 rounded-full border bg-red-200 hover:bg-blue-300 text-xs  top-4 border-black py-2 px-[25px] focus:outline-none focus:ring focus:ring-white "
         >
           Learn More
         </Link>

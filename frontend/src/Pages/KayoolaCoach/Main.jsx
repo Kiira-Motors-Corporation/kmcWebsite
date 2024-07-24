@@ -26,20 +26,15 @@ const KayoolaCoach = () => {
       {/* <Video /> */}
       <Features />
       {/* Section */}
-      <div className="px-4 w-full bg-[#171717]  h-auto md:px-[0rem] md:py-[3rem]">
+      <div className="px-[7%] w-full bg-[#171717]  h-auto  md:py-[3rem]">
         <div id="coach" className="flex justify-center gap-10  text-white">
           <div>
-            <h1 className="text-2xl text-center font-medium ">
-              Keeping passengers engaged without <br /> the journey
+            <h1 className="text-2xl md:text-center font-medium ">
+              Keeping passengers engaged without <br className="md:block hidden" /> the journey
             </h1>
             <center>
-            <p className="text-base md:w-7/12  py-[50px] pr-8 md:text-center">
-              The Kayoola EVS™ comes equipped with a modern The Kayoola Coach
-              comes equipped with a cutting-edge infotainment system
-              that offers a variety of entertainment options to keep
-              passengers engaged
-
-              during their journey.
+            <p className="text-base md:w-7/12 text-left  py-[50px] pr-8 md:text-center">
+            The Kayoola Coach  comes equipped with a cutting-edge infotainment system that offers a variety of entertainment options to keep passengers engaged during their journey.
             </p>
             </center>
 
