@@ -8,7 +8,7 @@ const CarouselProducts = () => {
     >
        <div className="flex flex-col absolute z-1  px-[7%] justify-between h-[50dvh] md:h-[90vh]  w-full group">
        <div id="heading">
-       <div className="text-3xl pt-[5rem] md:pt-[10rem] lg:text-4xl lg:pt-[7rem] font-bold">
+       <div className="text-2xl pt-[5rem] md:pt-[10rem] lg:text-4xl lg:pt-[7rem] font-bold">
             Premium Comfort for <br />
             Long-Distance Travel
           </div>

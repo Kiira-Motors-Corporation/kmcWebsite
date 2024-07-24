@@ -13,8 +13,10 @@ const Part = () => {
 
       <center data-aos="fade-down" data-aos-once="true" data-aos-duration="800">
         <div className="md:text-base text-sm  py-3  mb-4">
+          <p className="w-10/12">
           Kiira Motors Corporation collaborates with industry-leading partners
-          to <br /> deliver innovative and sustainable mobility solutions.
+          to  deliver innovative and sustainable mobility solutions.
+            </p>
         </div>
       </center>
 

@@ -45,7 +45,7 @@ const SocialProofSlider = () => {
         breakpoint: 1024, // Large screens
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
         }
       },
       {

@@ -10,17 +10,24 @@ const Footer = () => {
   return (
     <div className="bg-[#333333] font-poppins text-white p-2 h-auto pt-[3rem]">
       <center>
-        <div className="md:flex md:justify-evenly text-left   py-2  w-full mb-9   gap-3">
-          <div>
+        <div className="md:flex md:justify-evenly px-[7%] w-full  text-left   py-2   mb-9   gap-3">
+
+           {/* section */}
+           <div className="">
             <ul>
 
-              <div className="flex gap-4 md:block">
-              <li className="py-2 w-4/12 md:w-8/12">
+              <div className="flex gap-4 md:block md:justify-start justify-center w-full ">
+                <span className=" w-auto md:block flex items-center justify-end">
+              <li className="py-2 w-7/12 md:w-8/12">
                 <img className="md:block hidden" src={icon} alt="" />
-                <img className="md:hidden w-full block" src={iconMob} alt="" />
+                <img className="md:hidden w-full  block" src={iconMob} alt="" />
               </li>
-              <li className="py-1">
-                <p className="md:text-sm text-sm">
+                </span>
+
+
+              <div>
+              <li className="py-1 flex items-center h-full">
+                <p className="md:text-sm md:block  text-sm md:w-full w-10/12 ">
                   Kiira Motors Corporation is a State{" "}
                   <br className="md:block hidden" /> Enterprise established to
                   champion value
@@ -30,6 +37,8 @@ const Footer = () => {
                   <br className="md:block hidden" /> Transfer
                 </p>
               </li>
+              </div>
+
               </div>
 
               <li className="hidden md:flex gap-2">
@@ -60,9 +69,9 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          {/* section */}
-          <div className="flex md:block justify-between pt-4">
-            <ul className="flex flex-col w-4/12 md:w-full text-sm text-gray-400 ">
+          {/* section 1 */}
+          <div className="flex mx-[7%] md:mx-auto   md:block justify-between pt-4">
+            <ul className="flex flex-col  w-full md:w-full text-sm text-gray-400 ">
               <Link className="py-1 font-bold text-white">Products</Link>
               <Link
                 to="/kayoola-evs"
@@ -84,7 +93,7 @@ const Footer = () => {
               </Link>
             </ul>
 
-            <ul className="flex pt-4 w-5/12 md:w-full flex-col text-gray-400 text-sm ">
+            <ul className="flex pt-4  w-full flex-col text-gray-400 text-sm ">
               <Link className="py-1 font-bold text-white ">KMC Shop</Link>
               <Link
                 to="/auto-parts"
@@ -96,10 +105,10 @@ const Footer = () => {
           </div>
 
 
-          {/* section */}
-          <div className="flex md:block justify-evenly">
-          <div className="pt-4">
-            <ul className="flex flex-col w-8/12 md:w-full text-sm text-gray-400">
+          {/* section 2*/}
+          <div className="flex mx-[7%] md:mx-auto   md:block justify-between">
+          <div className="pt-4  w-full  md:pl-auto ">
+            <ul className="flex flex-col w-full text-sm text-gray-400">
               <li className="py-1 font-bold text-white">Services</li>
 
               <Link
@@ -135,8 +144,8 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="pt-4">
-            <ul className="flex flex-col  text-sm text-gray-400">
+          <div className="pt-4  w-full  md:pl-auto">
+            <ul className="flex flex-col w-full text-sm text-gray-400">
               <li className="py-1 font-bold text-white ">Discover</li>
               <Link className="py-1 hover:text-red-400 transition-all duration-100 ease-in">
                 Events

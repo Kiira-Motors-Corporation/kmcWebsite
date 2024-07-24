@@ -27,7 +27,7 @@ const Products = () => {
 
       <Features />
       {/* Section */}
-      <div className="px-4 w-full bg-[#171717]  h-auto md:px-[8rem] md:py-[3rem] overflow-hidden">
+      <div className=" w-full bg-[#171717]  h-auto px-[7%] md:py-[3rem] overflow-hidden">
         <div id="coach" className="flex  flex-wrap md:flex-nowrap justify-between gap-10  text-white">
           <div>
             <h1 className="lg:text-3xl text-2xl font-medium w-11/12 ">
@@ -115,7 +115,7 @@ const Products = () => {
       </div>
 
       {/* Gallery  2*/}
-      <div className="flex flex-wrap md:flex-nowrap gap-8 bg-[#171717] md:px-[6rem] md:py-[3rem] text-white px-2 overflow-hidden">
+      <div className="flex flex-wrap md:flex-nowrap gap-8 bg-[#171717] px-[7%] md:py-[3rem] text-white overflow-hidden">
         <div className="md:w-6/12  md:h-[500px]  rounded-[50px] relative">
           <h1 className="md:text-3xl text-2xl font-medium">CCTV Cameras</h1>
           <p className="md:text-base md:py-[2rem]">
