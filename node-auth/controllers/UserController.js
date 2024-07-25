@@ -1,5 +1,3 @@
-// controllers/userController.js
-const db = require("../db/dbConfig");
 const bcrypt = require("bcryptjs");
 const {Users} = require("../models")
 
@@ -136,13 +134,13 @@ const logoutUser = (req, res) => {
   }
 }
 
-const checkSession =(req, res) => {
+const checkSession = (req, res) => {
   if (req.session.user) {
-    res.json({ user: req.session.user });
+    res.status(200).json({ user: req.session.user });
   } else {
-    res.status(401).json({ user: null });
+    res.status(401).json({ message: 'Not authenticated' });
   }
-}
+};
 
 module.exports = {
   getUsers,

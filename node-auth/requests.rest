@@ -44,7 +44,7 @@ GET http://localhost:3002/user
 
 ###
 
-GET http://localhost:3002/user/session
+GET http://localhost:3002/user/checkSession
 
 ###
 
@@ -168,3 +168,8 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3002/coach_orders/1
+
+
+#
+###
+GET http://localhost:3002/vehicle

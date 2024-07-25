@@ -4,14 +4,18 @@ import icon from "../../assets/images/icon.png";
 import background from "./assets/images/background.png";
 import main from "./assets/images/main.png";
 import { Link, useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [contact, setContact] = useState("");
-  const [password, setPassword] = useState("");
+
   const [error, setError] = useState(null);
   const { user, signup, loading } = useContext(AuthContext);
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,8 +25,36 @@ const Signup = () => {
     }
   }, [user, navigate]);
 
+  const validatePassword = (password) => {
+    let error = '';
+    if (password.length < 8) {
+      error = 'Password must be at least 8 characters long';
+    } else if (!/[A-Z]/.test(password)) {
+      error = 'Password must contain at least one uppercase letter';
+    } else if (!/[a-z]/.test(password)) {
+      error = 'Password must contain at least one lowercase letter';
+    } else if (!/[0-9]/.test(password)) {
+      error = 'Password must contain at least one number';
+    } else if (!/[!@#$%^&*]/.test(password)) {
+      error = 'Password must contain at least one special character';
+    }
+    return error;
+  };
+
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+    setPasswordError(validatePassword(newPassword));
+  };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const error = validatePassword(password);
+    if (error) {
+      setPasswordError(error);
+      return;
+    }
     try {
       const success = await signup(name, email, contact, password);
       if (success) {
@@ -92,13 +124,22 @@ const Signup = () => {
               </div>
 
 
-              <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                className="my-2 w-full text-sm focus:outline-none focus:ring-0 rounded-lg border-none"
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <div className="relative">
+        <input
+          type={showPassword ? "text" : "password"}
+          name="password"
+          onChange={handlePasswordChange}
+          placeholder="Password"
+          required
+          className="my-2 w-full text-sm focus:outline-none focus:ring-0 rounded-lg border-none"
+        />
+        <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+          <button type="button" onClick={() => setShowPassword(!showPassword)} className="focus:outline-none">
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </button>
+        </div>
+      </div>
+      {passwordError && <p className=" text-xs">{passwordError}</p>}
 
               <button
                 className=" text-white lg:w-6/12 text-sm bg-black rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-white "

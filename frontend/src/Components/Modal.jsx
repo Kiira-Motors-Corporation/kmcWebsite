@@ -64,7 +64,7 @@ export const ModalNavbar = ({ isVisible, onClose }) => {
 
 
 export const LogoutModal = ({ children }) => {
-  
+
   const handleClose = (e) => {
     if (e.target.id === "wrapper") {
       onClose();

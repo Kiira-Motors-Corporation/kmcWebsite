@@ -6,7 +6,7 @@ import main from "./assets/images/main.png";
 import icon from '../../assets/images/icon.png'
 import { AuthContext } from "../../Components/AuthContext";
 import {url} from "../../utils/backend.js";
-
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 
@@ -17,6 +17,7 @@ const Login = () => {
   const [name, setName] = useState();
   const [password, setPassword] = useState();
   const [errorMessage, setErrorMessage] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -72,17 +73,22 @@ const Login = () => {
                  className="my-2 w-full text-sm focus:outline-none focus:ring-0 rounded-lg border-none"
               />
 
-              <input
-                type="password"
-                name="password"
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-                required="required"
-               className="my-2 w-full text-sm focus:outline-none focus:ring-0 rounded-lg border-none"
-              />
-              {/* <span>Show Password</span> */}
-              <div> {errorMessage && <p className="error-message">{errorMessage}</p>}
+<div className="relative">
+        <input
+          type={showPassword ? "text" : "password"}
+          name="password"
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          required
+          className="my-2 w-full text-sm focus:outline-none focus:ring-0 rounded-lg border-none"
+        />
+        <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+          <button type="button" onClick={() => setShowPassword(!showPassword)} className="focus:outline-none">
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </button>
         </div>
+      </div>
+      {/* {passwordError && <p className=" text-xs">{passwordError}</p>} */}
         {/* <p id='spinner'>hello</p> */}
                 <button
                   className=" text-white lg:w-6/12 text-sm bg-black rounded-full py-2 px-[30px] focus:outline-none focus:ring focus:ring-white "

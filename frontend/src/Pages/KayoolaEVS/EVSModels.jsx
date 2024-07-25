@@ -16,7 +16,7 @@ const EVSModels = () => {
 
   const fetchEVS = async () => {
     try {
-      const response = await axios.get(url + "/evs");
+      const response = await axios.get(url + "/vehicle/type/EVS");
       setEVS(response.data);
     } catch (error) {
       console.error("Error fetching items:", error);
@@ -31,11 +31,11 @@ const EVSModels = () => {
             <div className="w-[18rem] object-cover object-center">
               <img
                 className=""
-                src={`http://localhost:3000/${item.image}`}
+                src={`${url}/${item.image_path}`}
                 alt=""
               />
             </div>
-            <p>{item.name}</p>
+            <p>{item.length}&nbsp;{item.name}</p>
             <div className="flex justify-between">
               <p>{item.seats}&nbsp;seats</p>{" "}
               <NavLink to={`/evs/${item.id}`} className="border text-sm rounded-full border-black px-8 py-2">
