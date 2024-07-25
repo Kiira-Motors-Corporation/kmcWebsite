@@ -4,7 +4,7 @@
 
 const getEVS = (req, res) => {
   const { min, max } = req.query;
-  let sql = "SELECT * FROM EVS";
+  let sql = "SELECT * FROM evs";
 
   if (min && max) {
     sql += " WHERE id BETWEEN ? AND ?";

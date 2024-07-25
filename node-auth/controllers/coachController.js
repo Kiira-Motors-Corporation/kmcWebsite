@@ -4,7 +4,7 @@ const db = require("../db/dbConfig")
 
 const getCoach = (req, res) => {
   const { min, max } = req.query;
-  let sql = "SELECT * FROM COACH";
+  let sql = "SELECT * FROM coach";
 
   if (min && max) {
     sql += " WHERE id BETWEEN ? AND ?";

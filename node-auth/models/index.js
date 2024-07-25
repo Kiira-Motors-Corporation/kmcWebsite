@@ -10,8 +10,8 @@ const basename = path.basename(__filename);
 const db = {};
 
 
-// let sequelize= new Sequelize("mysql://root:admin@localhost:3306/kmc",{dialect:"mysql"})
-let sequelize = new Sequelize(process.env.DB_NAME,process.env.DB_USERNAME,process.env.DB_PASSWORD,{host:process.env.DB_HOSTNAME,dialect:"mysql"})
+let sequelize= new Sequelize(process.env.MYSQL_URL,{dialect:"mysql"})
+// let sequelize = new Sequelize(process.env.MYSQLDATABASE,process.env.MYSQLUSER,process.env.MYSQLPASSWORD,{host:process.env.MYSQLHOST,dialect:"mysql"})
 
 // if (config.use_env_variable) {
 //   sequelize = new Sequelize(process.env[config.use_env_variable], config);
