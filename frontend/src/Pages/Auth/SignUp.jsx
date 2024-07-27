@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../../Components/AuthContext";
+import { AuthContext } from "../../Context/AuthContext";
 import icon from "../../assets/images/icon.png";
 import background from "./assets/images/background.png";
 import main from "./assets/images/main.png";
@@ -58,7 +58,7 @@ const Signup = () => {
     try {
       const success = await signup(name, email, contact, password);
       if (success) {
-        navigate("/"); // Navigate to home or any other page after successful signup
+        navigate("/login"); // Navigate to home or any other page after successful signup
       } else {
         setError("Signup failed. Please check your details.");
       }
@@ -96,7 +96,7 @@ const Signup = () => {
               <div className="flex  gap-2">
                 <input
                   type="text"
-                  placeholder="Username"
+                  placeholder="Full Name"
                   value={name}
                   className="my-2 w-full text-sm focus:outline-none focus:ring-0 rounded-lg border-none"
                   onChange={(e) => setName(e.target.value)}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useCart } from "../Cart/CartContext";
-import { useAuth } from "../../Components/AuthContext";
+import { useCart } from "../../Context/CartContext.jsx";
+import { useAuth } from "../../Context/AuthContext";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import background from "./assets/images/background.png";
@@ -86,9 +86,9 @@ const ProductPage = () => {
           className=" hover:cursor-pointer w-[35rem] bg-gray-100 hover:scale-105  shadow-lg p-1 rounded-2xl "
           key={items.id}
         >
-          <div className=" w-full   py-4 rounded-2xl">
+          <div className=" w-full flex justify-center  py-4 rounded-2xl">
             <img
-              className="w-full"
+              className="w-7/12 "
               src={`${url}/${items.image_path}`}
               alt={items.name}
             />
@@ -101,10 +101,10 @@ const ProductPage = () => {
           </h3>
           <p className="w-10/12">{items.description}</p>
 
-          <div className="flex w-6/12 gap-4">
+          <div className="flex ring-2 justify-center flex-row ring-red w-full   gap-2">
             <p className="">
               <input
-                className="border-none w-full   text-black "
+                className="border-none   text-black "
                 type="number"
                 value={quantities[items.id] || 1}
                 onChange={(e) =>
@@ -115,7 +115,7 @@ const ProductPage = () => {
             </p>
             <button
               style={{ transition: "all 0.3s ease" }}
-              className="bg-[#292929] text-sm font-bold hover:bg-slate-600 w-full text-white p-2 "
+              className="bg-[#292929] text-sm font-bold hover:bg-slate-600  text-white p-2 "
               onClick={() => handleAddToCart(items)}
             >
               Add to Cart

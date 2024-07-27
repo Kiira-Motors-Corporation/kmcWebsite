@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import slider_1 from "../../assets/images/a.png";
 import slider_2 from "../../assets/images/b.png";
-import slider_3 from "../../assets/images/d.png";
+import slider_3 from "../../assets/images/a.png";
 
 const UpdateSlider = () => {
 

@@ -1,47 +1,43 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CoachOrder from "./Pages/KayoolaCoach/Order";
-import OrdersList from "./Pages/OrdersList";
+import CoachOrder from "./Pages/Products/KayoolaCoach/Order/Order";
 import Shop from "./Pages/Shop/Main";
-import About from "./Pages/About/Main";
-import Autoparts from "./Pages/Shop/AutoPart";
-import Reports from "./Pages/Reports/Reports";
-import CartPage from "./Pages/Cart/CartPage";
-import Blog from "./Pages/Shop/Blog";
-import Clubs from "./Pages/Clubs/Clubs";
-import Projects from "./Pages/Projects";
+import About from "./Pages/DiscoverMore/About/Main";
+import Reports from "./Pages/DiscoverMore/Reports/Main";
+import CartPage from "./Pages/Shop/Cart/CartPage";
+import Clubs from "./Pages/DiscoverMore/Clubs/Main";
 import Login from "./Pages/Auth/Login";
 import SignUp from "./Pages/Auth/SignUp";
 import NotFound from "./Pages/NotFound";
-import Concepts from "./Pages/Products/Concepts";
-import Plant from "./Pages/Plant";
+import Concepts from "./Pages/DiscoverMore/Concepts/Main";
+import Plant from "./Pages/DiscoverMore/Plant/Main";
 import ContractManufacturing from "./Pages/Services/Contract Manufacturing/Main";
 import Main from "./Pages/Services/Engineering Services/Main";
 import VehicleHire from "./Pages/Services/Vehicle Hire/Main";
 import ProductSupport from "./Pages/Services/Product Support/Main";
-import Charger from "./Pages/Charger/Main";
-import { AuthProvider } from "./Components/AuthContext";
-import ProtectedRoute from "./Components/ProtectedRoute";
-import Logout from "./Components/Logout";
+import Charger from "./Pages/Products/Charger/Main";
+import { AuthProvider } from "./Context/AuthContext";
+import ProtectedRoute from "./Context/ProtectedRoute";
+import Logout from "./Pages/Auth/Logout";
 import { useEffect } from "react";
 import Navbar from "./Components/ui/Navbar";
 
 // import Headroom from "react-headroom";
-import { CartProvider } from "./Pages/Cart/CartContext";
+import { CartProvider } from "./Context/CartContext";
 import icon from "./assets/images/icon.png";
 import ProductPage from "./Pages/Shop/ProductPage";
 import ScrollToTop from "./Components/ScrollToTop";
-import DisplayData from "./Pages/KayoolaEVS/DisplayData";
+import DisplayData from "./Pages/Products/KayoolaEVS/Order/DisplayData";
 
 import { lazy, Suspense } from "react";
 const Home = lazy(() => import("./Pages/Home"));
-const KayoolaEVS = lazy(() => import("./Pages/KayoolaEVS/Main"));
-const KayoolaCoach = lazy(() => import("./Pages/KayoolaCoach/Main"));
-const EVSOrder = lazy(() => import("./Pages/KayoolaEVS/Order"));
-const DetailsEVS = lazy(() => import("./Pages/KayoolaEVS/Details"));
-const DetailsCoach = lazy(() => import("./Pages/KayoolaCoach/Details"));
+const KayoolaEVS = lazy(() => import("./Pages/Products/KayoolaEVS/Description/Main"));
+const KayoolaCoach = lazy(() => import("./Pages//Products/KayoolaCoach/Description/Main"));
+const EVSOrder = lazy(() => import("./Pages/Products/KayoolaEVS/Order/Main"));
+const DetailsEVS = lazy(() => import("./Pages/Products/KayoolaEVS/Details/Main"));
+const DetailsCoach = lazy(() => import("./Pages/Products/KayoolaCoach/Details/Details"));
 
-import { OrderProvider } from "./Pages/KayoolaEVS/OrderContext";
-import Career from "./Pages/Career/Main"
+import { OrderProvider } from "./Context/OrderContext";
+import Career from "./Pages/DiscoverMore/Career/Main"
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -95,16 +91,16 @@ const App = () => {
                 <Route path="/logout" element={<Logout />} />
                 <Route path="/plants" element={<Plant />} />
                 <Route path="/vehicle-hire" element={<VehicleHire />} />
-                <Route path="/orders-list" element={<OrdersList />} />
+
 
                 <Route path="/career" element={<Career />} />
 
                 <Route path="/about" element={<About />} />
-                <Route path="/auto-parts" element={<Autoparts />} />
+
                 <Route path="/reports" element={<Reports />} />
-                <Route path="/blog" element={<Blog />} />
+
                 <Route path="/clubs" element={<Clubs />} />
-                <Route path="/project" element={<Projects />} />
+
                 <Route path="/login" element={<Login />} />
                 <Route path="/sign-up" element={<SignUp />} />
                 <Route path="/engineering-services" element={<Main />} />

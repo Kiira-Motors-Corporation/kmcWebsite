@@ -6,7 +6,7 @@ import career from "../../assets/images/new_content/career.jpg";
 import Aboutus from "../../assets/images/new_content/Aboutus.jpg";
 import plants2 from "../../assets/images/new_content/plants2.jpg";
 import newPress from "../../assets/images/new_content/new-press.jpg";
-import concept from "../../assets/images/concepts/ev_cover.png";
+import concept from "../../assets/images/new_content/ev_cover.png";
 import spareParts from "../../assets/images/new_content/spare-parts.jpg";
 import serviceCentre from "../../assets/images/new_content/service-centre.jpg";
 import charging from "../../assets/images/new_content/charging.jpg";

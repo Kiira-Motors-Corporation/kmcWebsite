@@ -3,9 +3,9 @@ import c from "./assets/images/background.png";
 import Footer from "../../Components/ui/Footer";
 import cover from "./assets/images/cover_main.png";
 import axios from "axios";
-import { useAuth } from "../../Components/AuthContext";
+import { useAuth } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../Cart/CartContext";
+import { useCart } from "../../Context/CartContext.jsx";
 import { Link } from "react-router-dom";
 import {url} from "../../utils/backend.js";
 

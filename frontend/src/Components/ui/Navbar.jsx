@@ -5,16 +5,17 @@ import icon from "./assets/images/navbar/icon.png";
 import { NavLink, Link } from "react-router-dom";
 import { IoMdMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
-import { AuthContext } from "../AuthContext";
+import { AuthContext } from "../../Context/AuthContext"
 import { BsCart4 } from "react-icons/bs";
 import { Fragment } from "react";
 import ImageSlider from "./ImageSlider";
 import DiscoverMore from "./ImageSlider_2";
 import Products from "./ImageSlider_3";
-import { OrderContext } from "../../Pages/KayoolaEVS/OrderContext";
+import { OrderContext } from "../../Context/OrderContext";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 
-import { useCart } from "../../Pages/Cart/CartContext";
+
+import { useCart } from "../../Context/CartContext";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
@@ -32,7 +33,7 @@ const Navbar = () => {
   }
 
   // console.log("Window scroll y:", window.scrollY);
-
+console.log(user);
   window.addEventListener("scroll", handleScroll);
 
   const [isHovered, setIsHovered] = useState(false);
@@ -562,12 +563,12 @@ const Navbar = () => {
             {/* services */}
             <div
               id="parent"
-              className="absolute top-[3.4rem] right-1  bg-white md:w-2/12 text-black"
+              className="absolute top-20 right-1 rounded-md  bg-white md:w-2/12 text-black"
             >
               {isAuth && (
                 <div
                   style={isAuth ? { transition: "0.3s" } : ""}
-                  className="shadow-lg p-4 rounded-lg"
+                  className="shadow-lg p-4   rounded-lg"
                 >
                   <ul className="flex flex-col  text-base  py-4">
                     {user ? (
@@ -579,12 +580,12 @@ const Navbar = () => {
                           />
                         </div>
 
-                        <li>Hello, {user.username}</li>
+                        <li>Hello, {user.name}</li>
                         <Link to="/logout">Logout</Link>
 
                         <Link to="/display">
                           Orders{" "}
-                          <span className="bg-yellow-400  ">{orderCount}</span>
+                          <span className="bg-black/70 font-bold text-white text-xs px-1 rounded-full  ">{orderCount}</span>
                         </Link>
                       </>
                     ) : (

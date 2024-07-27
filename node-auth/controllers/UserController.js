@@ -14,7 +14,7 @@ const getUsers = (req, res) => {
   });
 };
 
-//   const { username, fname, lname, email, country, phone, category, password } =
+
 //     req.body;
 
 //   // Validate inputs

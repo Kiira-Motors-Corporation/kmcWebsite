@@ -4,7 +4,7 @@ import {  Link, useNavigate,useLocation } from "react-router-dom";
 import background from "./assets/images/background.png";
 import main from "./assets/images/main.png";
 import icon from '../../assets/images/icon.png'
-import { AuthContext } from "../../Components/AuthContext";
+import { AuthContext } from "../../Context/AuthContext";
 import {url} from "../../utils/backend.js";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 

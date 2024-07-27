@@ -105,10 +105,13 @@ Content-Type: application/json
   "selectedFloorTrim": "Wood"
 }
 ###
-GET http://localhost:3002/items/insert
+POST http://localhost:3002/items
+Content-Type: application/json
+
+ { "name":"Shirt", "image_path":"images/KMC-ShortSleeved.png", "description":"tEST", "price":"30000" }
 
 ###
-GET http://localhost:3002/items/1
+GET http://localhost:3002/items/
 
 ###
 GET http://localhost:3002/items?min=1&max=2
@@ -172,4 +175,4 @@ GET http://localhost:3002/coach_orders/1
 
 #
 ###
-GET http://localhost:3002/vehicle
+GET http://localhost:3002/vehicle/type/EVS
