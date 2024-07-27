@@ -4,6 +4,7 @@ import podcast from "../../assets/images/new_content/podacast.jpg";
 import annualReport from "../../assets/images/new_content/annualReport.jpg";
 import career from "../../assets/images/new_content/career.jpg";
 import Aboutus from "../../assets/images/new_content/Aboutus.jpg";
+import defaultImage from "../../assets/images/new_content/default.png";
 import plants2 from "../../assets/images/new_content/plants2.jpg";
 import newPress from "../../assets/images/new_content/new-press.jpg";
 import concept from "../../assets/images/new_content/ev_cover.png";
@@ -73,12 +74,10 @@ const items_3 = [
   },
 ];
 
+
+
 const ImageSlider = () => {
-  const [currentImage, setCurrentImage] = useState([
-    items[0].image,
-    items_1[0].image,
-    items_2[0].image,
-  ]);
+  const [currentImage, setCurrentImage] = useState(defaultImage);
 
   const [fade, setFade] = useState(false);
 
@@ -91,7 +90,7 @@ const ImageSlider = () => {
   };
 
   return (
-    <div className="hidden  md:flex justify-center gap-[4rem]  items-center">
+    <div className="hidden md:flex justify-center gap-[4rem]  items-center">
       <div className="w-2/12 max-w-lg ">
         <img
           src={currentImage}

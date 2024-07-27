@@ -48,8 +48,8 @@ const Carousel = () => {
     slidesToScroll: 1, // Scroll one video at a time
     autoplay: true, // Enable autoplay
     autoplaySpeed: 10000,
-    beforeChange: (current, next) =>
-      console.log("Changing from", current, "to", next), // Optional for debugging
+    // beforeChange: (current, next) =>
+    //   console.log("Changing from", current, "to", next), // Optional for debugging
     nextArrow: <CustomNextArrow />, // Custom component for next arrow
     prevArrow: <CustomPrevArrow />,
   };

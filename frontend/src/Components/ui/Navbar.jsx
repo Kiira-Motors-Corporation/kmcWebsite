@@ -13,16 +13,20 @@ import DiscoverMore from "./ImageSlider_2";
 import Products from "./ImageSlider_3";
 import { OrderContext } from "../../Context/OrderContext";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
+import ConfirmationModal from "./ConfirmationModal";
+import { useNavigate } from "react-router-dom";
 
 
 import { useCart } from "../../Context/CartContext";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user,logout } = useContext(AuthContext);
   const { cartItems } = useCart();
   const { orderCount } = useContext(OrderContext);
   const uniqueItemCount = cartItems.length;
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const navigate = useNavigate();
 
   function handleScroll() {
     if (window.scrollY > 0) {
@@ -33,7 +37,7 @@ const Navbar = () => {
   }
 
   // console.log("Window scroll y:", window.scrollY);
-console.log(user);
+// console.log(user);
   window.addEventListener("scroll", handleScroll);
 
   const [isHovered, setIsHovered] = useState(false);
@@ -42,8 +46,31 @@ console.log(user);
   const [isAuth, setIsAuth] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [fade, setFade] = useState(false);
-  // const [prevScrollPos, setPrevScrollPos] = useState(0);
-  // const [visible, setVisible] = useState(true);
+  const [company, setCompany] = useState(false);
+  const [media, setMedia] = useState(false);
+  const [resources, setResources] = useState(false);
+  const [support, setSupport] = useState(false);
+  const [products, setProducts] = useState(false);
+  const [services, setServices] = useState(false);
+  const [query, setQuery] = useState(false);
+
+
+
+  const handleLogout = () =>{
+    setIsModalVisible(true)
+  }
+
+  const confirmRemove =  () => {
+    logout();
+    navigate('/login')
+    setIsModalVisible(false);
+    setIsAuth(false)
+  };
+
+  const cancelRemove = () => {
+    setIsModalVisible(false);
+
+  };
 
   // products
   const handleMouseEnter = () => {
@@ -83,25 +110,7 @@ console.log(user);
     document.body.classList.toggle("overflow-hidden");
   };
 
-  // company
-  const [company, setCompany] = useState(false);
 
-  // media
-  const [media, setMedia] = useState(false);
-
-  // resources
-  const [resources, setResources] = useState(false);
-
-  // support
-  const [support, setSupport] = useState(false);
-
-  // products
-  const [products, setProducts] = useState(false);
-
-  // services
-  const [services, setServices] = useState(false);
-
-  const [query, setQuery] = useState(false);
 
   //search functiionality
   const data = [
@@ -581,7 +590,7 @@ console.log(user);
                         </div>
 
                         <li>Hello, {user.name}</li>
-                        <Link to="/logout">Logout</Link>
+                        <Link onClick={handleLogout}>Logout</Link>
 
                         <Link to="/display">
                           Orders{" "}
@@ -609,6 +618,13 @@ console.log(user);
           className="fixed z-[-1] w-[100%] transition-transform transform duration-300 overflow-hidden bg-black opacity-25 backdrop-blur-50  h-[200dvh]"
         ></div>
       )}
+
+<ConfirmationModal
+        isVisible={isModalVisible}
+        onConfirm={confirmRemove}
+        onCancel={cancelRemove}
+        message="Are you sure you want to logout?"
+      />
     </Fragment>
   );
 };

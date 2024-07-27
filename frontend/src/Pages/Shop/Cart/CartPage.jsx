@@ -28,7 +28,7 @@ const CartPage = () => {
     }
 
     try {
-      const response = await axios.get(url + "/cart", {
+      const response = await axios.get(`${url}/cart`, {
         params: { userId: user.id },
       });
       setCartItems(response.data);
@@ -37,23 +37,12 @@ const CartPage = () => {
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>; // Add a loading indicator while checking the session
-  }
-
   const handleRemoveClick = (itemId) => {
     setSelectedItem(itemId);
     setIsModalVisible(true);
   };
 
-  if(user){
-    console.log(user);
-  }else{
-    console.log("There is no user");
-  }
-
   const confirmRemove = async () => {
-    console.log(`Confirming removal of item with ID: ${selectedItem}`);
     await removeFromCart(selectedItem);
     setIsModalVisible(false);
     setSelectedItem(null);
@@ -64,13 +53,27 @@ const CartPage = () => {
     setSelectedItem(null);
   };
 
+  if (loading) {
+    return <div>Loading...</div>; // Add a loading indicator while checking the session
+  }
+
+
+  if(user){
+    console.log(user);
+  }else{
+    console.log("There is no user");
+  }
+
+
+
+
   return (
     <div  style={{backgroundImage:`url(${background})`,backgroundPosition:'center',objectFit:'cover'}} >
       <div className="font-poppins flex justify-center gap-[4rem] w-[100vw] py-[8rem] h-[100%]">
         <div id="profile">
-          <img src={profile} className="w-[4rem]" alt="" />
+          <img src={profile} className="w-[3rem]" alt="" />
           <div id="name" className="text-center">
-            <p className="font-semibold">{user.username}</p>
+            <p className="font-semibold text-white">{user.name}</p>
           </div>
         </div>
         <div id="table-cart">

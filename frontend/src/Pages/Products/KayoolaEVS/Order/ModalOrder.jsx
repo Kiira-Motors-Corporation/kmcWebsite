@@ -1,9 +1,6 @@
 // import { jsPDF } from "jspdf";
-import axios from "axios";
-import { useCounter } from "../Cart/CounterContext";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import {url} from "../../utils/backend"
+
+import {url} from "../../../../utils/backend"
 
 const ModalOrder = ({ evs, isOpen, formData, onClose, onConfirm }) => {
   // const { counter, incrementCounter, decrementCounter } = useCounter();

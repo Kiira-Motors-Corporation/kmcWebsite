@@ -9,7 +9,7 @@ router.get("/", cartController.getCartItems);
 router.get("/:userId", cartController.getCartItemsByUserId);
 // Get a single evs by ID
 router.post("/",cartController.createCartItem);
-router.delete('/',cartController.deleteCartItem)
+router.delete("/:itemId",cartController.deleteCartItem)
 
 
 module.exports = router;

@@ -52,7 +52,8 @@ const ProductPage = () => {
         userId: user.id,
         itemId: item.id,
         quantity: quantity,
-        price:item.price
+        price:item.price,
+        image_path:item.image_path
 
       });
 
@@ -101,7 +102,7 @@ const ProductPage = () => {
           </h3>
           <p className="w-10/12">{items.description}</p>
 
-          <div className="flex ring-2 justify-center flex-row ring-red w-full   gap-2">
+          <div className="flex  justify-center flex-row w-full gap-2">
             <p className="">
               <input
                 className="border-none   text-black "

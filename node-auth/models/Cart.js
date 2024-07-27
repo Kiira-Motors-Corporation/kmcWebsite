@@ -24,6 +24,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DECIMAL,
         allowNull: false,
       },
+      image_path: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     });
 
     Cart.associate = function(models) {

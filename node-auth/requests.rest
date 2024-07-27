@@ -68,6 +68,15 @@ GET http://localhost:3002/cart
 
 ###
 GET http://localhost:3002/cart/2
+###
+
+
+DELETE http://localhost:3002/cart/1
+Content-Type: application/json
+
+{
+    "userId":2
+}
 
 
 ###
@@ -78,7 +87,8 @@ Content-Type: application/json
     "userId":2,
     "itemId": 1,
     "quantity": 4,
-    "price":1000
+    "price":1000,
+    "image_path":"Test"
 }
 
 

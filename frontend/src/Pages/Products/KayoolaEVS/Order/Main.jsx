@@ -1,18 +1,18 @@
 import { Fragment, useEffect } from "react";
 import { useState } from "react";
 import { ColorOptionExterior } from "./ColorOption.jsx";
-import carousel from "../../assets/images/order/carousel.png";
-import back from "../../assets/images/order/back.png";
-import fore from "../../assets/images/order/fore.png";
-import Footer from "../../Components/ui/Footer";
-import { useAuth } from "../../Components/AuthContext";
+
+import back from "../assets/images/order/back.png";
+import fore from "../assets/images/order/fore.png";
+import Footer from "../../../../Components/ui/Footer";
+import { useAuth } from "../../../../Context/AuthContext";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { CapacityOption } from "./ColorOption.jsx";
 import PhoneInput from "react-phone-input-2";
-import "../../../node_modules/react-phone-input-2/lib/style.css";
+import "../../../../../node_modules/react-phone-input-2/lib/style.css";
 import ModalOrder from "./ModalOrder.jsx";
-import {url} from "../../utils/backend.js";
+import {url} from "../../../../utils/backend.js";
 import ImageSlider from "./ImageSlider";
 
 

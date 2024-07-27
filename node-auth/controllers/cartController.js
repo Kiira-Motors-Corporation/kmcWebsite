@@ -2,7 +2,7 @@
 const { Cart, Users, Items } = require('../models');
 
 const createCartItem = async (req, res) => {
-  const { userId, itemId, quantity, price } = req.body;
+  const { userId, itemId, quantity, price,image_path } = req.body;
 
   try {
     const cartItem = await Cart.create({
@@ -10,6 +10,7 @@ const createCartItem = async (req, res) => {
       itemId,
       quantity,
       price,
+      image_path
     });
 
     res.status(201).json(cartItem);
@@ -47,7 +48,7 @@ const getCartItems = async (req, res) => {
         {
           model: Items,
           as: 'item',
-          attributes: ['name', 'price']
+          attributes: ['name', 'price','image_path']
         }
       ]
     });
@@ -60,13 +61,13 @@ const getCartItems = async (req, res) => {
 };
 
 const deleteCartItem = async (req, res) => {
-  const { userId, itemId } = req.body;
+    const {itemId} = req.params;
+    const {userId} = req.body;
 
   try {
     const result = await Cart.destroy({
       where: {
-        userId: userId,
-        itemId: itemId
+        userId: userId
       }
     });
 

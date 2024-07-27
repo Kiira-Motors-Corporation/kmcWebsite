@@ -17,7 +17,6 @@ import ProductSupport from "./Pages/Services/Product Support/Main";
 import Charger from "./Pages/Products/Charger/Main";
 import { AuthProvider } from "./Context/AuthContext";
 import ProtectedRoute from "./Context/ProtectedRoute";
-import Logout from "./Pages/Auth/Logout";
 import { useEffect } from "react";
 import Navbar from "./Components/ui/Navbar";
 
@@ -88,7 +87,7 @@ const App = () => {
                   <Route path="/display" element={<DisplayData />} />
                 </Route>
                 <Route path="/shop" element={<Shop />} />
-                <Route path="/logout" element={<Logout />} />
+
                 <Route path="/plants" element={<Plant />} />
                 <Route path="/vehicle-hire" element={<VehicleHire />} />
 

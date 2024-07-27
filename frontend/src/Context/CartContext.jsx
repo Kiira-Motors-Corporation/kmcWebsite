@@ -10,10 +10,7 @@ export const useCart = () => useContext(CartContext);
 export const CartProvider = ({ children }) => {
   const { user } = useAuth(); // Get the user from AuthContext
 
-  const [cartItems, setCartItems] = useState(() => {
-    const storedCartItems = localStorage.getItem("cartItems");
-    return storedCartItems ? [JSON.parse(storedCartItems)] : [];
-  });
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -32,15 +29,24 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+
+
+  // http://localhost:3002/cart/userId?:1
+
   const removeFromCart = async (itemId) => {
     try {
-      const response = await axios.delete(`${url}/${itemId}`);
+      const response = await axios.delete(`${url}/cart/${itemId}`,{
+        data: { userId: user.id },
+      });
+
       if (response.status === 200) {
         setCartItems(cartItems.filter((cartItem) => cartItem.id !== itemId));
       }
     } catch (error) {
       console.error("Error removing item:", error);
+
     }
+
   };
 
   const value = {
