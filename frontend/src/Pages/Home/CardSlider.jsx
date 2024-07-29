@@ -1,9 +1,9 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import slider_1 from "../../assets/images/a.png";
-import slider_2 from "../../assets/images/b.png";
-import slider_3 from "../../assets/images/a.png";
+import slider_1 from "./assets/images/12mKayoolaCNG.jpg";
+import slider_2 from "./assets/images/13mKayoolaElectricCoach.jpg";
+import slider_3 from "./assets/images/18mArticulatedBus.jpg";
 
 const UpdateSlider = () => {
 
@@ -11,19 +11,19 @@ const UpdateSlider = () => {
   const data = [
     {
       id: 1,
-      headline: "12 Meter Electric Coach",
+      headline: "12m Kayoola CNG",
       date: "2 days ago",
       image_url: slider_1,
     },
     {
       id: 2,
-      headline: "12 Meter Executive Diesel Coach",
+      headline: "13m Kayoola Electric Coach",
       date: "2 days ago",
       image_url: slider_2,
     },
     {
       id: 3,
-      headline: "12 Meter Diesel Coach",
+      headline: "18m Articulated Bus",
       date: "2 days ago",
       image_url: slider_3,
     },
@@ -83,7 +83,7 @@ const UpdateSlider = () => {
                   {data.map((p) => (
                     <div
                       key={p.id}
-                      className="cursor-grab w-[20rem]  flex justify-evenly items-center filter brightness-90 hover:brightness-100 transition-all delay-150 "
+                      className="cursor-grab w-[20rem]  flex justify-evenly items-center filter transition-all delay-150 "
                     >
                       <div>
                         <div className="h-[15rem]">

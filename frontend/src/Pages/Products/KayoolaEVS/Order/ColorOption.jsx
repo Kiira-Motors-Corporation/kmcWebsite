@@ -16,7 +16,7 @@ export const ColorOptionExterior = ({ title, color, group, selectedColor, onSele
         title={title}
         type="radio"
         required
-        className="w-8 h-8"
+        className="w-4 h-4 p-4 focus:outline-none unselect focus:ring-0"
         checked={selectedColor === title}
         onChange={handleSelect}
         style={{ backgroundColor: color }}

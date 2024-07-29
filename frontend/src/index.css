@@ -267,24 +267,29 @@ text-transform: uppercase;
 [type="radio"]{
   border-radius: 2px;
 }
-*/
-[type="radio"]:checked {
-  background-image: url("");
 
-}
 
 /* Default styles for the divs */
 .radio-container {
   border: 2px solid transparent;
-  padding: 5px;
+
   border-radius: 8px;
-  margin-bottom: 10px;
+
   transition: border-color 0.1s;
 }
 
 /* Highlight style for the selected div */
 .radio-container.selected {
-
+padding: 2px;
   border-color: blue;
 }
 
+.unselect:checked{
+  background-image: url("");
+}
+
+.disabled-button {
+
+
+  cursor: not-allowed;
+}

@@ -27,9 +27,9 @@ const AuthProvider = ({ children }) => {
     initializeSession();
   }, []);
 
-  const handleLogin = async (name, password) => {
+  const handleLogin = async (email, password) => {
     try {
-      const userData = await login(name, password);
+      const userData = await login(email, password);
       setUser(userData.user);
       setError(null);
     } catch (error) {
@@ -40,6 +40,7 @@ const AuthProvider = ({ children }) => {
 
   const signup = async (name, email, contact, password) => {
     setLoading(true);
+    setError(''); // Clear previous errors
     try {
       // Replace with your actual signup API call
       const response = await axios.post(url + "/user/signup", {
@@ -48,13 +49,16 @@ const AuthProvider = ({ children }) => {
         contact,
         password,
       });
-      setUser(response.data.user);
-      setLoading(false);
+
+      console.log(response.data);
       return true;
-    } catch (error) {
-      console.error("Signup error", error);
-      setLoading(false);
-      return false;
+    }   catch (err) {
+    // Handle error response
+    if (err.response && err.response.data && err.response.data.error) {
+      setError(err.response.data.error);
+      } else {
+        setError('An unexpected error occurred.');
+      }
     }
   };
 

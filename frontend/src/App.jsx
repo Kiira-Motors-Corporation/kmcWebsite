@@ -19,6 +19,7 @@ import { AuthProvider } from "./Context/AuthContext";
 import ProtectedRoute from "./Context/ProtectedRoute";
 import { useEffect } from "react";
 import Navbar from "./Components/ui/Navbar";
+import ModalOrder from "./Pages/Products/KayoolaEVS/Order/ModalOrder";
 
 // import Headroom from "react-headroom";
 import { CartProvider } from "./Context/CartContext";
@@ -97,7 +98,7 @@ const App = () => {
                 <Route path="/about" element={<About />} />
 
                 <Route path="/reports" element={<Reports />} />
-
+                <Route path="/modal-order" element={<ModalOrder />} />
                 <Route path="/clubs" element={<Clubs />} />
 
                 <Route path="/login" element={<Login />} />

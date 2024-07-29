@@ -1,9 +1,19 @@
 // import { jsPDF } from "jspdf";
 
 import {url} from "../../../../utils/backend"
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const ModalOrder = ({ evs, isOpen, formData, onClose, onConfirm }) => {
+const ModalOrder = ({ user, isOpen, formData, onClose, onConfirm }) => {
   // const { counter, incrementCounter, decrementCounter } = useCounter();
+  const location = useLocation();
+  const navigate = useNavigate();
+ const { image, alt } = location.state || {};
+
+  const handleClose = () => {
+    navigate(-1); // Go back to the previous page
+  };
+
 
   // const colorNameMap = {
   //   "#E28000": "Orange",
@@ -48,26 +58,28 @@ const ModalOrder = ({ evs, isOpen, formData, onClose, onConfirm }) => {
   return (
     <div className="fixed inset-0 font-poppins text-base bg-black bg-opacity-50 flex items-center justify-center">
       <div className="bg-white px-[14%] p-6 rounded-lg shadow-lg">
+
         <h2 className="text-xl font-bold mb-4">Confirm Your Order</h2>
-        <div className="mb-4">
-          <img className=" h-32" src={`${url}/${evs.image}`} alt="name" />
-          <p><strong>Name:</strong> {formData.name}</p>
+        <div className="mb-4 text-left">
+          <img className=" h-32" src={image} alt={alt} />
+          <div className="font-medium flex gap-4 items-center">Name:<span className="text-sm font-normal">{formData.accName}</span></div>
           {/* <p><strong>Email:</strong> {formData.email}</p> */}
           <div>
             <p><strong>Colors:</strong></p>
-            <p>Exterior Color: {formData.colors.exteriorColor}</p>
-            <p>Interior Color: {formData.colors.interiorColor}</p>
-            <p>Floor Trim: {formData.colors.floorTrim}</p>
+            <p>Exterior Color: <span className="text-sm">{formData.colors.exterior_Color}</span></p>
+            <p>Interior Color: <span className="text-sm">{formData.colors.interior_Color}</span></p>
+            <p>Floor Trim: <span className="text-sm">{formData.colors.floor_Trim}</span></p>
           </div>
           <div>
             <p><strong>Capacities:</strong></p>
-            <p>Capacity: {formData.capacities.capacity}</p>
+            <p>Capacity: <span className="text-sm">{formData.capacities.capacity}</span></p>
           </div>
           {/* <p><strong>User ID:</strong> {formData.userId}</p> */}
         </div>
         <div className="flex justify-end">
           <button onClick={onClose} className="mr-2 bg-gray-200 px-4 py-2 rounded">Cancel</button>
           <button onClick={onConfirm} className="bg-red-500 text-white px-4 py-2 rounded">Confirm</button>
+          <button className="absolute top-2 right-2 text-gray-500" onClick={handleClose}>X</button>
         </div>
       </div>
     </div>

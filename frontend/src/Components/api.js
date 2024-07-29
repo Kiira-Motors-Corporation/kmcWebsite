@@ -6,9 +6,9 @@ const api = axios.create({
   withCredentials: true, // Include credentials (cookies)
 });
 
-export const login = async (name, password) => {
+export const login = async (email, password) => {
   try {
-    const response = await api.post('/user/login', { name, password });
+    const response = await api.post('/user/login', { email, password });
     return response.data;
   } catch (error) {
     console.error('Error logging in:', error);
