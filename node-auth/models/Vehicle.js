@@ -47,5 +47,15 @@ module.exports = (sequelize, DataTypes) => {
       }
     );
 
+
+    Vehicles.associate = (models) => {
+      Vehicles.hasOne(models.Specifications, {
+        foreignKey: "vehicleId",
+        as: "vehicle",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
+
+    };
     return Vehicles;
   };

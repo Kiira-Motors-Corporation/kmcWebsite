@@ -12,6 +12,7 @@ module.exports =(sequelize,DataTypes) =>{
             email:{
                 type:DataTypes.STRING,
                 allowNull:false,
+                unique: true,
                 validate:{
                     notEmpty:true
                 }
@@ -33,10 +34,12 @@ module.exports =(sequelize,DataTypes) =>{
         }
     )
 
+
+
     Users.associate = function(models) {
         Users.hasMany(models.Cart, {
           foreignKey: 'userId',
-          as: 'carts'
+
         });
       };
 

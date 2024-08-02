@@ -1,0 +1,127 @@
+###
+
+POST http://localhost:3002/login
+Content-Type: application/json
+
+{
+    "username":"Enock"
+}
+
+###
+
+GET http://localhost:3002/redirect-to-login
+
+###
+
+POST http://localhost:3002/items
+Content-Type: application/json
+
+{
+        "name":"Test",
+        "price":2,
+        "description":"test",
+        "image_path":"/1234"
+      }
+
+###
+GET http://localhost:3002/items
+
+###
+
+GET http://localhost:3002/items/1
+
+
+
+
+
+###
+POST http://localhost:3002/quote
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "phoneNumber": "1234567890",
+  "email": "john.doe@example.com",
+  "selectedExteriorColor": "Red",
+  "selectedInteriorColor": "Black",
+  "selectedFloorTrim": "Wood"
+}
+###
+
+POST http://localhost:3002/api/send-email
+Content-Type: application/json
+
+{
+  "pdfData": "data:application/pdf;filename=generated.pdf;base64,JVBERi0xLjMKJbrfrOAKMyAwIG9iago8PC9UeXBlIC9QYWdlCi9QYXJlbnQgMSAwIFIKL1Jlc291cmNlcyAyIDAgUgovTWVkaWFCb3ggWzAgMCA1OTUuMjc5OTk5OTk5OTk5OTcyNyA4NDEuODg5OTk5OTk5OTk5OTg2NF0KL0NvbnRlbnRzIDQgMCBSCj4+CmVuZG9iago0IDAgb2JqCjw8Ci9MZW5ndGggMzM2Cj4+CnN0cmVhbQowLjU2NzAwMDAwMDAwMDAwMDEgdwowIEcKQlQKL0YxIDE2IFRmCjE4LjM5OTk5OTk5OTk5OTk5ODYgVEwKMCBnCjI4LjM0NjQ1NjY5MjkxMzM4ODggODEzLjU0MzU0MzMwNzA4NjU2NTYgVGQKKENvbG9yOiAjRTI4MDAwKSBUagpFVApCVAovRjEgMTYgVGYKMTguMzk5OTk5OTk5OTk5OTk4NiBUTAowIGcKMjguMzQ2NDU2NjkyOTEzMzg4OCA3ODUuMTk3MDg2NjE0MTczMjU4NiBUZAooTmFtZTogNzApIFRqCkVUCkJUCi9GMSAxNiBUZgoxOC4zOTk5OTk5OTk5OTk5OTg2IFRMCjAgZwoyOC4zNDY0NTY2OTI5MTMzODg4IDc4NS4xOTcwODY2MTQxNzMyNTg2IFRkCihOYW1lOiBIZWxsbykgVGoKRVQKZW5kc3RyZWFtCmVuZG9iagoxIDAgb2JqCjw8L1R5cGUgL1BhZ2VzCi9LaWRzIFszIDAgUiBdCi9Db3VudCAxCj4+CmVuZG9iago1IDAgb2JqCjw8Ci9UeXBlIC9Gb250Ci9CYXNlRm9udCAvSGVsdmV0aWNhCi9TdWJ0eXBlIC9UeXBlMQovRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZwovRmlyc3RDaGFyIDMyCi9MYXN0Q2hhciAyNTUKPj4KZW5kb2JqCjYgMCBvYmoKPDwKL1R5cGUgL0ZvbnQKL0Jhc2VGb250IC9IZWx2ZXRpY2EtQm9sZAovU3VidHlwZSAvVHlwZTEKL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcKL0ZpcnN0Q2hhciAzMgovTGFzdENoYXIgMjU1Cj4+CmVuZG9iago3IDAgb2JqCjw8Ci9UeXBlIC9Gb250Ci9CYXNlRm9udCAvSGVsdmV0aWNhLU9ibGlxdWUKL1N1YnR5cGUgL1R5cGUxCi9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nCi9GaXJzdENoYXIgMzIKL0xhc3RDaGFyIDI1NQo+PgplbmRvYmoKOCAwIG9iago8PAovVHlwZSAvRm9udAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkT2JsaXF1ZQovU3VidHlwZSAvVHlwZTEKL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcKL0ZpcnN0Q2hhciAzMgovTGFzdENoYXIgMjU1Cj4+CmVuZG9iago5IDAgb2JqCjw8Ci9UeXBlIC9Gb250Ci9CYXNlRm9udCAvQ291cmllcgovU3VidHlwZSAvVHlwZTEKL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcKL0ZpcnN0Q2hhciAzMgovTGFzdENoYXIgMjU1Cj4+CmVuZG9iagoxMCAwIG9iago8PAovVHlwZSAvRm9udAovQmFzZUZvbnQgL0NvdXJpZXItQm9sZAovU3VidHlwZSAvVHlwZTEKL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcKL0ZpcnN0Q2hhciAzMgovTGFzdENoYXIgMjU1Cj4+CmVuZG9iagoxMSAwIG9iago8PAovVHlwZSAvRm9udAovQmFzZUZvbnQgL0NvdXJpZXItT2JsaXF1ZQovU3VidHlwZSAvVHlwZTEKL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcKL0ZpcnN0Q2hhciAzMgovTGFzdENoYXIgMjU1Cj4+CmVuZG9iagoxMiAwIG9iago8PAovVHlwZSAvRm9udAovQmFzZUZvbnQgL0NvdXJpZXItQm9sZE9ibGlxdWUKL1N1YnR5cGUgL1R5cGUxCi9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nCi9GaXJzdENoYXIgMzIKL0xhc3RDaGFyIDI1NQo+PgplbmRvYmoKMTMgMCBvYmoKPDwKL1R5cGUgL0ZvbnQKL0Jhc2VGb250IC9UaW1lcy1Sb21hbgovU3VidHlwZSAvVHlwZTEKL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcKL0ZpcnN0Q2hhciAzMgovTGFzdENoYXIgMjU1Cj4+CmVuZG9iagoxNCAwIG9iago8PAovVHlwZSAvRm9udAovQmFzZUZvbnQgL1RpbWVzLUJvbGQKL1N1YnR5cGUgL1R5cGUxCi9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nCi9GaXJzdENoYXIgMzIKL0xhc3RDaGFyIDI1NQo+PgplbmRvYmoKMTUgMCBvYmoKPDwKL1R5cGUgL0ZvbnQKL0Jhc2VGb250IC9UaW1lcy1JdGFsaWMKL1N1YnR5cGUgL1R5cGUxCi9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nCi9GaXJzdENoYXIgMzIKL0xhc3RDaGFyIDI1NQo+PgplbmRvYmoKMTYgMCBvYmoKPDwKL1R5cGUgL0ZvbnQKL0Jhc2VGb250IC9UaW1lcy1Cb2xkSXRhbGljCi9TdWJ0eXBlIC9UeXBlMQovRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZwovRmlyc3RDaGFyIDMyCi9MYXN0Q2hhciAyNTUKPj4KZW5kb2JqCjE3IDAgb2JqCjw8Ci9UeXBlIC9Gb250Ci9CYXNlRm9udCAvWmFwZkRpbmdiYXRzCi9TdWJ0eXBlIC9UeXBlMQovRmlyc3RDaGFyIDMyCi9MYXN0Q2hhciAyNTUKPj4KZW5kb2JqCjE4IDAgb2JqCjw8Ci9UeXBlIC9Gb250Ci9CYXNlRm9udCAvU3ltYm9sCi9TdWJ0eXBlIC9UeXBlMQovRmlyc3RDaGFyIDMyCi9MYXN0Q2hhciAyNTUKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL1Byb2NTZXQgWy9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUldCi9Gb250IDw8Ci9GMSA1IDAgUgovRjIgNiAwIFIKL0YzIDcgMCBSCi9GNCA4IDAgUgovRjUgOSAwIFIKL0Y2IDEwIDAgUgovRjcgMTEgMCBSCi9GOCAxMiAwIFIKL0Y5IDEzIDAgUgovRjEwIDE0IDAgUgovRjExIDE1IDAgUgovRjEyIDE2IDAgUgovRjEzIDE3IDAgUgovRjE0IDE4IDAgUgo+PgovWE9iamVjdCA8PAo+Pgo+PgplbmRvYmoKMTkgMCBvYmoKPDwKL1Byb2R1Y2VyIChqc1BERiAyLjUuMSkKL0NyZWF0aW9uRGF0ZSAoRDoyMDI0MDcwNDEwMTMxMCswMycwMCcpCj4+CmVuZG9iagoyMCAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovUGFnZXMgMSAwIFIKL09wZW5BY3Rpb24gWzMgMCBSIC9GaXRIIG51bGxdCi9QYWdlTGF5b3V0IC9PbmVDb2x1bW4KPj4KZW5kb2JqCnhyZWYKMCAyMQowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDA1MzkgMDAwMDAgbiAKMDAwMDAwMjM1NiAwMDAwMCBuIAowMDAwMDAwMDE1IDAwMDAwIG4gCjAwMDAwMDAxNTIgMDAwMDAgbiAKMDAwMDAwMDU5NiAwMDAwMCBuIAowMDAwMDAwNzIxIDAwMDAwIG4gCjAwMDAwMDA4NTEgMDAwMDAgbiAKMDAwMDAwMDk4NCAwMDAwMCBuIAowMDAwMDAxMTIxIDAwMDAwIG4gCjAwMDAwMDEyNDQgMDAwMDAgbiAKMDAwMDAwMTM3MyAwMDAwMCBuIAowMDAwMDAxNTA1IDAwMDAwIG4gCjAwMDAwMDE2NDEgMDAwMDAgbiAKMDAwMDAwMTc2OSAwMDAwMCBuIAowMDAwMDAxODk2IDAwMDAwIG4gCjAwMDAwMDIwMjUgMDAwMDAgbiAKMDAwMDAwMjE1OCAwMDAwMCBuIAowMDAwMDAyMjYwIDAwMDAwIG4gCjAwMDAwMDI2MDQgMDAwMDAgbiAKMDAwMDAwMjY5MCAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9TaXplIDIxCi9Sb290IDIwIDAgUgovSW5mbyAxOSAwIFIKL0lEIFsgPDk5MkMyOTIxNTJGMjYxNTMxRTY5ODA5ODg4MEE5MDQ3PiA8OTkyQzI5MjE1MkYyNjE1MzFFNjk4MDk4ODgwQTkwNDc+IF0KPj4Kc3RhcnR4cmVmCjI3OTQKJSVFT0Y="
+}
+
+###
+POST http://localhost:3002/evs_orders
+Content-Type: application/json
+
+{
+    "name":"kenny",
+    "colors":{
+    "exteriorColor":"black",
+    "interiorColor":"black",
+    "floorTrim":"orange"
+    },
+    "capacities":{"capacity":"70"},
+    "userId":1
+}
+
+
+
+###
+POST http://localhost:3002/coach_orders
+Content-Type: application/json
+
+{
+    "name":"Jane Doe",
+    "colors":{
+    "exteriorColor":"black",
+    "interiorColor":"black",
+    "floorTrim":"orange"
+    },
+    "capacities":{"capacity":"70"},
+    "userId":1
+}
+
+###
+GET http://localhost:3002/coach_orders/1
+
+
+#
+
+
+
+# CRUD FOR CART
+###
+GET http://localhost:3002/cart
+
+###
+POST http://localhost:3002/cart
+Content-Type: application/json
+
+{
+    "userId":3
+}
+
+###
+GET http://localhost:3002/cart/3
+
+###
+DELETE  http://localhost:3002/cart/3
+
+###
+GET http://localhost:3002/cart/2
+
+###
+POST http://localhost:3002/cart
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "itemId": 1,
+  "quantity": 2
+}

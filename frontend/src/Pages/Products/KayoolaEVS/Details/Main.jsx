@@ -38,19 +38,22 @@ const Order = () => {
           backgroundRepeat: "no-repeat",
           objectFit: "cover",
         }}
-        className="h-auto relative z-[-1]  w-12/12 font-poppins"
+        className="h-auto relative z-[-1]   w-12/12 font-poppins"
       >
-        <span className="h-full flex flex-col items-center absolute w-full z-[4] top-[4rem]">
+        <span className="h-full flex flex-col items-center absolute w-full z-[4] top-[4rem] lg:top-0">
           <p className="text-3xl font-bold w-11/12 md:w-full text-center text-white py-8">
             {evs.name}
           </p>
         </span>
+        <center>
         <img
           src={carousel}
           alt=""
-          className="object-center  object-cover "
+          className="object-center lg:w-9/12  object-cover "
         />
-        <img src={fore} alt="" className="absolute z-[-1] top-[5rem] md:top-[10rem] object-center object-cover  w-full" />
+        </center>
+
+        <img src={fore} alt="" className="absolute  z-[-1] top-[5rem] md:top-[10rem] object-center object-cover  w-full" />
       </div>
       <center>
         <h1 className="font-semibold text-3xl py-[1.5%]">EVS Models</h1>

@@ -27,6 +27,7 @@ import icon from "./assets/images/icon.png";
 import ProductPage from "./Pages/Shop/ProductPage";
 import ScrollToTop from "./Components/ScrollToTop";
 import DisplayData from "./Pages/Products/KayoolaEVS/Order/DisplayData";
+import CheckoutPage from "./Pages/Shop/Cart/CheckoutPage";
 
 import { lazy, Suspense } from "react";
 const Home = lazy(() => import("./Pages/Home"));
@@ -76,7 +77,7 @@ const App = () => {
                 <Route path="/details-evs" element={<DetailsEVS />} />
                 <Route path="/details-coach" element={<DetailsCoach />} />
                 <Route path="/concepts" element={<Concepts />} />
-
+                <Route path="/checkout" element={<CheckoutPage />} />
                 {/* put back in protected route */}
 
                 {/*  */}

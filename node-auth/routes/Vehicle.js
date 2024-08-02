@@ -6,6 +6,8 @@ const vehicleController = require('../controllers/vehicleController');
 // Define routes and map them to controller functions
 // Get all evs
 router.get("/", vehicleController.getVehicle);
+
+router.post("/", vehicleController.createVehicle);
 // Get all evs
 router.get("/:id", vehicleController.getVehicleById);
 // Get a single evs by ID
@@ -14,7 +16,7 @@ router.get("/type/:type",vehicleController.getVehicleByType);
 router.delete("/:id",vehicleController.deleteVehicleById);
 // Get a single evs by ID
 router.put("/:id",vehicleController.updateVehicle);
-
+router.get("/type/:type/:id",vehicleController.getVehicleByTypeById);
 
 
 module.exports = router;

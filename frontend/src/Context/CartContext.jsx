@@ -10,9 +10,14 @@ export const useCart = () => useContext(CartContext);
 export const CartProvider = ({ children }) => {
   const { user } = useAuth(); // Get the user from AuthContext
 
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    // Load from localStorage on initialization
+    const savedCart = localStorage.getItem("cartItems");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
 
   useEffect(() => {
+    // Update localStorage whenever cartItems changes
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
@@ -29,24 +34,23 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  const updateCartItem = (item, quantity) => {
+    // Update existing item logic
+    setCartItems((prevItems) =>
+      prevItems.map((cartItem) =>
+        cartItem.id === item.id ? { ...cartItem, quantity } : cartItem
+      )
+    );
+  };
 
-
-  // http://localhost:3002/cart/userId?:1
-
-  const removeFromCart = async (itemId) => {
+  const removeFromCart = async (cartId, itemId) => {
     try {
-      const response = await axios.delete(`${url}/cart/${itemId}`,{
-        data: { userId: user.id },
-      });
-
-      if (response.status === 200) {
-        setCartItems(cartItems.filter((cartItem) => cartItem.id !== itemId));
-      }
+      await axios.delete(`${url}/cart/${cartId}/items/${itemId}`);
+      // Optionally update the cartItems state to reflect the change
+      setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
     } catch (error) {
-      console.error("Error removing item:", error);
-
+      console.error("Error removing item from cart:", error);
     }
-
   };
 
   const value = {
@@ -54,6 +58,7 @@ export const CartProvider = ({ children }) => {
     setCartItems,
     addToCart,
     removeFromCart,
+    updateCartItem,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

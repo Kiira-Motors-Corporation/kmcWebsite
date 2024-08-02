@@ -51,16 +51,14 @@ app.use(
 const userRoute = require("./routes/User");
 const vehicleRoute = require("./routes/Vehicle");
 const itemsRoute = require("./routes/Items");
-const evsOrdersRoute = require("./routes/evsOrders");
-const coachOrdersRoute = require("./routes/coachOrders");
-const cartItemsRoute = require("./routes/Cart");
+const cartRoute = require("./routes/Cart");
+const cartItemsRoute = require("./routes/CartItems");
 
 app.use("/user", userRoute);
 app.use("/vehicle", vehicleRoute);
 app.use("/items", itemsRoute);
-app.use("/evs_orders", evsOrdersRoute);
-app.use("/coach_orders", coachOrdersRoute);
-app.use("/cart", cartItemsRoute);
+app.use("/cart", cartRoute);
+app.use('/cart', cartItemsRoute);
 
 app.get("/", (req, res) => {
   res.send(`connected on port ${port}`);

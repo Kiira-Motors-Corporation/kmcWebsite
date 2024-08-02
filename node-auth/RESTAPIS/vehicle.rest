@@ -1,0 +1,13 @@
+POST http://localhost:3002/vehicle
+Content-Type: application/json
+
+{ "name":"Kayoola EVS",
+"model":"Electric",
+"length":"12m",
+"type":"EVS",
+"kind":"EVS",
+"image_path":"/images/lowFloorEVS/(12m,10m,8m)KayoolaEVS.jpg",
+"seats":"90" }
+
+###
+GET http://localhost:3002/vehicle/type/EVS

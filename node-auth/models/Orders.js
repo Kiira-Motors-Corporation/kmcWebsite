@@ -1,23 +1,31 @@
 
 module.exports =(sequelize,DataTypes) =>{
-    const Books = sequelize.define(
-        "Books",{
-            firstName:{
+    const Orders = sequelize.define(
+        "Orders",{
+            name:{
                 type:DataTypes.STRING,
                 allowNull:false,
                 validate:{
                     notEmpty:true
                 }
             },
-            age:{
+            price:{
                 type:DataTypes.INTEGER,
                 allowNull:false,
                 validate:{
                     notEmpty:true
                 }
-            }
+            },
+
+            quantity:{
+                type:DataTypes.STRING,
+                allowNull:false,
+                validate:{
+                    notEmpty:true
+                }
+            },
         }
     )
 
-    return Books;
+    return Orders;
 }

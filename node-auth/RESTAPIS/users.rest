@@ -1,0 +1,34 @@
+
+POST http://localhost:3002/user/signup
+Content-Type: application/json
+
+{ "name":"Mike", "email":"peter@kmc.com", "contact":"1234", "password":"peter" }
+
+
+
+###
+GET http://localhost:3002/user
+
+###
+POST http://localhost:3002/user/check-email
+Content-Type: application/json
+
+{"email":"peter@km.com"}
+
+###
+
+GET http://localhost:3002/user/checkSession
+
+###
+
+POST http://localhost:3002/user/login
+Content-Type: application/json
+
+{
+    "name":"Peter",
+    "password":"peter"
+}
+
+###
+
+POST http://localhost:3002/user/logout

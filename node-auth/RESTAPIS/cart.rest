@@ -1,0 +1,26 @@
+###
+GET http://localhost:3002/cart/1
+Accept: application/json
+###
+POST http://localhost:3002/cart/item
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "itemId": 1,
+  "quantity": 2
+}
+
+###
+DELETE  http://localhost:3002/cart/4/items/1
+
+###
+PUT http://localhost:3002/cart
+Content-Type: application/json
+
+{
+  "cartId":"4", "itemId":"1", "quantity":"15"
+}
+
+###
+POST http://localhost:3002/cart/checkout/1

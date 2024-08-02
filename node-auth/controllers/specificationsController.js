@@ -1,42 +1,18 @@
 // controllers/userController.js
-const { Vehicles, Specifications } = require('../models') // Adjust the path if needed
+const { Specifications } = require('../models') // Adjust the path if needed
 
 
 
-const createVehicle = async (req, res) => {
+const createSpecification = async (req, res) => {
   try {
-    const { name, model, length, type, kind, image_path, seats } = req.body;
-
-    const newVehicle = await Vehicles.create({
-      name,
-      model,
-      length,
-      type,
-      kind,
-      image_path,
+    const { seats } = req.body;
+    const newSpecification = await Specifications.create({
+      seats
     });
-    const specification = await Specifications.create({
-      seats: seats,
-      vehicleId:newVehicle.id
-
-    });
-
-    res.status(201).json({
-      message: "Specs and vehicle created",
-      vehicle: {
-        name: newVehicle.name,
-        model: newVehicle.model,
-        length: newVehicle.length,
-        type: newVehicle.type,
-        kind: newVehicle.kind,
-        image_path: newVehicle.itemDetails,
-        specification: specification
-      }
-
-    });
+    res.status(201).json(newSpecification);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Error creating vehicle' });
+    res.status(500).json({ error: 'Error creating specification' });
   }
 };
 
@@ -47,7 +23,7 @@ const getVehicleByType = async (req, res) => {
   const { type } = req.params;
 
   try {
-    const vehicle = await Vehicles.findAll({ where: { type },include: [{ model: Specifications, as: 'vehicle' }] });
+    const vehicle = await Vehicles.findAll({ where: { type } });
     if (!vehicle) {
       return res.status(404).json({ error: 'Vehicle not found' });
     }
@@ -60,10 +36,10 @@ const getVehicleByType = async (req, res) => {
 };
 
 const getVehicleByTypeById = async (req, res) => {
-  const { type, id } = req.params;
+  const { type,id } = req.params;
 
   try {
-    const vehicle = await Vehicles.findAll({ where: { type, id } });
+    const vehicle = await Vehicles.findAll({ where: { type,id } });
     if (!vehicle) {
       return res.status(404).json({ error: 'Vehicle not found' });
     }
@@ -75,10 +51,10 @@ const getVehicleByTypeById = async (req, res) => {
   }
 };
 
-const getVehicle = (req, res) => {
-  Vehicles.findAll().then((vehicle) => { res.send(vehicle) }).catch((err) => { if (err) { console.log(err); } })
+const getVehicle= (req,res)=>{
+  Vehicles.findAll().then((vehicle)=>{res.send(vehicle)}).catch((err)=>{if(err){console.log(err);}})
 
-}
+  }
 
 const getVehicleById = async (req, res) => {
   const { id } = req.params;
@@ -97,7 +73,7 @@ const getVehicleById = async (req, res) => {
 
 const updateVehicle = async (req, res) => {
   const { id } = req.params;
-  const { name, model, length, type, kind, image_path } = req.body;
+  const { name, model, length, type,kind, image_path } = req.body;
 
   try {
     const vehicle = await Vehicles.findByPk(id);
@@ -138,12 +114,12 @@ const deleteVehicleById = async (req, res) => {
   }
 };
 
-module.exports = {
-  createVehicle,
-  getVehicle,
-  getVehicleById,
-  getVehicleByType,
-  getVehicleByTypeById,
-  deleteVehicleById,
-  updateVehicle
-};
+  module.exports = {
+     createSpecification,
+    getVehicle,
+    getVehicleById,
+    getVehicleByType,
+    getVehicleByTypeById,
+    deleteVehicleById,
+    updateVehicle
+  };

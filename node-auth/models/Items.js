@@ -33,12 +33,11 @@ module.exports =(sequelize,DataTypes) =>{
         }
     )
 
-    Items.associate = function(models) {
-        Items.hasMany(models.Cart, {
-          foreignKey: 'itemId',
-          as: 'carts',
-        });
-      };
+    // Items.associate = function(models) {
+    //     // Items.hasMany(models.CartItems,{
+
+    //     // });
+    //   };
 
     return Items;
 }

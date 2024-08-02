@@ -7,13 +7,16 @@ import { IoMdClose } from "react-icons/io";
 import { useCart } from "../../../Context/CartContext.jsx";
 import ConfirmationModal from "./ConfirmationModal";
 import background from "./assets/images/background.png";
-import {url} from "../../../utils/backend.js";
+import { url } from "../../../utils/backend.js";
+import { Link, useNavigate } from "react-router-dom";
+import { MdModeEdit } from "react-icons/md";
 
 const CartPage = () => {
   const { user, loading } = useAuth();
   const { cartItems, removeFromCart, setCartItems } = useCart();
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!loading && user) {
@@ -26,26 +29,46 @@ const CartPage = () => {
       console.log("User is not logged in");
       return;
     }
-
     try {
-      const response = await axios.get(`${url}/cart`, {
-        params: { userId: user.id },
-      });
-      setCartItems(response.data);
+      const response = await axios.get(`${url}/cart/${user.id}`);
+      setCartItems(response.data.cart.cartItems || []);
     } catch (error) {
       console.error("Error fetching cart items:", error);
     }
   };
 
-  const handleRemoveClick = (itemId) => {
-    setSelectedItem(itemId);
+  const handleRemoveClick = (cartId, itemId) => {
+    setSelectedItem({ cartId, itemId });
     setIsModalVisible(true);
   };
 
   const confirmRemove = async () => {
-    await removeFromCart(selectedItem);
+    if (selectedItem) {
+      try {
+        // Call the API to remove the item
+        await removeFromCart(selectedItem.cartId, selectedItem.itemId);
+
+        // Update the cart items state
+        setCartItems((prevItems) =>
+          prevItems.filter(
+            (item) =>
+              !(
+                item.cartId === selectedItem.cartId &&
+                item.itemId === selectedItem.itemId
+              )
+          )
+        );
+      } catch (error) {
+        console.error("Error removing item:", error);
+      }
+    }
     setIsModalVisible(false);
     setSelectedItem(null);
+  };
+
+  const handleEditClick = (item) => {
+    // Navigate to the product page with item details
+    navigate(`/product/${item.itemId}`, { state: { item } });
   };
 
   const cancelRemove = () => {
@@ -57,18 +80,14 @@ const CartPage = () => {
     return <div>Loading...</div>; // Add a loading indicator while checking the session
   }
 
-
-  if(user){
-    console.log(user);
-  }else{
-    console.log("There is no user");
-  }
-
-
-
-
   return (
-    <div  style={{backgroundImage:`url(${background})`,backgroundPosition:'center',objectFit:'cover'}} >
+    <div
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundPosition: "center",
+        objectFit: "cover",
+      }}
+    >
       <div className="font-poppins flex justify-center gap-[4rem] w-[100vw] py-[8rem] h-[100%]">
         <div id="profile">
           <img src={profile} className="w-[3rem]" alt="" />
@@ -76,11 +95,19 @@ const CartPage = () => {
             <p className="font-semibold text-white">{user.name}</p>
           </div>
         </div>
+
         <div id="table-cart">
-          <table className="bg-white  rounded-2xl text-center w-[70vw]">
+          <table className="bg-white rounded-xl text-center w-[70vw]">
             <thead>
               <tr>
-                <th></th>
+                <th><div className="flex justify-center w-full h-auto ">
+       <Link to="/checkout"
+              style={{ transition: "all 0.3s ease" }}
+              className="bg-[#292929] text-sm font-bold hover:bg-slate-600 text-white p-2"
+            >
+              Checkout
+            </Link>
+       </div></th>
                 <th>Items</th>
                 <th>Quantity</th>
                 <th className="py-8">Price(UGX)</th>
@@ -100,8 +127,20 @@ const CartPage = () => {
                   <td>{item.name}</td>
                   <td>{item.quantity}</td>
                   <td>{item.price * item.quantity}</td>
+                  <td className="text-2xl text-gray-400 hover:text-blue-500 transition-colors duration-200">
+                    <button
+                      className="text-2xl text-gray-400 hover:text-blue-500 transition-colors duration-200"
+                      onClick={() => handleEditClick(item)}
+                    >
+                      <MdModeEdit />
+                    </button>
+                  </td>
                   <td className="text-2xl text-gray-400 hover:text-red-500 transition-colors duration-200">
-                    <button onClick={() => handleRemoveClick(item.id)}>
+                    <button
+                      onClick={() =>
+                        handleRemoveClick(item.cartId, item.itemId)
+                      }
+                    >
                       <IoMdClose />
                     </button>
                   </td>
