@@ -93,7 +93,7 @@ const Signup = () => {
     try {
       const success = await signup(name, email, contact, password);
       if (success) {
-        navigate("/"); // Navigate to home or any other page after successful signup
+        navigate("/login"); // Navigate to home or any other page after successful signup
       } else {
 
         setError("Signup failed. Please check your details.");

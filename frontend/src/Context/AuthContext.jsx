@@ -32,9 +32,11 @@ const AuthProvider = ({ children }) => {
       const userData = await login(email, password);
       setUser(userData.user);
       setError(null);
+      return true;
     } catch (error) {
       console.error('Error logging in:', error);
       setError('Invalid email or password');
+      return false;
     }
   };
 
@@ -51,6 +53,7 @@ const AuthProvider = ({ children }) => {
       });
 
       console.log(response.data);
+      setLoading(false);
       return true;
     }   catch (err) {
     // Handle error response

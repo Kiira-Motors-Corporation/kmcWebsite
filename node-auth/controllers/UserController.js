@@ -41,13 +41,7 @@ const createUser = async (req, res) => {
     });
     res.status(201).json({ message: 'User created successfully', user: newUser });
 
-    const existingUser = await Users.findOne({where:{email}});
-    if (existingUser) {
-      return res.status(200).json({ exists: true });
-    } else {
-      return res.status(400).json({ exists: false });
-    }
-1
+
     } catch (error) {
       console.error('Error creating user:', error);
       res.status(500).json({ error: 'Error creating user' });

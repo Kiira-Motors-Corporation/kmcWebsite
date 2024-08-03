@@ -54,6 +54,7 @@ const ProductPage = () => {
   const handleAddOrUpdateCart = async (item) => {
     if (!user) {
       alert("You need to log in to add items to the cart");
+      navigate("/login")
       return;
     }
 
@@ -156,7 +157,7 @@ const ProductPage = () => {
 
       <div className="bg-[#1E1E1E]">
         <center className="text-white">Related Products </center>
-        <div className="flex flex-col justify-center md:gap-[1rem] px-[10vw] h-[70vh] items-center flex-wrap">
+        <div className="flex flex-row justify-center md:gap-[1rem] px-[10vw]  h-auto items-center flex-wrap">
           {relatedItems.map((item) => (
             <div
               style={{ transition: "all 0.3s ease" }}

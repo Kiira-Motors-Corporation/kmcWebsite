@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import background from "./assets/images/background.png";
@@ -17,21 +17,30 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Redirect if user is already logged in
-  if (user) {
-    navigate("/"); // Redirect to home page or dashboard
-    return null; // Optionally return null or a loading indicator
-  }
+
+
+  useEffect(() => {
+       // Redirect if user is already logged in
+    if (user) {
+      navigate("/"); // Redirect to home page or dashboard
+
+    }
+     }, [])
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("hello");
     const success = await login(email, password);
-    // console.log(success)
+    console.log(success)
+    // console.log("success");
     if (success) {
       const from = location.state?.from?.pathname || "/";
-      navigate(from);
+     navigate(from);
+
     } else {
       setErrorMessage("Login failed. Please check your credentials.");
+
     }
   };
 

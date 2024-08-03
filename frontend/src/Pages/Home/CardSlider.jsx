@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import slider_1 from "./assets/images/12mKayoolaCNG.jpg";
-import slider_2 from "./assets/images/13mKayoolaElectricCoach.jpg";
+import slider_2 from "./assets/images/12.5mExecutiveKayoolaDieselCoach.png";
 import slider_3 from "./assets/images/18mArticulatedBus.jpg";
 
 const UpdateSlider = () => {

@@ -1,12 +1,12 @@
 POST http://localhost:3002/vehicle
 Content-Type: application/json
 
-{ "name":"Kayoola EVS",
+{ "name":"Articulated Bus",
 "model":"Electric",
-"length":"12m",
+"length":"18m",
 "type":"EVS",
-"kind":"EVS",
-"image_path":"/images/lowFloorEVS/(12m,10m,8m)KayoolaEVS.jpg",
+"kind":"Bus",
+"image_path":"/images/lowFloorEVS/18mArticulatedBus.jpg",
 "seats":"90" }
 
 ###

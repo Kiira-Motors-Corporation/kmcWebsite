@@ -1,7 +1,7 @@
 POST http://localhost:3002/items
 Content-Type: application/json
 
- { "name":"Bag", "image_path":"images/KMC-Backpack.png", "description":"tEST", "price":"30000" }
+ { "name":"Long Sleeved Shirt", "image_path":"images/KMC-LongSleeved.png", "description":"tEST", "price":"30000" }
 
 ###
 GET http://localhost:3002/items/
