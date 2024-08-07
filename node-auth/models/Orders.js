@@ -2,6 +2,13 @@
 module.exports =(sequelize,DataTypes) =>{
     const Orders = sequelize.define(
         "Orders",{
+            userId:{
+                type:DataTypes.INTEGER,
+                allowNull:false,
+                validate:{
+                    notEmpty:true
+                }
+            },
             name:{
                 type:DataTypes.STRING,
                 allowNull:false,
@@ -18,7 +25,14 @@ module.exports =(sequelize,DataTypes) =>{
             },
 
             quantity:{
-                type:DataTypes.STRING,
+                type:DataTypes.INTEGER,
+                allowNull:false,
+                validate:{
+                    notEmpty:true
+                }
+            },
+            total:{
+                type:DataTypes.INTEGER,
                 allowNull:false,
                 validate:{
                     notEmpty:true

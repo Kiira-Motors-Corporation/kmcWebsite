@@ -20,6 +20,7 @@ const images = {
     const handleImageClick = () => {
       navigate('/modal-order', { state: { image: images[normalizedColor] || white, alt: normalizedColor } });
     };
+// console.log(normalizedColor);
 
 
 

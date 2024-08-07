@@ -1,5 +1,5 @@
 // controllers/cartController.js
-const { Cart, Users, Items,CartItems,sequelize } = require('../models');
+const { Cart, Users, Items,CartItems,Orders } = require('../models');
 
 
 // Create a new cart
@@ -35,6 +35,7 @@ console.log(userId);
     const createdCartItem = await CartItems.create({
       cartId: newCart.id,
       itemId: itemId,
+      name:itemDetails.name,
       quantity: quantity,
       price: itemDetails.price,
       image_path: itemDetails.image_path
@@ -195,6 +196,7 @@ const addItemToCart = async (req, res) => {
       cartItem = await CartItems.create({
         cartId: cart.id,
         itemId,
+        name:item.name,
         quantity,
         price: item.price,
         image_path: item.image_path
@@ -208,28 +210,40 @@ const addItemToCart = async (req, res) => {
   }
 };
 
-
-
 const checkoutCart = async (req, res) => {
   const { userId } = req.params;
 
   try {
     // Find the active cart for the user
     const cart = await Cart.findOne({
-      where: { userId, isActive: true }
+      where: { userId, isActive: true },
+      include: [{ model: CartItems, as: 'cartItems' }]
     });
 
     if (!cart) {
       return res.status(404).json({ error: 'Active cart not found' });
     }
 
+    /// Create orders for each item in the cart
+    const orders = cart.cartItems.map(item => ({
+      userId: cart.userId,
+      //userName: cart.userName,  Assuming userName is available in the cart or retrieved separately
+      name: item.name,
+      quantity: item.quantity,
+      price: item.price,
+      total:item.price*item.quantity
+    }));
 
+    // Save orders to the Orders table
+    await Orders.bulkCreate(orders);
 
     // Mark the cart as inactive (checkout)
     cart.isActive = false;
     await cart.save();
 
-    res.status(200).json({ message: 'Cart checked out successfully' });
+
+    // const order = Orders.create({name:cart.id,price:cart.cartItems.price,quantity:cart.cartItems.quantity})
+    res.status(200).json("Checkout successful");
   } catch (error) {
     console.error('Error checking out cart:', error);
     res.status(500).json({ error: 'Error checking out cart' });

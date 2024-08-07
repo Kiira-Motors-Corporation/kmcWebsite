@@ -20,15 +20,16 @@ const Order = () => {
   const { id } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+
   useEffect(() => {
     fetchEVS();
   }, [id]);
 
-console.log(user);
+  console.log(user);
 
   const [formData, setFormData] = useState({
     accName: user.name,
-    address:"",
+    address: "",
     colors: {
       exterior_Color: "",
       interior_Color: "",
@@ -38,8 +39,9 @@ console.log(user);
       capacity: "",
     },
     userId: user.id,
-
   });
+
+  const selectedColor = formData.colors.exterior_Color;
 
   const fetchEVS = async () => {
     if (!user) {
@@ -113,7 +115,7 @@ console.log(user);
       // Optionally, you can clear the form after successful submission
       setFormData({
         accName: user.name,
-        address:"",
+        address: "",
         colors: {
           exterior_Color: "",
           interior_Color: "",
@@ -156,108 +158,105 @@ console.log(user);
   return (
     <Fragment>
       {/* Carousel */}
-      <form onSubmit={handleSubmit} >
-      <div>
-        <div className=" justify-evenly absolute  right-[20%] top-[20%]">
-          {Object.keys(colorGroups).map((group) => (
-            <div key={group} className=" ">
-              <h3 className="font-bold text-sm">{group.toUpperCase()}</h3>
-              <div className="flex gap-2">
-                {colorGroups[group].map((colorOption) => (
-                  <ColorOptionExterior
-                    key={colorOption.title}
-                    title={colorOption.title}
-                    color={colorOption.color}
-                    group={group}
-                    selectedColor={formData.colors[group]}
-                    onSelect={handleColorSelect}
-                  />
-                ))}
+      <form onSubmit={handleSubmit}>
+        <div>
+          <div className=" justify-evenly absolute right-[20%] top-[20%]">
+            {Object.keys(colorGroups).map((group) => (
+              <div key={group} className=" ">
+                <h3 className="font-bold text-sm">{group.toUpperCase()}</h3>
+                <div className="flex gap-2">
+                  {colorGroups[group].map((colorOption) => (
+                    <ColorOptionExterior
+                      key={colorOption.title}
+                      title={colorOption.title}
+                      color={colorOption.color}
+                      group={group}
+                      selectedColor={formData.colors[group]}
+                      onSelect={handleColorSelect}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
 
-<div className="rounded-2xl flex justify-center text-base">
-            <center>
-              <p className="py-2 text-left font-medium">Capacity (Seating/Standing)</p>
-              <div className="flex justify-between">
-                {Object.keys(capacityGroup).map((group) => (
-                  <div key={group} className="space-y-4  ">
-                    <div className="flex gap-4 ">
-                      {capacityGroup[group].map((capacityOption) => (
-                        <CapacityOption
-                          key={capacityOption.text}
-                          text={capacityOption.text}
-                          group={group}
-                          selectedColor={formData.capacities[group]}
-                          onSelect={handleCapacitySelect}
-                        />
-                      ))}
+            <div className="rounded-2xl flex justify-center text-base">
+              <center>
+                <p className="py-2 text-left font-medium">
+                  Capacity (Seating/Standing)
+                </p>
+                <div className="flex justify-between">
+                  {Object.keys(capacityGroup).map((group) => (
+                    <div key={group} className="space-y-4  ">
+                      <div className="flex gap-4 ">
+                        {capacityGroup[group].map((capacityOption) => (
+                          <CapacityOption
+                            key={capacityOption.text}
+                            text={capacityOption.text}
+                            group={group}
+                            selectedColor={formData.capacities[group]}
+                            onSelect={handleCapacitySelect}
+                          />
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </center>
+                  ))}
+                </div>
+              </center>
+            </div>
+          </div>
+          <div className="absolute z-[-10]">
+            <img src={back} alt="" className=" bottom-[25%] w-full" />
+          </div>
+          <div className="h-auto  relative z-[-1] w-12/12 font-poppins">
+            <span className="h-full flex  flex-col items-center absolute w-full z-[4] ">
+              <p className="text-3xl font-bold w-11/12 md:w-full text-center text-white py-8">
+                {evs.name}
+              </p>
+            </span>
+
+            <div className="">
+              <ImageSlider selectedColor={selectedColor} />
+            </div>
+
+            <img src={fore} alt="" className="absolute bottom-[25%] w-full" />
           </div>
         </div>
-        <div className="absolute z-[-10]">
-          <img src={back} alt="" className=" bottom-[25%] w-full" />
+
+        <div className="flex border-2 rounded-2xl justify-center text-center gap-[7%] mx-[7%] py-[3rem]">
+          <ul>
+            <li>Dimensions L*W*H</li>
+            <li>{evs.dimensions}</li>
+          </ul>
+
+          <ul>
+            <li>Wheelbase</li>
+            <li>{evs.wheelbase}</li>
+          </ul>
+
+          <ul>
+            <li>Range</li>
+            <li>{evs.ranges}&nbsp;km</li>
+          </ul>
+
+          <ul>
+            <li>Gross Vehicle Weight</li>
+            <li>{evs.grossVehicleWeight}&nbsp;kg</li>
+          </ul>
+
+          <ul>
+            <li>Power</li>
+            <li>{evs.power}&nbsp;kW</li>
+          </ul>
+
+          <ul>
+            <li>Carrying Capacity</li>
+            <li>{evs.carryingCapacity}</li>
+          </ul>
         </div>
-        <div
-         className="h-auto  relative z-[-1] w-12/12 font-poppins"
-        >
-          <span className="h-full flex  flex-col items-center absolute w-full z-[4] ">
-            <p className="text-3xl font-bold w-11/12 md:w-full text-center text-white py-8">
-              {evs.name}
-            </p>
-          </span>
-
-          <div className="">
-            <ImageSlider selectedColor={formData.colors.exterior_Color}  />
-          </div>
-
-          <img src={fore} alt="" className="absolute bottom-[25%] w-full" />
-        </div>
-      </div>
-
-      <div className="flex border-2 rounded-2xl justify-center text-center gap-[7%] mx-[7%] py-[3rem]">
-        <ul>
-          <li>Dimensions L*W*H</li>
-          <li>{evs.dimensions}</li>
-        </ul>
-
-        <ul>
-          <li>Wheelbase</li>
-          <li>{evs.wheelbase}</li>
-        </ul>
-
-        <ul>
-          <li>Range</li>
-          <li>{evs.ranges}&nbsp;km</li>
-        </ul>
-
-        <ul>
-          <li>Gross Vehicle Weight</li>
-          <li>{evs.grossVehicleWeight}&nbsp;kg</li>
-        </ul>
-
-        <ul>
-          <li>Power</li>
-          <li>{evs.power}&nbsp;kW</li>
-        </ul>
-
-        <ul>
-          <li>Carrying Capacity</li>
-          <li>{evs.carryingCapacity}</li>
-        </ul>
-      </div>
-
 
         {/* Section 1 */}
         <div className="mx-[7%] rounded-2xl border-2 my-[7%]">
-
-                {/* Section 2 */}
-
+          {/* Section 2 */}
 
           {/* Section 3 */}
           <div className="rounded-2xl flex justify-center text-[1.3rem] py-[3rem]">
@@ -288,14 +287,6 @@ console.log(user);
                   }}
                 />
                 <div className="w-[20rem]">
-                  {/* <input
-                    className="outline-none bg-[#F3F3F3] border-0 rounded-2xl p-3 w-full"
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Email"
-                  /> */}
                   <input
                     className="outline-none bg-[#F3F3F3] border-0 rounded-2xl p-3 w-full"
                     type="text"
@@ -316,7 +307,7 @@ console.log(user);
                   </button>
 
                   <ModalOrder
-                    user={user}
+                    selectedColor={selectedColor.toLowerCase()}
                     isOpen={isModalOpen}
                     formData={formData}
                     onClose={() => setIsModalOpen(false)}
